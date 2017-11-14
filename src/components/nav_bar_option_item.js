@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import SearchBar from './search_bar'
 
 const NavBarOptionItem = (props) => {
@@ -19,21 +20,21 @@ const NavBarOptionItem = (props) => {
     if (props.logged_in && props.authorized && props.page === 'home' && props.name === 'link') {
         return(
             <li>
-                <a href="{{url_for('logout')}}" className="navbar-link">Logout</a>
+                <Link to='/login' className="navbar-link">Logout</Link>
             </li>
         );
     }
     else if (props.page === 'sign_up' && props.name === 'link') {
         return(
             <li>
-                <a href="{{url_for('logout')}}" className="navbar-link">Login</a>
+                <Link to='/login' className="navbar-link">Login</Link>
             </li>
         );
     }
     else if (props.page === 'login' && props.name === 'link') {
         return(
             <li>
-                <a href="{{url_for('logout')}}" className="navbar-link">Sign Up</a>
+                <Link to='/register' className="navbar-link">Sign Up</Link>
             </li>
         );
     }
