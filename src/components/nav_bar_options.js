@@ -10,7 +10,8 @@ const NavBarOptions = (props) => {
             username={props.username}
             authorized={props.authorized}
             logged_in={props.logged_in}
-            page={props.page} />
+            page={props.page}
+            onSearchTermChange={term => { props.onSearchTermChange(term) }} />
     });
 
     return (
