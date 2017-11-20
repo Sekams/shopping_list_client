@@ -5,7 +5,7 @@
 ## Progress Tracking
 https://www.pivotaltracker.com/n/projects/2092508
 
-## Live API
+## Live App
 https://the-real-shopping-list-client.herokuapp.com/
 
 ## Getting Started
