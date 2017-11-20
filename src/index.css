@@ -16,6 +16,10 @@ body {
   color: #FFFFFF;
 }
 
+.navbar-link:hover, .navbar-link:visited {
+  text-decoration: none;
+}
+
 a:hover {
   background-color: transparent;     
 }
@@ -179,18 +183,20 @@ a:hover {
 .card-container {
   background-color: #FFFFFF;
   float: left;
-  margin: 10px;
+  margin: 5px;
   padding: 20px;
-  width: 48%;
-  height: 500px;
+  width: 32.6%;
+  max-height: 500px;
   z-index: 1;
   border: 3px solid #303030;
-  border-radius: 10px
+  border-radius: 10px;
+  overflow-x: hidden;
+  overflow-y: unset;
 }
 
 .card-icon-holder{
   text-align: right;
-  margin-right: 20px;
+  margin-bottom: -18px;
 }
 
 .list-card {
@@ -200,14 +206,24 @@ a:hover {
   margin-bottom: 10px;
   width: 100%;
   padding: 20px;
+  height: 53px;
   float: left;
-  border-radius: 15px
+  border-radius: 10px
 }
 
 .btn-fab{
   position: fixed;
   right: 20px;
   bottom: 20px;
+}
+
+.item-name {
+  margin-top: 15px;
+  margin-bottom: -8px;
+}
+
+.shopping-list-title {
+  margin-top: 5px;
 }
 
 .round-button {
@@ -234,7 +250,7 @@ a:hover {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: 40px;
-  margin-left: 60px;
+  margin-left: 25px;
   margin-bottom: 20px;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -320,8 +336,95 @@ input[type=checkbox] {
 
 .shopping-list-items-wrapper {
   overflow-y: auto;
-  height: 360px;
-  padding: 8px;
+  max-height: 360px;
+  padding-right: 33px;
+  padding-left: 33px;
+  padding-bottom: 10px;
+  margin-right: -35px;
+  margin-left: -35px;
+  margin-bottom: -25px;
+}
+
+.navbar-nav > li > .dropdown-menu:before {
+  border-bottom: 11px solid #FFFFFF;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: 34px;
+  top: -11px;
+}
+
+.navbar-nav > li > div > .dropdown-menu:before {
+  border-bottom: 11px solid #FFFFFF;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: 118px;
+  top: -11px;
+}
+
+#account-navbar-dropdown.show {
+  display: block;
+}
+
+#page-limit-navbar-dropdown.show {
+  display: block;
+}
+
+.item-text {
+  float: left;
+}
+
+.item-icons {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 30px;
+  margin-left: 25px;
+  margin-top: 16px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar-input-divs {
+  float: left;
+}
+
+.navbar-input-label {
+  display: inline-block;
+}
+
+.item-container {
+  margin-top: -25px;
+  margin-bottom: 15px;
+}
+
+.item-icon-holder {
+  text-align: right;
+  margin-right: 54px;
+}
+
+.navbar-serch-limit { 
+  margin-left: 10px; 
+}
+
+.highlighted {
+  border: 5px solid #3379B7;
+}
+
+.highlighted-item {
+  border: 2px solid #3379B7;
+  border-radius: 10px;
+}
+
+.pagination-list {
+  bottom: 0px;
+  position: fixed;
+  right: 42%;
 }
 
 @-webkit-keyframes fadein {
