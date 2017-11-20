@@ -10,21 +10,19 @@ class LoginForm extends Component {
         this.state = {
             username: '',
             password: '',
-            msg: '',
-            msg_type: ''
+            msg: localStorage.getItem("message"),
+            msg_type: localStorage.getItem("messageType")
         };
     }
 
     handleUsername(username) {
         this.setState({
-            username: username,
-            msg: ''
+            username: username
         });
     }
     handlePassword(password) {
         this.setState({
-            password: password,
-            msg: ''
+            password: password
         });
     }
 
@@ -34,11 +32,11 @@ class LoginForm extends Component {
         let loginForm = this.state;
         let formData = new FormData();
 
+        this.clearMessages();
+
         if (loginForm.username && loginForm.password) {
             formData.append('username', loginForm.username);
             formData.append('password', loginForm.password);
-
-            this.clearPassword();
 
             fetch(localStorage.getItem("baseUrl") + '/auth/login', {
                 method: 'POST',
@@ -47,13 +45,16 @@ class LoginForm extends Component {
                 .then((response) => response.json())
                 .then((responseJson) => {
 
-                    this.clearMessages();
-
                     if (responseJson.status && responseJson.status === "success" && responseJson.access_token) {
                         this.setState({
                             msg: responseJson.message,
                             msg_type: 'success'
                         });
+                        localStorage.setItem("accessToken", responseJson.access_token);
+                        localStorage.setItem("username", loginForm.username);
+                        localStorage.setItem("loggedIn", true);
+                        localStorage.setItem("message", responseJson.message);
+                        localStorage.setItem("messageType", "success");
                         this.props.history.push('/');
                     } else {
                         this.setState({
@@ -66,18 +67,18 @@ class LoginForm extends Component {
                     console.error(error);
                 });
         }
+        else {
+            this.setState({
+                msg: 'Please fill in all the fields',
+                msg_type: 'danger'
+            });
+        }
     }
 
     clearMessages() {
         this.setState({
             msg: '',
             msg_type: ''
-        });
-    }
-
-    clearPassword() {
-        this.setState({
-            password: ''
         });
     }
 
