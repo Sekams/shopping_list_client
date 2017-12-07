@@ -87,7 +87,6 @@ class NavBarOptionItem extends Component {
                         localStorage.setItem("loggedIn", false);
                         localStorage.setItem("message", responseJson.message);
                         localStorage.setItem("messageType", "success");
-                        window.location = "/login";
                     } else {
                         localStorage.setItem("message", responseJson.message);
                         localStorage.setItem("messageType", "danger");
@@ -100,8 +99,8 @@ class NavBarOptionItem extends Component {
         else {
             localStorage.setItem("message", "Please Login");
             localStorage.setItem("messageType", "danger");
-            window.location = "/login";
         }
+        window.location = "/login";
     }
 
     render() {
@@ -134,12 +133,6 @@ class NavBarOptionItem extends Component {
                 </li>
             );
         }
-        // if (this.props.logged_in && this.props.authorized && this.props.page === 'home' && this.props.name === 'search') {
-        //     return (
-        //         <li>
-        //         </li>
-        //     );
-        // }
         if (this.props.username && this.props.name === 'greeting') {
             return (
                 <li>

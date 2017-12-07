@@ -72,7 +72,7 @@ class HomePage extends Component {
         if (this.verifyAuthorization()) {
             this.clearMessages();
 
-            fetch(localStorage.getItem("baseUrl") + '/shoppinglists/', {
+            fetch(localStorage.getItem("baseUrl") + '/shoppinglists/' + this.state.page_limit + '/' + localStorage.getItem("currentPage") , {
                 method: 'GET',
                 headers: {
                     "Authorization": "Bearer " + localStorage.getItem("accessToken")
