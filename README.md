@@ -1,5 +1,7 @@
 # Shopping List Application Client
 
+[![Coverage Status](https://coveralls.io/github/Sekams/shopping_list_client/badge.svg?branch=master)](https://coveralls.io/github/Sekams/shopping_list_client?branch=master)
+
 **The Shopping List Application Client** is a ReactJS application for consuming the endpoints served by the Shopping List Application API.
 
 ## Progress Tracking
