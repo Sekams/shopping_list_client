@@ -4,3 +4,5 @@ env:
 language: node_js
 node_js:
   - "6.11.2"
+after_script:
+  - codeclimate < coverage/lcov.info
