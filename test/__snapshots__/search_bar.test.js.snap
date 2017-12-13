@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the search_bar component 1`] = `
+<div
+  className="search-bar"
+>
+  <input
+    className="form-control"
+    onChange={[Function]}
+    placeholder="Search"
+    value=""
+  />
+</div>
+`;

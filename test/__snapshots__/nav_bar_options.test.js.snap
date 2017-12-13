@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the nav_bar_options component 1`] = `
+<ul
+  className="nav navbar-nav navbar-right"
+>
+  <NavBarOptionItem
+    key="search"
+    name="search"
+    onSearchTermChange={[Function]}
+  />
+  <NavBarOptionItem
+    key="greeting"
+    name="greeting"
+    onSearchTermChange={[Function]}
+  />
+  <NavBarOptionItem
+    key="link"
+    name="link"
+    onSearchTermChange={[Function]}
+  />
+</ul>
+`;

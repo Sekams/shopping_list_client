@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the login_form component 1`] = `
+<div>
+  <NavBar
+    page="login"
+  />
+  <div
+    className="login-wrapper"
+  >
+    <div
+      className="card login-card drop-shadow"
+    >
+      <h3
+        className="title"
+      >
+        Login
+      </h3>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Username"
+          type="text"
+          value=""
+        />
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+        <button
+          className="btn btn-form-submit btn-login-submit"
+          type="submit"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;

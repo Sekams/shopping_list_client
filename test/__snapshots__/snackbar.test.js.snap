@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the snackbar component 1`] = `
+<div
+  id="snackbar"
+>
+  <p />
+</div>
+`;

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the shopping_list_item component 1`] = `
+<div
+  className="list-card"
+>
+  <div
+    className="item-container"
+  >
+    <div
+      className="item-text"
+    >
+      <div>
+        <h4
+          className="item-name"
+        />
+      </div>
+      <div>
+        <h6>
+          SHS 
+        </h6>
+      </div>
+    </div>
+    <div
+      className="item-icon-holder"
+    >
+      <a
+        href=""
+        onClick={[Function]}
+        title="Edit Item"
+      >
+        <i
+          className="item-icons fa-pencil"
+        />
+      </a>
+      <a
+        href=""
+        onClick={[Function]}
+        title="Delete Item"
+      >
+        <i
+          className="item-icons fa-trash"
+        />
+      </a>
+    </div>
+  </div>
+  <CheckBox />
+</div>
+`;
