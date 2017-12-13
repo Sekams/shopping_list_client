@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --watch --coverage --env=jsdom && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "test": "jest --coverage --env=jsdom && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "eject": "react-scripts eject"
   },
   "jest": {
