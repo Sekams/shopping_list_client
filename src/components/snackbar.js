@@ -17,8 +17,8 @@ class SnackBar extends Component {
 
     componentDidMount() {
         this._mounted = true;
-        localStorage.setItem("message", "");
-        localStorage.setItem("messageType", "");
+        global.localStorage.setItem("message", "");
+        global.localStorage.setItem("messageType", "");
     }
 
     componentWillUnmount() {

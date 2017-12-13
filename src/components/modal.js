@@ -99,11 +99,11 @@ class Modal extends Component {
 
             addShoppingListFormData.append("title", this.state.first_input);
 
-            fetch(localStorage.getItem("baseUrl") + '/shoppinglists/', {
+            fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/', {
                 method: 'POST',
                 body: addShoppingListFormData,
                 headers: {
-                    "Authorization": "Bearer " + localStorage.getItem("accessToken")
+                    "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
                 }
             })
                 .then(this.checkStatus)
@@ -114,8 +114,8 @@ class Modal extends Component {
                             msg_type: "success",
                             showing: false
                         });
-                        localStorage.setItem("message", "Shopping List '" + responseJson.shoppingList.title + "' Created");
-                        localStorage.setItem("messageType", "success");
+                        global.localStorage.setItem("message", "Shopping List '" + responseJson.shoppingList.title + "' Created");
+                        global.localStorage.setItem("messageType", "success");
                         window.location.reload();
                     } else {
                         this.setState({
@@ -149,11 +149,11 @@ class Modal extends Component {
 
             editShoppingListFormData.append("new_title", this.state.first_input);
 
-            fetch(localStorage.getItem("baseUrl") + '/shoppinglists/' + this.props.shopping_list_id, {
+            fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + this.props.shopping_list_id, {
                 method: 'PUT',
                 body: editShoppingListFormData,
                 headers: {
-                    "Authorization": "Bearer " + localStorage.getItem("accessToken")
+                    "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
                 }
             })
                 .then(this.checkStatus)
@@ -164,8 +164,8 @@ class Modal extends Component {
                             msg_type: "success",
                             showing: false
                         });
-                        localStorage.setItem("message", "Shopping List '" + this.props.first_input + "' Edited to '" + responseJson.shoppingList.title + "'");
-                        localStorage.setItem("messageType", "success");
+                        global.localStorage.setItem("message", "Shopping List '" + this.props.first_input + "' Edited to '" + responseJson.shoppingList.title + "'");
+                        global.localStorage.setItem("messageType", "success");
                         window.location.reload();
                     } else {
                         this.setState({
@@ -194,10 +194,10 @@ class Modal extends Component {
 
         this.clearMessages();
 
-        fetch(localStorage.getItem("baseUrl") + '/shoppinglists/' + this.props.shopping_list_id, {
+        fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + this.props.shopping_list_id, {
             method: 'DELETE',
             headers: {
-                "Authorization": "Bearer " + localStorage.getItem("accessToken")
+                "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
             }
         })
             .then(this.checkStatus)
@@ -208,8 +208,8 @@ class Modal extends Component {
                         msg_type: "success",
                         showing: false
                     });
-                    localStorage.setItem("message", responseJson.message);
-                    localStorage.setItem("messageType", "success");
+                    global.localStorage.setItem("message", responseJson.message);
+                    global.localStorage.setItem("messageType", "success");
                     window.location.reload();
                 } else {
                     this.setState({
@@ -238,11 +238,11 @@ class Modal extends Component {
             changePasswordFormData.append("old_password", changePasswordForm.old_password);
             changePasswordFormData.append("new_password", changePasswordForm.new_password);
 
-            fetch(localStorage.getItem("baseUrl") + '/auth/reset-password', {
+            fetch(global.localStorage.getItem("baseUrl") + '/auth/reset-password', {
                 method: 'POST',
                 body: changePasswordFormData,
                 headers: {
-                    "Authorization": "Bearer " + localStorage.getItem("accessToken")
+                    "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
                 }
             })
                 .then(this.checkStatus)
@@ -282,11 +282,11 @@ class Modal extends Component {
         addShoppingListItemFormData.append('price', (this.state.price && this.state.price > 0 ? this.state.price : ''));
         addShoppingListItemFormData.append('status', false);
 
-        fetch(localStorage.getItem("baseUrl") + '/shoppinglists/' + this.props.shopping_list_id + '/items/', {
+        fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + this.props.shopping_list_id + '/items/', {
             method: 'POST',
             body: addShoppingListItemFormData,
             headers: {
-                "Authorization": "Bearer " + localStorage.getItem("accessToken")
+                "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
             }
         })
             .then(this.checkStatus)
@@ -297,8 +297,8 @@ class Modal extends Component {
                         msg_type: "success",
                         showing: false
                     });
-                    localStorage.setItem("message", "Shopping List Item '" + responseJson.shoppingListItem.name + "' Created");
-                    localStorage.setItem("messageType", "success");
+                    global.localStorage.setItem("message", "Shopping List Item '" + responseJson.shoppingListItem.name + "' Created");
+                    global.localStorage.setItem("messageType", "success");
                     window.location.reload();
                 }
             })
@@ -309,7 +309,7 @@ class Modal extends Component {
                 });
                 console.log(error);
             });
-    }
+    };
 
     editShoppingListItem = (event) => {
         event.preventDefault();
@@ -323,11 +323,11 @@ class Modal extends Component {
             editShoppingListItemFormData.append("new_price", this.state.price);
             editShoppingListItemFormData.append("new_status", this.props.shopping_list_item_status);
 
-            fetch(localStorage.getItem("baseUrl") + '/shoppinglists/' + this.props.shopping_list_id + "/items/" + this.props.shopping_list_item_id, {
+            fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + this.props.shopping_list_id + "/items/" + this.props.shopping_list_item_id, {
                 method: 'PUT',
                 body: editShoppingListItemFormData,
                 headers: {
-                    "Authorization": "Bearer " + localStorage.getItem("accessToken")
+                    "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
                 }
             })
                 .then(this.checkStatus)
@@ -338,8 +338,8 @@ class Modal extends Component {
                             msg_type: "success",
                             showing: false
                         });
-                        localStorage.setItem("message", responseJson.message);
-                        localStorage.setItem("messageType", "success");
+                        global.localStorage.setItem("message", responseJson.message);
+                        global.localStorage.setItem("messageType", "success");
                         window.location.reload();
                     } else {
                         this.setState({
@@ -361,17 +361,17 @@ class Modal extends Component {
                 msg_type: "danger"
             });
         }
-    }
+    };
 
     deleteShoppingListItem = (event) => {
         event.preventDefault();
 
         this.clearMessages();
 
-        fetch(localStorage.getItem("baseUrl") + '/shoppinglists/' + this.props.shopping_list_id + "/items/" + this.props.shopping_list_item_id, {
+        fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + this.props.shopping_list_id + "/items/" + this.props.shopping_list_item_id, {
             method: 'DELETE',
             headers: {
-                "Authorization": "Bearer " + localStorage.getItem("accessToken")
+                "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
             }
         })
             .then(this.checkStatus)
@@ -382,8 +382,8 @@ class Modal extends Component {
                         msg_type: "success",
                         showing: false
                     });
-                    localStorage.setItem("message", responseJson.message);
-                    localStorage.setItem("messageType", "success");
+                    global.localStorage.setItem("message", responseJson.message);
+                    global.localStorage.setItem("messageType", "success");
                     window.location.reload();
                 } else {
                     this.setState({

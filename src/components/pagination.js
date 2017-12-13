@@ -1,66 +1,90 @@
 import React, { Component } from 'react';
-  
+
 const defaultProps = {
     initialPage: 1
 }
- 
+
 class Pagination extends Component {
     constructor(props) {
         super(props);
         this.state = { pager: {} };
     }
- 
+
     componentWillMount() {
         // set page if items array isn't empty
         if (this.props.items && this.props.items.length) {
             this.setPage(this.props.initialPage);
         }
     }
- 
+
     componentDidUpdate(prevProps, prevState) {
         // reset page if items array has changed
         if (this.props.items !== prevProps.items) {
             this.setPage(this.props.initialPage);
         }
     }
- 
+
+    checkStatus(response) {
+        if (response.status >= 200 && response.status < 300) {
+            return response.json();
+        } else {
+            return response.json().then((responseJSON) => {
+                throw responseJSON;
+            })
+        }
+    }
+
     setPage(page) {
-        var items = this.props.items;
-        var pager = this.state.pager;
- 
+        let pager = this.state.pager;
+        let totalItems = this.props.total_items;
+
         if (page < 1 || page > pager.totalPages) {
             return;
         }
- 
+
         // get new pager object for specified page
-        pager = this.getPager(items.length, page, localStorage.getItem("pageLimit"));
- 
-        // get new page of items from items array
-        var pageOfItems = items.slice(pager.startIndex, pager.endIndex + 1);
- 
+        pager = this.getPager(totalItems, page, global.localStorage.getItem("pageLimit"));
+
         // update state
         this.setState({ pager: pager });
- 
-        // call change page function in parent component
-        this.props.onChangePage(pageOfItems);
+
+        if (!global.localStorage.getItem("searchTerm")) {
+            fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + global.localStorage.getItem("pageLimit") + '/' + global.localStorage.getItem("currentPage"), {
+                method: 'GET',
+                headers: {
+                    "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
+                }
+            })
+                .then(this.checkStatus)
+                .then((responseJson) => {
+                    if (responseJson.status && responseJson.status === "success") {
+                        this.props.onChangePage(responseJson.shoppingLists);
+                    }
+                })
+                .catch((error) => {
+
+                });
+        } else {
+            this.setState({ pager: {} });
+        }
     }
- 
+
     getPager(totalItems, currentPage, pageSize) {
         // default to first page
         currentPage = currentPage || 1;
- 
+
         // default page size is 10
         pageSize = pageSize || 10;
- 
+
 
         // calculate total pages
-        var totalPages = Math.ceil(totalItems / pageSize);
+        let totalPages = Math.ceil(totalItems / pageSize);
 
 
         //set current page globally
-        localStorage.setItem("currentPage", currentPage);
- 
-        var startPage, endPage;
+        global.localStorage.setItem("currentPage", currentPage);
+
+        let startPage, endPage;
         if (totalPages <= 10) {
             // less than 10 total pages so show all
             startPage = 1;
@@ -78,14 +102,14 @@ class Pagination extends Component {
                 endPage = currentPage + 4;
             }
         }
- 
+
         // calculate start and end item indexes
-        var startIndex = (currentPage - 1) * pageSize;
-        var endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
- 
+        let startIndex = (currentPage - 1) * pageSize;
+        let endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
+
         // create an array of pages to ng-repeat in the pager control
-        var pages = this.range(startPage, endPage);
- 
+        let pages = this.range(startPage, endPage);
+
         // return object with all pager properties required by the view
         return {
             totalItems: totalItems,
@@ -100,18 +124,18 @@ class Pagination extends Component {
         };
     }
 
-    range (start, end) { 
-        return [...Array(1+end-start).keys()].map(v => start+v) 
+    range(start, end) {
+        return [...Array(1 + end - start).keys()].map(v => start + v)
     }
- 
+
     render() {
-        var pager = this.state.pager;
- 
+        let pager = this.state.pager;
+
         if (!pager.pages || pager.pages.length <= 1) {
             // don't display pager if there is only 1 page
             return null;
         }
- 
+
         return (
             <ul className="pagination pagination-list">
                 <li className={pager.currentPage === 1 ? 'disabled' : ''}>
@@ -135,6 +159,6 @@ class Pagination extends Component {
         );
     }
 }
- 
+
 Pagination.defaultProps = defaultProps;
 export default Pagination;

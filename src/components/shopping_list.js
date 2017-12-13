@@ -52,10 +52,10 @@ class ShoppingList extends Component {
     getShoppingListItems() {
         this.clearMessages();
 
-        fetch(localStorage.getItem("baseUrl") + '/shoppinglists/' + this.state.id + '/items/', {
+        fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + this.state.id + '/items/1000/1', {
             method: 'GET',
             headers: {
-                "Authorization": "Bearer " + localStorage.getItem("accessToken")
+                "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
             }
         })
             .then(this.checkStatus)
@@ -118,7 +118,7 @@ class ShoppingList extends Component {
         }
     }
 
-    showModal = (event) => {
+    showModal(event) {
         event.preventDefault();
 
         if (this._mounted) {
@@ -165,7 +165,7 @@ class ShoppingList extends Component {
                 showModal={(event) => this.showModal(event)} />;
         }
 
-        if (localStorage.getItem("searchTerm") && this.state.title.substring(0, localStorage.getItem("searchTerm").length).toLowerCase() === localStorage.getItem("searchTerm").toLowerCase()) {
+        if (global.localStorage.getItem("searchTerm") && this.state.title.substring(0, global.localStorage.getItem("searchTerm").length).toLowerCase() === global.localStorage.getItem("searchTerm").toLowerCase()) {
             theClass = theClass + " highlighted";
         }
         else {

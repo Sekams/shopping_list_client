@@ -12,7 +12,7 @@ class NavBarOptionItem extends Component {
             show_dropdown: false,
             show_modal: false,
             dropdown_owner: '',
-            page_limit: localStorage.getItem("pageLimit")
+            page_limit: global.localStorage.getItem("pageLimit")
         };
     }
 
@@ -56,7 +56,7 @@ class NavBarOptionItem extends Component {
 
     setPageLimit = (event) => {
         this.setState({
-            page_limit: localStorage.getItem("pageLimit")
+            page_limit: global.localStorage.getItem("pageLimit")
         });
     }
 
@@ -72,24 +72,24 @@ class NavBarOptionItem extends Component {
     handleLogout = (event) => {
         event.preventDefault();
 
-        if (localStorage.getItem("accessToken")) {
-            fetch(localStorage.getItem("baseUrl") + '/auth/logout', {
+        if (global.localStorage.getItem("accessToken")) {
+            fetch(global.localStorage.getItem("baseUrl") + '/auth/logout', {
                 method: 'POST',
                 headers: {
-                    "Authorization": "Bearer " + localStorage.getItem("accessToken")
+                    "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
                 }
             })
                 .then((response) => response.json())
                 .then((responseJson) => {
                     if (responseJson.status && responseJson.status === "success") {
-                        localStorage.setItem("accessToken", "");
-                        localStorage.setItem("username", localStorage.getItem("username"));
-                        localStorage.setItem("loggedIn", false);
-                        localStorage.setItem("message", responseJson.message);
-                        localStorage.setItem("messageType", "success");
+                        global.localStorage.setItem("accessToken", "");
+                        global.localStorage.setItem("username", global.localStorage.getItem("username"));
+                        global.localStorage.setItem("loggedIn", false);
+                        global.localStorage.setItem("message", responseJson.message);
+                        global.localStorage.setItem("messageType", "success");
                     } else {
-                        localStorage.setItem("message", responseJson.message);
-                        localStorage.setItem("messageType", "danger");
+                        global.localStorage.setItem("message", responseJson.message);
+                        global.localStorage.setItem("messageType", "danger");
                     }
                 })
                 .catch((error) => {
@@ -97,8 +97,8 @@ class NavBarOptionItem extends Component {
                 });
         }
         else {
-            localStorage.setItem("message", "Please Login");
-            localStorage.setItem("messageType", "danger");
+            global.localStorage.setItem("message", "Please Login");
+            global.localStorage.setItem("messageType", "danger");
         }
         window.location = "/login";
     }

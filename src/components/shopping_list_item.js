@@ -104,7 +104,7 @@ class ShoppingListItem extends Component {
                 showModal={(event) => this.showModal(event)} />;
         }
 
-        if (localStorage.getItem("searchTerm") && this.state.name.substring(0, localStorage.getItem("searchTerm").length).toLowerCase() === localStorage.getItem("searchTerm").toLowerCase()) {
+        if (global.localStorage.getItem("searchTerm") && this.state.name.substring(0, global.localStorage.getItem("searchTerm").length).toLowerCase() === global.localStorage.getItem("searchTerm").toLowerCase()) {
             theClass = theClass + " highlighted-item";
         }
         else {
