@@ -27,5 +27,5 @@ test("unmounts the  snackbar component", () => {
 it('shows snackbar for 3 seconds', (done) => {
     setTimeout(() => {
         done();
-    }, 3000);
+    }, 4000);
 });
