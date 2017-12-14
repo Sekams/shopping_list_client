@@ -1,3 +1,153 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`calls setLimit functions 1`] = `
+<ul
+  className="dropdown-menu show"
+  id="page-limit-navbar-dropdown"
+>
+  <li
+    className="dropdown-header"
+  >
+    Page Limit
+  </li>
+  <li>
+    <a
+      href=""
+      onClick={[Function]}
+    >
+      6
+    </a>
+  </li>
+  <li
+    className="divider"
+  />
+  <li>
+    <a
+      href=""
+      onClick={[Function]}
+    >
+      12
+    </a>
+  </li>
+  <li
+    className="divider"
+  />
+  <li>
+    <a
+      href=""
+      onClick={[Function]}
+    >
+      24
+    </a>
+  </li>
+  <li
+    className="divider"
+  />
+  <li>
+    <a
+      href=""
+      onClick={[Function]}
+    >
+      48
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`calls showModal function 1`] = `
+<ul
+  className="dropdown-menu show"
+  id="account-navbar-dropdown"
+>
+  <li
+    className="dropdown-header"
+  >
+    Account
+  </li>
+  <li>
+    <a
+      href=""
+      onClick={[Function]}
+    >
+      Change Password
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`renders dropdown for changing password 1`] = `
+<ul
+  className="dropdown-menu show"
+  id="account-navbar-dropdown"
+>
+  <li
+    className="dropdown-header"
+  >
+    Account
+  </li>
+  <li>
+    <a
+      href=""
+      onClick={[Function]}
+    >
+      Change Password
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`renders dropdown for setting page limit 1`] = `
+<ul
+  className="dropdown-menu show"
+  id="page-limit-navbar-dropdown"
+>
+  <li
+    className="dropdown-header"
+  >
+    Page Limit
+  </li>
+  <li>
+    <a
+      href=""
+      onClick={[Function]}
+    >
+      6
+    </a>
+  </li>
+  <li
+    className="divider"
+  />
+  <li>
+    <a
+      href=""
+      onClick={[Function]}
+    >
+      12
+    </a>
+  </li>
+  <li
+    className="divider"
+  />
+  <li>
+    <a
+      href=""
+      onClick={[Function]}
+    >
+      24
+    </a>
+  </li>
+  <li
+    className="divider"
+  />
+  <li>
+    <a
+      href=""
+      onClick={[Function]}
+    >
+      48
+    </a>
+  </li>
+</ul>
+`;
+
 exports[`renders the nav_bar_dropdown component 1`] = `""`;
