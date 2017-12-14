@@ -7,3 +7,17 @@ test("renders the search_bar component", () => {
     );
     expect(wrapper).toMatchSnapshot();
 });
+
+test("calls the onChanged function", () => {
+    const term = 'food';
+    const props = {
+        onSearchTermChange: jest.fn(),
+    };
+    const wrapper = shallow(
+        <SearchBar {...props} />
+    );
+    wrapper.find('input').simulate(('change'), {
+        target: { term },
+    });
+    expect(wrapper).toMatchSnapshot();
+});
