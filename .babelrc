@@ -2,9 +2,15 @@
     "env": {
         "test": {
             "presets": [
-                "env",
+                [
+                    "env",
+                    {
+                        "targets": {
+                            "chrome": "60"
+                        }
+                    }
+                ],
                 "react",
-                "es2015",
                 "stage-0"
             ],
             "only": [
