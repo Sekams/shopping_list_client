@@ -7,3 +7,16 @@ test("renders the nav_bar_options component", () => {
     );
     expect(wrapper).toMatchSnapshot();
 });
+
+test("calls the onSearchTermChanged", () => {
+    const props = {
+        onSearchTermChange: jest.fn(),
+    };
+    const wrapper = shallow(
+        <NavBarOptions {...props} />
+    );
+    wrapper.props().children.map((child) => {
+        child.props.onSearchTermChange();
+    });
+    expect(wrapper).toMatchSnapshot();
+});
