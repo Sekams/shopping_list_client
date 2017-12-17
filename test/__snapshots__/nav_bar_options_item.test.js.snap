@@ -1,3 +1,111 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders the nav bar option items for the home page 1`] = `
+<li>
+  <div
+    className="navbar-input-divs"
+  >
+    <SearchBar
+      onSearchTermChange={[Function]}
+    />
+  </div>
+  <div
+    className="navbar-input-divs navbar-serch-limit"
+  >
+    <h5
+      className="nav-text"
+    >
+      <a
+        className="navbar-link"
+        href=""
+        onClick={[Function]}
+      >
+        <b
+          className="caret"
+        />
+      </a>
+       Lists per page
+    </h5>
+    <NavBarDropdown
+      owner="page_limit"
+      setPageLimit={[Function]}
+      showModal={[Function]}
+    />
+  </div>
+</li>
+`;
+
+exports[`renders the nav bar option items for the home page greeting 1`] = `
+<li>
+  <h5
+    className="nav-text"
+  >
+    Hi 
+    <a
+      className="navbar-link"
+      href=""
+      onClick={[Function]}
+    >
+      atom
+      <b
+        className="caret"
+      />
+    </a>
+  </h5>
+  <NavBarDropdown
+    owner="change_password"
+    setPageLimit={[Function]}
+    showModal={[Function]}
+  />
+</li>
+`;
+
+exports[`renders the nav bar option items for the home page logout 1`] = `
+<li>
+  <a
+    className="navbar-link"
+    href=""
+    onClick={[Function]}
+  >
+    Logout
+  </a>
+</li>
+`;
+
+exports[`renders the nav bar option items for the home page logout 2`] = `
+<li>
+  <a
+    className="navbar-link"
+    href=""
+    onClick={[Function]}
+  >
+    Logout
+  </a>
+</li>
+`;
+
+exports[`renders the nav bar option items for the login page 1`] = `
+<li>
+  <Link
+    className="navbar-link"
+    replace={false}
+    to="/register"
+  >
+    Sign Up
+  </Link>
+</li>
+`;
+
+exports[`renders the nav bar option items for the sign up page 1`] = `
+<li>
+  <Link
+    className="navbar-link"
+    replace={false}
+    to="/login"
+  >
+    Login
+  </Link>
+</li>
+`;
+
 exports[`renders the nav_bar_option_item component 1`] = `""`;

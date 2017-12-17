@@ -207,14 +207,7 @@ class HomePage extends Component {
                     .catch((error) => {
                     });
 
-                if (newShoppingLists) {
-                    this.onChangePage(newShoppingLists);
-                } else {
-                    this.setState({
-                        msg: "No results found!",
-                        msg_type: "danger"
-                    });
-                }
+                this.onChangePage(newShoppingLists);
             }
             else {
                 this.getShoppingLists();
