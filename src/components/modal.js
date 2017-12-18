@@ -72,41 +72,17 @@ class Modal extends Component {
         event.preventDefault();
     }
 
-    clearMessages = () => {
-        this.setState({
-            msg: '',
-            msg_type: ''
-        });
-    }
-
-    checkStatus(response) {
-        if (response.status >= 200 && response.status < 300) {
-            return response.json();
-        } else {
-            return response.json().then((responseJSON) => {
-                throw responseJSON;
-            })
-        }
-    }
-
     addShoppingList = (event) => {
         event.preventDefault();
 
         if (this.state.first_input) {
-            this.clearMessages();
+            global.clearMessages(this);
 
             let addShoppingListFormData = new FormData();
 
             addShoppingListFormData.append("title", this.state.first_input);
 
-            fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/', {
-                method: 'POST',
-                body: addShoppingListFormData,
-                headers: {
-                    "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
-                }
-            })
-                .then(this.checkStatus)
+            global.callAPI('/shoppinglists/', "POST", addShoppingListFormData)
                 .then((responseJson) => {
                     if (responseJson.status && responseJson.status === "success") {
                         this.setState({
@@ -143,20 +119,13 @@ class Modal extends Component {
         event.preventDefault();
 
         if (this.state.first_input) {
-            this.clearMessages();
+            global.clearMessages(this);
 
             let editShoppingListFormData = new FormData();
 
             editShoppingListFormData.append("new_title", this.state.first_input);
 
-            fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + this.props.shopping_list_id, {
-                method: 'PUT',
-                body: editShoppingListFormData,
-                headers: {
-                    "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
-                }
-            })
-                .then(this.checkStatus)
+            global.callAPI('/shoppinglists/' + this.props.shopping_list_id, "PUT", editShoppingListFormData)
                 .then((responseJson) => {
                     if (responseJson.status && responseJson.status === "success") {
                         this.setState({
@@ -192,15 +161,9 @@ class Modal extends Component {
     deleteShoppingList = (event) => {
         event.preventDefault();
 
-        this.clearMessages();
+        global.clearMessages(this);
 
-        fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + this.props.shopping_list_id, {
-            method: 'DELETE',
-            headers: {
-                "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
-            }
-        })
-            .then(this.checkStatus)
+        global.callAPI('/shoppinglists/' + this.props.shopping_list_id, "DELETE")
             .then((responseJson) => {
                 if (responseJson.status && responseJson.status === "success") {
                     this.setState({
@@ -229,7 +192,7 @@ class Modal extends Component {
     changePassword = (event) => {
         event.preventDefault();
 
-        this.clearMessages();
+        global.clearMessages(this);
 
         let changePasswordForm = this.state;
         let changePasswordFormData = new FormData();
@@ -238,14 +201,7 @@ class Modal extends Component {
             changePasswordFormData.append("old_password", changePasswordForm.old_password);
             changePasswordFormData.append("new_password", changePasswordForm.new_password);
 
-            fetch(global.localStorage.getItem("baseUrl") + '/auth/reset-password', {
-                method: 'POST',
-                body: changePasswordFormData,
-                headers: {
-                    "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
-                }
-            })
-                .then(this.checkStatus)
+            global.callAPI('/auth/reset-password', "POST", changePasswordFormData)
                 .then((responseJson) => {
                     if (responseJson.status && responseJson.status === "success") {
                         this.setState({
@@ -274,7 +230,7 @@ class Modal extends Component {
     addShoppingListItem = (event) => {
         event.preventDefault();
 
-        this.clearMessages();
+        global.clearMessages(this);
 
         let addShoppingListItemFormData = new FormData();
 
@@ -282,14 +238,7 @@ class Modal extends Component {
         addShoppingListItemFormData.append('price', (this.state.price && this.state.price > 0 ? this.state.price : ''));
         addShoppingListItemFormData.append('status', false);
 
-        fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + this.props.shopping_list_id + '/items/', {
-            method: 'POST',
-            body: addShoppingListItemFormData,
-            headers: {
-                "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
-            }
-        })
-            .then(this.checkStatus)
+        global.callAPI('/shoppinglists/' + this.props.shopping_list_id + '/items/', "POST", addShoppingListItemFormData)
             .then((responseJson) => {
                 if (responseJson.status && responseJson.status === "success") {
                     this.setState({
@@ -315,7 +264,7 @@ class Modal extends Component {
         event.preventDefault();
 
         if (this.state.first_input && this.state.price) {
-            this.clearMessages();
+            global.clearMessages(this);
 
             let editShoppingListItemFormData = new FormData();
 
@@ -323,14 +272,7 @@ class Modal extends Component {
             editShoppingListItemFormData.append("new_price", this.state.price);
             editShoppingListItemFormData.append("new_status", this.props.shopping_list_item_status);
 
-            fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + this.props.shopping_list_id + "/items/" + this.props.shopping_list_item_id, {
-                method: 'PUT',
-                body: editShoppingListItemFormData,
-                headers: {
-                    "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
-                }
-            })
-                .then(this.checkStatus)
+            global.callAPI('/shoppinglists/' + this.props.shopping_list_id + "/items/" + this.props.shopping_list_item_id, "PUT", editShoppingListItemFormData)
                 .then((responseJson) => {
                     if (responseJson.status && responseJson.status === "success") {
                         this.setState({
@@ -366,15 +308,9 @@ class Modal extends Component {
     deleteShoppingListItem = (event) => {
         event.preventDefault();
 
-        this.clearMessages();
+        global.clearMessages(this);
 
-        fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + this.props.shopping_list_id + "/items/" + this.props.shopping_list_item_id, {
-            method: 'DELETE',
-            headers: {
-                "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
-            }
-        })
-            .then(this.checkStatus)
+        global.callAPI('/shoppinglists/' + this.props.shopping_list_id + "/items/" + this.props.shopping_list_item_id, "DELETE")
             .then((responseJson) => {
                 if (responseJson.status && responseJson.status === "success") {
                     this.setState({

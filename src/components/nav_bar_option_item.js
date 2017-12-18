@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import SearchBar from './search_bar'
 import NavBarDropdown from './nav_bar_dropdown'
 import Modal from './modal'
+require("../utils/helpers");
 
 class NavBarOptionItem extends Component {
     constructor(props) {
@@ -69,27 +70,11 @@ class NavBarOptionItem extends Component {
         });
     }
 
-    checkStatus(response) {
-        if (response.status >= 200 && response.status < 300) {
-            return response.json();
-        } else {
-            return response.json().then((responseJSON) => {
-                throw responseJSON;
-            })
-        }
-    }
-
     handleLogout = (event) => {
         event.preventDefault();
 
         if (global.localStorage.getItem("accessToken")) {
-            fetch(global.localStorage.getItem("baseUrl") + '/auth/logout', {
-                method: 'POST',
-                headers: {
-                    "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
-                }
-            })
-                .then(this.checkStatus)
+            global.callAPI('/auth/logout', "POST")
                 .then((responseJson) => {
                     if (responseJson.status && responseJson.status === "success") {
                         global.localStorage.setItem("accessToken", "");

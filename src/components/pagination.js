@@ -24,16 +24,6 @@ class Pagination extends Component {
         }
     }
 
-    checkStatus(response) {
-        if (response.status >= 200 && response.status < 300) {
-            return response.json();
-        } else {
-            return response.json().then((responseJSON) => {
-                throw responseJSON;
-            })
-        }
-    }
-
     setPage(page) {
         let pager = this.state.pager;
         let totalItems = this.props.total_items;
@@ -49,13 +39,7 @@ class Pagination extends Component {
         this.setState({ pager: pager });
 
         if (!global.localStorage.getItem("searchTerm")) {
-            fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + global.localStorage.getItem("pageLimit") + '/' + global.localStorage.getItem("currentPage"), {
-                method: 'GET',
-                headers: {
-                    "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
-                }
-            })
-                .then(this.checkStatus)
+                global.callAPI('/shoppinglists/' + global.localStorage.getItem("pageLimit") + '/' + global.localStorage.getItem("currentPage"), "GET")
                 .then((responseJson) => {
                     if (responseJson.status && responseJson.status === "success") {
                         this.props.onChangePage(responseJson.shoppingLists);

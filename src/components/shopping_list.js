@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ShoppingListItem from './shopping_list_item';
 import Modal from './modal'
+require("../utils/helpers");
 
 class ShoppingList extends Component {
     constructor(props) {
@@ -9,7 +10,7 @@ class ShoppingList extends Component {
         this.state = {
             id: props.id,
             title: props.title,
-            showModal: false,
+            show_modal: false,
             modal_title: '',
             create: false,
             price: '',
@@ -22,43 +23,17 @@ class ShoppingList extends Component {
         this.getShoppingListItems();
     }
 
-    componentDidMount() {
+    componentDidMount(){
         this._mounted = true;
-    }
+    };
 
     componentWillUnmount() {
         this._mounted = false;
     }
 
-    clearMessages() {
-        if (this._mounted) {
-            this.setState({
-                msg: '',
-                msg_type: ''
-            });
-        }
-    }
-
-    checkStatus(response) {
-        if (response.status >= 200 && response.status < 300) {
-            return response.json();
-        } else {
-            return response.json().then((responseJSON) => {
-                throw responseJSON;
-            })
-        }
-    }
-
     getShoppingListItems() {
-        this.clearMessages();
-
-        fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + this.state.id + '/items/1000/1', {
-            method: 'GET',
-            headers: {
-                "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
-            }
-        })
-            .then(this.checkStatus)
+        global.clearMessages(this);
+            global.callAPI('/shoppinglists/' + this.state.id + '/items/1000/1', 'GET')
             .then((responseJson) => {
                 if (responseJson.status && responseJson.status === "success") {
                     if (this._mounted) {
@@ -161,7 +136,7 @@ class ShoppingList extends Component {
                 owner={this.state.owner}
                 first_input={this.state.first_input}
                 shopping_list_id={this.state.id}
-                clearMessages={() => this.clearMessages()}
+                clearMessages={() => global.clearMessages(this)}
                 showModal={(event) => this.showModal(event)} />;
         }
 

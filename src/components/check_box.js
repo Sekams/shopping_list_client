@@ -16,23 +16,6 @@ class CheckBox extends Component {
         };
     }
 
-    checkStatus(response) {
-        if (response.status >= 200 && response.status < 300) {
-            return response.json();
-        } else {
-            return response.json().then((responseJSON) => {
-                throw responseJSON;
-            })
-        }
-    }
-
-    clearMessages = () => {
-        this.setState({
-            msg: '',
-            msg_type: ''
-        });
-    }
-
     onInputChange(event, status) {
         this.setState({ status });
         this.toggleItemStatus(event);
@@ -40,22 +23,15 @@ class CheckBox extends Component {
 
     toggleItemStatus = (event) => {
 
-        this.clearMessages();
+        global.clearMessages(this);
 
         let editShoppingListItemFormData = new FormData();
 
         editShoppingListItemFormData.append("new_name", this.state.name);
         editShoppingListItemFormData.append("new_price", this.state.price);
         editShoppingListItemFormData.append("new_status", !this.state.status);
-
-        fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + this.state.shopping_list_id + "/items/" + this.state.id, {
-            method: 'PUT',
-            body: editShoppingListItemFormData,
-            headers: {
-                "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
-            }
-        })
-            .then(this.checkStatus)
+        
+        global.callAPI('/shoppinglists/' + this.state.shopping_list_id + "/items/" + this.state.id, "PUT", editShoppingListItemFormData)
             .then((responseJson) => {
                 if (responseJson.status && responseJson.status === "success") {
                     this.setState({
