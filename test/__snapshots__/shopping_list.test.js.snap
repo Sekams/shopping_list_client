@@ -1,0 +1,339 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calls the functions on the modal 1`] = `
+<div
+  className="card-container"
+>
+  <h3
+    className="item-text shopping-list-title"
+  >
+    Food
+  </h3>
+  <div
+    className="card-icon-holder"
+  >
+    <a
+      href=""
+      onClick={[Function]}
+      title="Add Item"
+    >
+      <i
+        className="icons fa-plus-circle"
+      />
+    </a>
+    <a
+      href=""
+      onClick={[Function]}
+      title="Edit List"
+    >
+      <i
+        className="icons fa-pencil"
+      />
+    </a>
+    <a
+      href=""
+      onClick={[Function]}
+      title="Delete List"
+    >
+      <i
+        className="icons fa-trash"
+      />
+    </a>
+  </div>
+  <div
+    className="shopping-list-items-wrapper"
+  />
+  <Modal
+    clearMessages={[Function]}
+    create={false}
+    owner=""
+    price=""
+    shopping_list_id={1}
+    showModal={[Function]}
+    title=""
+  />
+</div>
+`;
+
+exports[`calls the getShoppingListItems functions 1`] = `
+<div
+  className="card-container"
+>
+  <h3
+    className="item-text shopping-list-title"
+  >
+    Food
+  </h3>
+  <div
+    className="card-icon-holder"
+  >
+    <a
+      href=""
+      onClick={[Function]}
+      title="Add Item"
+    >
+      <i
+        className="icons fa-plus-circle"
+      />
+    </a>
+    <a
+      href=""
+      onClick={[Function]}
+      title="Edit List"
+    >
+      <i
+        className="icons fa-pencil"
+      />
+    </a>
+    <a
+      href=""
+      onClick={[Function]}
+      title="Delete List"
+    >
+      <i
+        className="icons fa-trash"
+      />
+    </a>
+  </div>
+  <div
+    className="shopping-list-items-wrapper"
+  />
+  <Modal
+    clearMessages={[Function]}
+    create={false}
+    owner=""
+    price=""
+    shopping_list_id={1}
+    showModal={[Function]}
+    title=""
+  />
+</div>
+`;
+
+exports[`catches fetch errors 1`] = `
+<div
+  className="card-container"
+>
+  <h3
+    className="item-text shopping-list-title"
+  >
+    Food
+  </h3>
+  <div
+    className="card-icon-holder"
+  >
+    <a
+      href=""
+      onClick={[Function]}
+      title="Add Item"
+    >
+      <i
+        className="icons fa-plus-circle"
+      />
+    </a>
+    <a
+      href=""
+      onClick={[Function]}
+      title="Edit List"
+    >
+      <i
+        className="icons fa-pencil"
+      />
+    </a>
+    <a
+      href=""
+      onClick={[Function]}
+      title="Delete List"
+    >
+      <i
+        className="icons fa-trash"
+      />
+    </a>
+  </div>
+  <div
+    className="shopping-list-items-wrapper"
+  />
+</div>
+`;
+
+exports[`checks for component mounting 1`] = `
+<div
+  className="card-container"
+>
+  <h3
+    className="item-text shopping-list-title"
+  >
+    Food
+  </h3>
+  <div
+    className="card-icon-holder"
+  >
+    <a
+      href=""
+      onClick={[Function]}
+      title="Add Item"
+    >
+      <i
+        className="icons fa-plus-circle"
+      />
+    </a>
+    <a
+      href=""
+      onClick={[Function]}
+      title="Edit List"
+    >
+      <i
+        className="icons fa-pencil"
+      />
+    </a>
+    <a
+      href=""
+      onClick={[Function]}
+      title="Delete List"
+    >
+      <i
+        className="icons fa-trash"
+      />
+    </a>
+  </div>
+  <div
+    className="shopping-list-items-wrapper"
+  />
+</div>
+`;
+
+exports[`highlights searched lists 1`] = `
+<div
+  className="card-container highlighted"
+>
+  <h3
+    className="item-text shopping-list-title"
+  >
+    Food
+  </h3>
+  <div
+    className="card-icon-holder"
+  >
+    <a
+      href=""
+      onClick={[Function]}
+      title="Add Item"
+    >
+      <i
+        className="icons fa-plus-circle"
+      />
+    </a>
+    <a
+      href=""
+      onClick={[Function]}
+      title="Edit List"
+    >
+      <i
+        className="icons fa-pencil"
+      />
+    </a>
+    <a
+      href=""
+      onClick={[Function]}
+      title="Delete List"
+    >
+      <i
+        className="icons fa-trash"
+      />
+    </a>
+  </div>
+  <div
+    className="shopping-list-items-wrapper"
+  />
+</div>
+`;
+
+exports[`populates shopping lists 1`] = `
+<div
+  className="card-container"
+>
+  <h3
+    className="item-text shopping-list-title"
+  >
+    Food
+  </h3>
+  <div
+    className="card-icon-holder"
+  >
+    <a
+      href=""
+      onClick={[Function]}
+      title="Add Item"
+    >
+      <i
+        className="icons fa-plus-circle"
+      />
+    </a>
+    <a
+      href=""
+      onClick={[Function]}
+      title="Edit List"
+    >
+      <i
+        className="icons fa-pencil"
+      />
+    </a>
+    <a
+      href=""
+      onClick={[Function]}
+      title="Delete List"
+    >
+      <i
+        className="icons fa-trash"
+      />
+    </a>
+  </div>
+  <div
+    className="shopping-list-items-wrapper"
+  />
+</div>
+`;
+
+exports[`renders the shopping_list component 1`] = `
+<div
+  className="card-container"
+>
+  <h3
+    className="item-text shopping-list-title"
+  />
+  <div
+    className="card-icon-holder"
+  >
+    <a
+      href=""
+      onClick={[Function]}
+      title="Add Item"
+    >
+      <i
+        className="icons fa-plus-circle"
+      />
+    </a>
+    <a
+      href=""
+      onClick={[Function]}
+      title="Edit List"
+    >
+      <i
+        className="icons fa-pencil"
+      />
+    </a>
+    <a
+      href=""
+      onClick={[Function]}
+      title="Delete List"
+    >
+      <i
+        className="icons fa-trash"
+      />
+    </a>
+  </div>
+  <div
+    className="shopping-list-items-wrapper"
+  />
+</div>
+`;

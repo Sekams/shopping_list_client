@@ -48,11 +48,11 @@ class CheckBox extends Component {
         editShoppingListItemFormData.append("new_price", this.state.price);
         editShoppingListItemFormData.append("new_status", !this.state.status);
 
-        fetch(localStorage.getItem("baseUrl") + '/shoppinglists/' + this.state.shopping_list_id + "/items/" + this.state.id, {
+        fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + this.state.shopping_list_id + "/items/" + this.state.id, {
             method: 'PUT',
             body: editShoppingListItemFormData,
             headers: {
-                "Authorization": "Bearer " + localStorage.getItem("accessToken")
+                "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
             }
         })
             .then(this.checkStatus)

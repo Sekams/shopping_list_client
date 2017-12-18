@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the registration_form component 1`] = `
+<div>
+  <NavBar
+    page="sign_up"
+  />
+  <div
+    className="register-wrapper"
+  >
+    <div
+      className="card register-card drop-shadow"
+    >
+      <h3
+        className="title"
+      >
+        Sign Up
+      </h3>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Username"
+          type="text"
+          value=""
+        />
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Email"
+          type="email"
+          value=""
+        />
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Confirm Password"
+          type="password"
+          value=""
+        />
+        <button
+          className="btn btn-form-submit"
+          type="submit"
+        >
+          Finish
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
