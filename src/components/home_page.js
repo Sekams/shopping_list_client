@@ -124,24 +124,10 @@ class HomePage extends Component {
                     .then(this.checkStatus)
                     .then((responseJson) => {
                         if (responseJson.status && responseJson.status === "success") {
-
                             responseJson.shoppingLists.forEach((shoppingList) => {
-
-                                let exists = false;
-                                if (!newShoppingLists) {
-                                    newShoppingLists.push(shoppingList);
-                                }
-                                newShoppingLists.forEach((newShoppingList) => {
-                                    if (newShoppingList.id === shoppingList.id) {
-                                        exists = true;
-                                    }
-                                });
-                                if (!exists) {
-                                    newShoppingLists.push(shoppingList);
-                                }
+                                newShoppingLists.push(shoppingList);
                                 if (this._mounted) {
                                     this.setState({
-                                        // total_lists: 0,
                                         shoppingLists: newShoppingLists
                                     });
                                 }
@@ -181,9 +167,6 @@ class HomePage extends Component {
                                     .then((responseJson) => {
                                         if (responseJson.status && responseJson.status === "success") {
                                             let exists = false;
-                                            if (!newShoppingLists) {
-                                                newShoppingLists.push(responseJson.shoppingList);
-                                            }
                                             newShoppingLists.forEach((shoppingList) => {
                                                 if (shoppingList.id === responseJson.shoppingList.id) {
                                                     exists = true;

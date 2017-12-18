@@ -38,7 +38,41 @@ exports[`calls onSearchTerm on the NavBar 1`] = `
 </div>
 `;
 
-exports[`calls onSearchTermChange on the Modal 1`] = `
+exports[`calls onSearchTermChange 1`] = `
+<div>
+  <NavBar
+    authorized={true}
+    logged_in="true"
+    onSearchTermChange={[Function]}
+    page="home"
+    username={null}
+  />
+  <div
+    className="wrapper"
+  >
+    <div
+      className="home-wrapper"
+    />
+  </div>
+  <a
+    className="btn-fab round-button"
+    href=""
+    onClick={[Function]}
+  >
+    <i
+      className="fab-icon fa-plus"
+    />
+  </a>
+  <Pagination
+    initialPage={1}
+    items={Array []}
+    onChangePage={[Function]}
+    total_items={0}
+  />
+</div>
+`;
+
+exports[`calls onSearchTermChange for items 1`] = `
 <div>
   <NavBar
     authorized={true}
@@ -73,51 +107,6 @@ exports[`calls onSearchTermChange on the Modal 1`] = `
 `;
 
 exports[`calls showModal and clearMessages on the Modal 1`] = `
-<div>
-  <NavBar
-    authorized={true}
-    logged_in="true"
-    onSearchTermChange={[Function]}
-    page="home"
-    username={null}
-  />
-  <div
-    className="wrapper"
-  >
-    <div
-      className="home-wrapper"
-    />
-  </div>
-  <a
-    className="btn-fab round-button"
-    href=""
-    onClick={[Function]}
-  >
-    <i
-      className="fab-icon fa-plus"
-    />
-  </a>
-  <Pagination
-    initialPage={1}
-    items={Array []}
-    onChangePage={[Function]}
-    total_items={0}
-  />
-  <Modal
-    clearMessages={[Function]}
-    create={true}
-    owner="add_shopping_list"
-    showModal={[Function]}
-    title="Create Shopping List"
-  />
-  <SnackBar
-    class="danger-snackbar"
-    message="Please Login"
-  />
-</div>
-`;
-
-exports[`handles all click events 1`] = `
 <div>
   <NavBar
     authorized={true}
@@ -200,6 +189,44 @@ exports[`handles authorization 1`] = `
 </div>
 `;
 
+exports[`handles empty lists 1`] = `
+<div>
+  <NavBar
+    authorized={true}
+    logged_in="true"
+    onSearchTermChange={[Function]}
+    page="home"
+    username={null}
+  />
+  <div
+    className="wrapper"
+  >
+    <div
+      className="home-wrapper"
+    />
+  </div>
+  <a
+    className="btn-fab round-button"
+    href=""
+    onClick={[Function]}
+  >
+    <i
+      className="fab-icon fa-plus"
+    />
+  </a>
+  <Pagination
+    initialPage={1}
+    items={Array []}
+    onChangePage={[Function]}
+    total_items={0}
+  />
+  <SnackBar
+    class="danger-snackbar"
+    message="Please Login"
+  />
+</div>
+`;
+
 exports[`renders shopping lists 1`] = `
 <div>
   <NavBar
@@ -243,10 +270,6 @@ exports[`renders shopping lists 1`] = `
     items={Array []}
     onChangePage={[Function]}
     total_items={0}
-  />
-  <SnackBar
-    class="danger-snackbar"
-    message="Please Login"
   />
 </div>
 `;

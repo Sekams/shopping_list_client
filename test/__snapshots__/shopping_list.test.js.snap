@@ -290,35 +290,7 @@ exports[`populates shopping lists 1`] = `
   </div>
   <div
     className="shopping-list-items-wrapper"
-  >
-    <ShoppingListItem
-      id={1}
-      key="Tomatoes"
-      name="Tomatoes"
-      price={120}
-      shopping_list_id={1}
-      shopping_list_title="Food"
-      status={true}
-    />
-    <ShoppingListItem
-      id={5}
-      key="Bananas"
-      name="Bananas"
-      price={70}
-      shopping_list_id={1}
-      shopping_list_title="Food"
-      status={true}
-    />
-    <ShoppingListItem
-      id={8}
-      key="Onions"
-      name="Onions"
-      price={120}
-      shopping_list_id={1}
-      shopping_list_title="Food"
-      status={true}
-    />
-  </div>
+  />
 </div>
 `;
 
@@ -362,15 +334,6 @@ exports[`renders the shopping_list component 1`] = `
   </div>
   <div
     className="shopping-list-items-wrapper"
-  />
-  <Modal
-    clearMessages={[Function]}
-    create={false}
-    first_input=""
-    owner="delete_shopping_list"
-    price=""
-    showModal={[Function]}
-    title="Are you sure you want to delete 'undefined'?"
   />
 </div>
 `;
