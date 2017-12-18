@@ -32,19 +32,14 @@ class LoginForm extends Component {
         let loginForm = this.state;
         let formData = new FormData();
 
-        this.clearMessages();
+        global.clearMessages(this);
 
         if (loginForm.username && loginForm.password) {
             formData.append('username', loginForm.username);
             formData.append('password', loginForm.password);
 
-            fetch(global.localStorage.getItem("baseUrl") + '/auth/login', {
-                method: 'POST',
-                body: formData
-            })
-                .then((response) => response.json())
+            global.callAPI('/auth/login', "POST", formData)
                 .then((responseJson) => {
-
                     if (responseJson.status && responseJson.status === "success" && responseJson.access_token) {
                         this.setState({
                             msg: responseJson.message,
@@ -73,13 +68,6 @@ class LoginForm extends Component {
                 msg_type: 'danger'
             });
         }
-    }
-
-    clearMessages() {
-        this.setState({
-            msg: '',
-            msg_type: ''
-        });
     }
 
     render() {

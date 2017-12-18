@@ -50,36 +50,11 @@ class HomePage extends Component {
         this._mounted = false;
     }
 
-    clearMessages = () => {
-        if (this._mounted) {
-            this.setState({
-                msg: '',
-                msg_type: ''
-            });
-        }
-    }
-
-    checkStatus(response) {
-        if (response.status >= 200 && response.status < 300) {
-            return response.json();
-        } else {
-            return response.json().then((responseJSON) => {
-                throw responseJSON;
-            })
-        }
-    }
-
     getShoppingLists() {
         if (this.verifyAuthorization()) {
-            this.clearMessages();
+            global.clearMessages(this);
 
-            fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + this.state.page_limit + '/' + global.localStorage.getItem("currentPage"), {
-                method: 'GET',
-                headers: {
-                    "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
-                }
-            })
-                .then(this.checkStatus)
+            global.callAPI('/shoppinglists/' + this.state.page_limit + '/' + global.localStorage.getItem("currentPage"), "GET")
                 .then((responseJson) => {
                     if (responseJson.status && responseJson.status === "success") {
                         if (this._mounted) {
@@ -112,16 +87,10 @@ class HomePage extends Component {
         global.localStorage.setItem("searchTerm", term);
         if (this.verifyAuthorization()) {
             if (term) {
-                this.clearMessages();
+                global.clearMessages(this);
                 let newShoppingLists = [];
 
-                fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/search/shoppinglist/' + term + '/1000/1', {
-                    method: 'GET',
-                    headers: {
-                        "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
-                    }
-                })
-                    .then(this.checkStatus)
+                global.callAPI('/shoppinglists/search/shoppinglist/' + term + '/1000/1', "GET")
                     .then((responseJson) => {
                         if (responseJson.status && responseJson.status === "success") {
                             responseJson.shoppingLists.forEach((shoppingList) => {
@@ -147,23 +116,12 @@ class HomePage extends Component {
 
                     });
 
-                fetch(localStorage.getItem("baseUrl") + '/shoppinglists/search/item/' + term + '/1000/1', {
-                    method: 'GET',
-                    headers: {
-                        "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
-                    }
-                })
-                    .then(this.checkStatus)
+                global.callAPI('/shoppinglists/search/item/' + term + '/1000/1', 'GET')
                     .then((responseJson) => {
                         if (responseJson.status && responseJson.status === "success") {
                             responseJson.shoppingListItems.forEach((shoppingListItem) => {
-                                fetch(global.localStorage.getItem("baseUrl") + '/shoppinglists/' + shoppingListItem.shopping_list_id, {
-                                    method: 'GET',
-                                    headers: {
-                                        "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
-                                    }
-                                })
-                                    .then(this.checkStatus)
+
+                                global.callAPI('/shoppinglists/' + shoppingListItem.shopping_list_id, "GET")
                                     .then((responseJson) => {
                                         if (responseJson.status && responseJson.status === "success") {
                                             let exists = false;
@@ -228,8 +186,7 @@ class HomePage extends Component {
                 return <ShoppingList
                     key={shoppingList.id}
                     title={shoppingList.title}
-                    id={shoppingList.id}
-                    clearMessages={() => this.clearMessages()} />
+                    id={shoppingList.id} />
             });
         }
 
@@ -244,7 +201,6 @@ class HomePage extends Component {
                 title="Create Shopping List"
                 create={true}
                 owner="add_shopping_list"
-                clearMessages={() => this.clearMessages()}
                 showModal={(event) => this.showModal(event)} />;
         }
 

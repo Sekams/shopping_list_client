@@ -90,7 +90,6 @@ test("calls showModal and clearMessages on the Modal", () => {
     );
     wrapper.instance().showModal({ preventDefault() { } });
     wrapper.update();
-    wrapper.props().children[4].props.clearMessages();
     wrapper.props().children[4].props.showModal({ preventDefault() { } });
     expect(wrapper).toMatchSnapshot();
 });
@@ -151,7 +150,6 @@ test("renders shopping lists", () => {
     wrapper.instance().getShoppingLists();
     wrapper.instance().onChangePage(lists);
     wrapper.update();
-    wrapper.props().children[1].props.children.props.children[0].props.clearMessages();
     expect(wrapper).toMatchSnapshot();
 });
 
