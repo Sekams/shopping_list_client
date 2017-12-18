@@ -11,9 +11,9 @@ global.shallow = shallow;
 global.render = render;
 global.mount = mount;
 
-//Setup functions for API calls
-const {Response, Request, Headers, fetch} = require('whatwg-fetch');
-global.Response = Response;
-global.Request = Request;
-global.Headers = Headers;
-global.fetch = fetch;
+//Setup mock functions for API calls
+global.fetch = require('jest-fetch-mock');
+
+//Setup authorization
+global.localStorage.setItem("accessToken", 'wjcnejcnejncec');
+global.localStorage.setItem("loggedIn", true);

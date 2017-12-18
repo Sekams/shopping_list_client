@@ -20,11 +20,11 @@ test("renders the nav bar option items for the home page", () => {
         <NavBarOptionItem {...props} />
     );
     wrapper.find('a').map((anchor) => {
-        anchor.simulate('click', { preventDefault() {} });
+        anchor.simulate('click', { preventDefault() { } });
     });
     wrapper.props().children[0].props.children.props.onSearchTermChange();
     wrapper.props().children[1].props.children[1].props.setPageLimit();
-    wrapper.props().children[1].props.children[1].props.showModal({ preventDefault() {} })
+    wrapper.props().children[1].props.children[1].props.showModal({ preventDefault() { } })
     expect(wrapper).toMatchSnapshot();
 });
 
@@ -39,10 +39,10 @@ test("renders the nav bar option items for the home page greeting", () => {
     const wrapper = shallow(
         <NavBarOptionItem {...props} />
     );
-    wrapper.instance().showModal({ preventDefault() {} });
+    wrapper.instance().showModal({ preventDefault() { } });
     wrapper.update();
     wrapper.find('a').map((anchor) => {
-        anchor.simulate('click', { preventDefault() {} });
+        anchor.simulate('click', { preventDefault() { } });
     });
     expect(wrapper).toMatchSnapshot();
 });
@@ -58,7 +58,7 @@ test("renders the nav bar option items for the home page logout", () => {
         <NavBarOptionItem {...props} />
     );
     wrapper.find('a').map((anchor) => {
-        anchor.simulate('click', { preventDefault() {} });
+        anchor.simulate('click', { preventDefault() { } });
     });
     expect(wrapper).toMatchSnapshot();
 });
@@ -90,16 +90,16 @@ test("renders the nav bar option items for the login page", () => {
 });
 
 test("renders the nav bar option items for the home page logout", () => {
-    fetch = jest.fn(() => new Promise(resolve => resolve(
+    fetch.mockResponseOnce(JSON.stringify(
+        {
+            "message": "You successfully logged out.",
+            "status": "success",
+        }),
         {
             status: 200,
             ok: true,
-            body: {
-                "message": "You successfully logged out.",
-                "status": "success",
-            }
         }
-    )));
+    );
     const props = {
         logged_in: true,
         authorized: true,
@@ -110,7 +110,7 @@ test("renders the nav bar option items for the home page logout", () => {
         <NavBarOptionItem {...props} />
     );
     wrapper.find('a').map((anchor) => {
-        anchor.simulate('click', { preventDefault() {} });
+        anchor.simulate('click', { preventDefault() { } });
     });
     wrapper.update();
     expect(wrapper).toMatchSnapshot();

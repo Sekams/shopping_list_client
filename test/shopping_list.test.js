@@ -7,7 +7,6 @@ test("renders the shopping_list component", () => {
         authorized: true,
         history: [],
     };
-    fetch = jest.fn(() => new Promise(resolve => resolve()));
     const wrapper = shallow(
         <ShoppingList {...props} />
     );
@@ -63,7 +62,7 @@ test("calls the getShoppingListItems functions", () => {
 });
 
 test("populates shopping lists", () => {
-    fetch = jest.fn(() => new Promise(resolve => resolve(
+    fetch.mockResponseOnce(JSON.stringify(
         {
             status: 200,
             ok: true,
@@ -129,7 +128,7 @@ test("populates shopping lists", () => {
                 "total": 6
             }
         }
-    )));
+    ));
     const props = {
         id: 1,
         title: 'Food',
@@ -172,7 +171,7 @@ test("populates shopping lists", () => {
 });
 
 test("catches fetch errors", () => {
-    fetch = jest.fn(() => new Promise(resolve => resolve(
+    fetch.mockResponseOnce(JSON.stringify(
         {
             status: 400,
             ok: false,
@@ -183,7 +182,7 @@ test("catches fetch errors", () => {
                 "total": 0
             }
         }
-    )));
+    ));
     const props = {
         id: 1,
         title: 'Food',

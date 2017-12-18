@@ -69,6 +69,16 @@ class NavBarOptionItem extends Component {
         });
     }
 
+    checkStatus(response) {
+        if (response.status >= 200 && response.status < 300) {
+            return response.json();
+        } else {
+            return response.json().then((responseJSON) => {
+                throw responseJSON;
+            })
+        }
+    }
+
     handleLogout = (event) => {
         event.preventDefault();
 
@@ -79,7 +89,7 @@ class NavBarOptionItem extends Component {
                     "Authorization": "Bearer " + global.localStorage.getItem("accessToken")
                 }
             })
-                .then((response) => response.json())
+                .then(this.checkStatus)
                 .then((responseJson) => {
                     if (responseJson.status && responseJson.status === "success") {
                         global.localStorage.setItem("accessToken", "");
@@ -93,7 +103,6 @@ class NavBarOptionItem extends Component {
                     }
                 })
                 .catch((error) => {
-                    console.error(error);
                 });
         }
         else {
