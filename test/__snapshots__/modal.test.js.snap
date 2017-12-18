@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the modal component 1`] = `
+<div
+  className="card-modal"
+  id="crud-div"
+>
+  <div
+    className="card crud-card drop-shadow"
+  >
+    <span
+      className="close"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+    <h3
+      className="title crud-title"
+    />
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-control"
+        id="first-input-id"
+        name="first_input"
+        onChange={[Function]}
+        placeholder={null}
+        type="text"
+        value=""
+      />
+      <div
+        className="card-modal-button-wrapper"
+      >
+        <div
+          className="modal-left-button"
+        >
+          <button
+            className="btn button btn-delete modal-left-button-btn"
+            type="submit"
+          >
+            Delete
+          </button>
+        </div>
+        <div
+          className="modal-right-button"
+        >
+          <button
+            className="btn modal-right-button-btn"
+            onClick={[Function]}
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;

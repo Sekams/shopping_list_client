@@ -70,20 +70,16 @@ class RegistrationForm extends Component {
                 formData.append('email', signUpForm.email);
                 if (this.matchPasswords(signUpForm.password, signUpForm.confirm_password)) {
                     formData.append('password', signUpForm.password);
-                    fetch(localStorage.getItem("baseUrl") + '/auth/register', {
-                        method: 'POST',
-                        body: formData
-                    })
-                        .then((response) => response.json())
+                    global.callAPI('/auth/register', "POST", formData)
                         .then((responseJson) => {
-        
+
                             if (responseJson.status && responseJson.status === "success") {
                                 this.setState({
                                     msg: responseJson.message,
                                     msg_type: 'success'
                                 });
-                                localStorage.setItem("message", responseJson.message);
-                                localStorage.setItem("messageType", "success");
+                                global.localStorage.setItem("message", responseJson.message);
+                                global.localStorage.setItem("messageType", "success");
                                 this.props.history.push('/login');
                             } else {
                                 this.setState({

@@ -10,14 +10,15 @@ class HomePage extends Component {
         super(props);
 
         this.state = {
-            username: localStorage.getItem("username"),
-            authorized: ((localStorage.getItem("accessToken")) ? true : false),
-            logged_in: localStorage.getItem("loggedIn"),
+            username: global.localStorage.getItem("username"),
+            authorized: ((global.localStorage.getItem("accessToken")) ? true : false),
+            logged_in: global.localStorage.getItem("loggedIn"),
             new_shopping_list_title: '',
-            msg: localStorage.getItem("message"),
-            msg_type: localStorage.getItem("messageType"),
-            page_limit: localStorage.getItem("pageLimit"),
+            msg: global.localStorage.getItem("message"),
+            msg_type: global.localStorage.getItem("messageType"),
+            page_limit: global.localStorage.getItem("pageLimit"),
             pageOfItems: [],
+            total_lists: 0,
             show_modal: false,
             shoppingLists: [],
             searchTerm: ''
@@ -32,8 +33,8 @@ class HomePage extends Component {
 
     verifyAuthorization() {
         if (!(this.state.logged_in) || !(this.state.authorized)) {
-            localStorage.setItem("message", "Please Login");
-            localStorage.setItem("messageType", "danger");
+            global.localStorage.setItem("message", "Please Login");
+            global.localStorage.setItem("messageType", "danger");
             this.props.history.push('/login');
 
             return false;
@@ -49,40 +50,16 @@ class HomePage extends Component {
         this._mounted = false;
     }
 
-    clearMessages = () => {
-        if (this._mounted) {
-            this.setState({
-                msg: '',
-                msg_type: ''
-            });
-        }
-    }
-
-    checkStatus(response) {
-        if (response.status >= 200 && response.status < 300) {
-            return response.json();
-        } else {
-            return response.json().then((responseJSON) => {
-                throw responseJSON;
-            })
-        }
-    }
-
     getShoppingLists() {
         if (this.verifyAuthorization()) {
-            this.clearMessages();
+            global.clearMessages(this);
 
-            fetch(localStorage.getItem("baseUrl") + '/shoppinglists/' + this.state.page_limit + '/' + localStorage.getItem("currentPage") , {
-                method: 'GET',
-                headers: {
-                    "Authorization": "Bearer " + localStorage.getItem("accessToken")
-                }
-            })
-                .then(this.checkStatus)
+            global.callAPI('/shoppinglists/' + this.state.page_limit + '/' + global.localStorage.getItem("currentPage"), "GET")
                 .then((responseJson) => {
                     if (responseJson.status && responseJson.status === "success") {
                         if (this._mounted) {
                             this.setState({
+                                total_lists: responseJson.total,
                                 shoppingLists: responseJson.shoppingLists
                             });
                         }
@@ -107,39 +84,20 @@ class HomePage extends Component {
     }
 
     onSearchTermChange(term) {
-        localStorage.setItem("searchTerm", term);
+        global.localStorage.setItem("searchTerm", term);
         if (this.verifyAuthorization()) {
             if (term) {
-                this.clearMessages();
+                global.clearMessages(this);
                 let newShoppingLists = [];
 
-                fetch(localStorage.getItem("baseUrl") + '/shoppinglists/search/shoppinglist/' + term + '/' + this.state.page_limit + '/' + localStorage.getItem("currentPage"), {
-                    method: 'GET',
-                    headers: {
-                        "Authorization": "Bearer " + localStorage.getItem("accessToken")
-                    }
-                })
-                    .then(this.checkStatus)
+                global.callAPI('/shoppinglists/search/shoppinglist/' + term + '/1000/1', "GET")
                     .then((responseJson) => {
                         if (responseJson.status && responseJson.status === "success") {
-
                             responseJson.shoppingLists.forEach((shoppingList) => {
-
-                                let exists = false;
-                                if (!newShoppingLists) {
-                                    newShoppingLists.push(shoppingList);
-                                }
-                                newShoppingLists.forEach((newShoppingList) => {
-                                    if (newShoppingList.id === shoppingList.id) {
-                                        exists = true;
-                                    }
-                                });
-                                if (!exists) {
-                                    newShoppingLists.push(shoppingList);
-                                }
+                                newShoppingLists.push(shoppingList);
                                 if (this._mounted) {
                                     this.setState({
-                                        shoppingLists: newShoppingLists,
+                                        shoppingLists: newShoppingLists
                                     });
                                 }
 
@@ -155,35 +113,18 @@ class HomePage extends Component {
                         }
                     })
                     .catch((error) => {
-                        this.setState({
-                            msg: error.message,
-                            msg_type: "danger"
-                        });
+
                     });
 
-                fetch(localStorage.getItem("baseUrl") + '/shoppinglists/search/item/' + term + '/' + this.state.page_limit + '/' + localStorage.getItem("currentPage"), {
-                    method: 'GET',
-                    headers: {
-                        "Authorization": "Bearer " + localStorage.getItem("accessToken")
-                    }
-                })
-                    .then(this.checkStatus)
+                global.callAPI('/shoppinglists/search/item/' + term + '/1000/1', 'GET')
                     .then((responseJson) => {
                         if (responseJson.status && responseJson.status === "success") {
                             responseJson.shoppingListItems.forEach((shoppingListItem) => {
-                                fetch(localStorage.getItem("baseUrl") + '/shoppinglists/' + shoppingListItem.shopping_list_id, {
-                                    method: 'GET',
-                                    headers: {
-                                        "Authorization": "Bearer " + localStorage.getItem("accessToken")
-                                    }
-                                })
-                                    .then(this.checkStatus)
+
+                                global.callAPI('/shoppinglists/' + shoppingListItem.shopping_list_id, "GET")
                                     .then((responseJson) => {
                                         if (responseJson.status && responseJson.status === "success") {
                                             let exists = false;
-                                            if (!newShoppingLists) {
-                                                newShoppingLists.push(responseJson.shoppingList);
-                                            }
                                             newShoppingLists.forEach((shoppingList) => {
                                                 if (shoppingList.id === responseJson.shoppingList.id) {
                                                     exists = true;
@@ -194,7 +135,8 @@ class HomePage extends Component {
                                             }
                                             if (this._mounted) {
                                                 this.setState({
-                                                    shoppingLists: newShoppingLists,
+                                                    // total_lists: 0,
+                                                    shoppingLists: newShoppingLists
                                                 });
                                             }
                                         }
@@ -204,11 +146,9 @@ class HomePage extends Component {
                         }
                     })
                     .catch((error) => {
-                        this.setState({
-                            msg: error.message,
-                            msg_type: "danger"
-                        });
                     });
+
+                this.onChangePage(newShoppingLists);
             }
             else {
                 this.getShoppingLists();
@@ -241,13 +181,12 @@ class HomePage extends Component {
     render() {
         let shoppingLists, snackBar, modal = null;
 
-        if (this.state.shoppingLists) {
+        if (this.state.pageOfItems) {
             shoppingLists = this.state.pageOfItems.map((shoppingList) => {
                 return <ShoppingList
                     key={shoppingList.id}
                     title={shoppingList.title}
-                    id={shoppingList.id}
-                    clearMessages={() => this.clearMessages()} />
+                    id={shoppingList.id} />
             });
         }
 
@@ -262,7 +201,6 @@ class HomePage extends Component {
                 title="Create Shopping List"
                 create={true}
                 owner="add_shopping_list"
-                clearMessages={() => this.clearMessages()}
                 showModal={(event) => this.showModal(event)} />;
         }
 
@@ -286,8 +224,9 @@ class HomePage extends Component {
                 </a>
 
                 <Pagination
-                items={this.state.shoppingLists}
-                onChangePage={this.onChangePage} />
+                    total_items={this.state.total_lists}
+                    items={this.state.shoppingLists}
+                    onChangePage={this.onChangePage} />
 
                 {modal}
 

@@ -1,0 +1,22 @@
+{
+    "env": {
+        "test": {
+            "presets": [
+                [
+                    "env",
+                    {
+                        "targets": {
+                            "chrome": "60"
+                        }
+                    }
+                ],
+                "react",
+                "stage-0"
+            ],
+            "only": [
+                "./**/*.js",
+                "node_modules/jest-runtime"
+            ]
+        }
+    }
+}

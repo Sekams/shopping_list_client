@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calls the onSearchTermChanged 1`] = `
+<nav
+  className="navbar navbar-fixed-top drop-shadow"
+  id="home-navbar"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="navbar-header"
+    >
+      <Link
+        className="navbar-brand"
+        replace={false}
+        to="/"
+      >
+        Shopping List
+      </Link>
+    </div>
+    <div
+      className="collapse navbar-collapse"
+    >
+      <NavBarOptions
+        onSearchTermChange={[Function]}
+      />
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`renders the nav_bar component 1`] = `
+<nav
+  className="navbar navbar-fixed-top drop-shadow"
+  id="home-navbar"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="navbar-header"
+    >
+      <Link
+        className="navbar-brand"
+        replace={false}
+        to="/"
+      >
+        Shopping List
+      </Link>
+    </div>
+    <div
+      className="collapse navbar-collapse"
+    >
+      <NavBarOptions
+        onSearchTermChange={[Function]}
+      />
+    </div>
+  </div>
+</nav>
+`;

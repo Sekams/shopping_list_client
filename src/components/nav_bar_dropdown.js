@@ -15,19 +15,19 @@ class NavBarDropdown extends Component {
     }
 
     setLimit6 = (event) => {
-        localStorage.setItem("pageLimit", 6);
+        global.localStorage.setItem("pageLimit", 6);
         this.props.setPageLimit(event);
     }
     setLimit12 = (event) => {
-        localStorage.setItem("pageLimit", 12);
+        global.localStorage.setItem("pageLimit", 12);
         this.props.setPageLimit(event);
     }
     setLimit24 = (event) => {
-        localStorage.setItem("pageLimit", 24);
+        global.localStorage.setItem("pageLimit", 24);
         this.props.setPageLimit(event);
     }
     setLimit48 = (event) => {
-        localStorage.setItem("pageLimit", 48);
+        global.localStorage.setItem("pageLimit", 48);
         this.props.setPageLimit(event);
     }
 

@@ -10,8 +10,8 @@ class LoginForm extends Component {
         this.state = {
             username: '',
             password: '',
-            msg: localStorage.getItem("message"),
-            msg_type: localStorage.getItem("messageType")
+            msg: global.localStorage.getItem("message"),
+            msg_type: global.localStorage.getItem("messageType")
         };
     }
 
@@ -32,29 +32,24 @@ class LoginForm extends Component {
         let loginForm = this.state;
         let formData = new FormData();
 
-        this.clearMessages();
+        global.clearMessages(this);
 
         if (loginForm.username && loginForm.password) {
             formData.append('username', loginForm.username);
             formData.append('password', loginForm.password);
 
-            fetch(localStorage.getItem("baseUrl") + '/auth/login', {
-                method: 'POST',
-                body: formData
-            })
-                .then((response) => response.json())
+            global.callAPI('/auth/login', "POST", formData)
                 .then((responseJson) => {
-
                     if (responseJson.status && responseJson.status === "success" && responseJson.access_token) {
                         this.setState({
                             msg: responseJson.message,
                             msg_type: 'success'
                         });
-                        localStorage.setItem("accessToken", responseJson.access_token);
-                        localStorage.setItem("username", loginForm.username);
-                        localStorage.setItem("loggedIn", true);
-                        localStorage.setItem("message", responseJson.message);
-                        localStorage.setItem("messageType", "success");
+                        global.localStorage.setItem("accessToken", responseJson.access_token);
+                        global.localStorage.setItem("username", loginForm.username);
+                        global.localStorage.setItem("loggedIn", true);
+                        global.localStorage.setItem("message", responseJson.message);
+                        global.localStorage.setItem("messageType", "success");
                         this.props.history.push('/');
                     } else {
                         this.setState({
@@ -73,13 +68,6 @@ class LoginForm extends Component {
                 msg_type: 'danger'
             });
         }
-    }
-
-    clearMessages() {
-        this.setState({
-            msg: '',
-            msg_type: ''
-        });
     }
 
     render() {

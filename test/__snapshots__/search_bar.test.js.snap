@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calls the onChanged function 1`] = `
+<div
+  className="search-bar"
+>
+  <input
+    className="form-control"
+    onChange={[Function]}
+    placeholder="Search"
+  />
+</div>
+`;
+
+exports[`renders the search_bar component 1`] = `
+<div
+  className="search-bar"
+>
+  <input
+    className="form-control"
+    onChange={[Function]}
+    placeholder="Search"
+    value=""
+  />
+</div>
+`;

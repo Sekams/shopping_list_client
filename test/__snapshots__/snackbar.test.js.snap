@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calls the showSnackbar function 1`] = `
+<div
+  id="snackbar"
+>
+  <p />
+</div>
+`;
+
+exports[`renders the snackbar component 1`] = `
+<div
+  id="snackbar"
+>
+  <p />
+</div>
+`;
+
+exports[`unmounts the  snackbar component 1`] = `
+<div
+  id="snackbar"
+>
+  <p />
+</div>
+`;

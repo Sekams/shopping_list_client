@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the check_box component 1`] = `
+<div>
+  <input
+    onChange={[Function]}
+    type="checkbox"
+  />
+</div>
+`;
