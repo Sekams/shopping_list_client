@@ -48,4 +48,7 @@ npm start
 * Shopping list and shopping list item searching
 
 ## Testing
-Work In Progress:
+To test the application, run the following command:
+```
+npm test
+```
