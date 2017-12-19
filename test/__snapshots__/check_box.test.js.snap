@@ -2,6 +2,7 @@
 
 exports[`calls the onInputChange function 1`] = `
 <div>
+  <Spinner />
   <input
     checked={true}
     id={1}
@@ -13,6 +14,7 @@ exports[`calls the onInputChange function 1`] = `
 
 exports[`calls the onInputChange function 2`] = `
 <div>
+  <Spinner />
   <input
     checked={true}
     id={1}
@@ -24,6 +26,7 @@ exports[`calls the onInputChange function 2`] = `
 
 exports[`catches errors 1`] = `
 <div>
+  <Spinner />
   <input
     checked={false}
     id={1}
@@ -35,7 +38,20 @@ exports[`catches errors 1`] = `
 
 exports[`renders the check_box component 1`] = `
 <div>
+  <Spinner />
   <input
+    onChange={[Function]}
+    type="checkbox"
+  />
+</div>
+`;
+
+exports[`shows spinner 1`] = `
+<div>
+  <Spinner />
+  <input
+    checked={false}
+    id={1}
     onChange={[Function]}
     type="checkbox"
   />

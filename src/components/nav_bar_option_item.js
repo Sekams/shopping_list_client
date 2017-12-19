@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-import SearchBar from './search_bar'
-import NavBarDropdown from './nav_bar_dropdown'
-import Modal from './modal'
+import { Link } from 'react-router-dom';
+import SearchBar from './search_bar';
+import NavBarDropdown from './nav_bar_dropdown';
+import Modal from './modal';
 require("../utils/helpers");
 
 class NavBarOptionItem extends Component {

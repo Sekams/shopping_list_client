@@ -5,6 +5,7 @@ exports[`handles inputs 1`] = `
   <NavBar
     page="sign_up"
   />
+  <Spinner />
   <div
     className="register-wrapper"
   >
@@ -60,6 +61,7 @@ exports[`handles sign up 1`] = `
   <NavBar
     page="sign_up"
   />
+  <Spinner />
   <div
     className="register-wrapper"
   >
@@ -123,6 +125,7 @@ exports[`renders the registration_form component 1`] = `
   <NavBar
     page="sign_up"
   />
+  <Spinner />
   <div
     className="register-wrapper"
   >

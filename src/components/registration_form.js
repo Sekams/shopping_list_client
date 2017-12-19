@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import NavBar from './nav_bar'
-import SnackBar from './snackbar'
+import NavBar from './nav_bar';
+import SnackBar from './snackbar';
+import Spinner from './spinner';
 
 class RegistrationForm extends Component {
     constructor(props) {
@@ -57,6 +58,8 @@ class RegistrationForm extends Component {
     }
 
     handleSignUp = (event) => {
+        global.showSpinner(this);
+
         event.preventDefault();
 
         let signUpForm = this.state;
@@ -81,14 +84,21 @@ class RegistrationForm extends Component {
                                 global.localStorage.setItem("message", responseJson.message);
                                 global.localStorage.setItem("messageType", "success");
                                 this.props.history.push('/login');
+                                global.dismissSpinner(this);
                             } else {
                                 this.setState({
                                     msg: responseJson.message,
                                     msg_type: 'danger'
                                 });
+                                global.dismissSpinner(this);
                             }
                         })
                         .catch((error) => {
+                            this.setState({
+                                msg: error.message,
+                                msg_type: 'danger'
+                            });
+                            global.dismissSpinner(this);
                         });
                 }
                 else {
@@ -96,6 +106,7 @@ class RegistrationForm extends Component {
                         msg: 'Passwords don\'t match!',
                         msg_type: 'danger'
                     });
+                    global.dismissSpinner(this);
                 }
             }
             else {
@@ -103,6 +114,7 @@ class RegistrationForm extends Component {
                     msg: 'Invalid email address!',
                     msg_type: 'danger'
                 });
+                global.dismissSpinner(this);
             }
         }
         else {
@@ -110,6 +122,7 @@ class RegistrationForm extends Component {
                 msg: 'Please fill in all the fields',
                 msg_type: 'danger'
             });
+            global.dismissSpinner(this);
         }
     }
 
@@ -133,6 +146,8 @@ class RegistrationForm extends Component {
             <div>
                 <NavBar
                     page='sign_up' />
+
+                <Spinner ref={(spinner) => { this._spinner = spinner; }} />
 
                 <div className="register-wrapper">
                     <div className="card register-card drop-shadow">

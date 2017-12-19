@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calls the showSpinner function 1`] = `
+<div
+  className="hide"
+>
+  <ul
+    aria-busy="true"
+    aria-label="Loading domino shop"
+    className="spinner"
+    role="progressbar"
+  >
+    <li
+      role="presentation"
+    />
+    <li
+      role="presentation"
+    />
+    <li
+      role="presentation"
+    />
+    <li
+      role="presentation"
+    />
+    <li
+      role="presentation"
+    />
+    <li
+      role="presentation"
+    />
+    <li
+      role="presentation"
+    />
+  </ul>
+</div>
+`;
+
+exports[`renders the spinner component 1`] = `
+<div
+  className="hide"
+>
+  <ul
+    aria-busy="true"
+    aria-label="Loading domino shop"
+    className="spinner"
+    role="progressbar"
+  >
+    <li
+      role="presentation"
+    />
+    <li
+      role="presentation"
+    />
+    <li
+      role="presentation"
+    />
+    <li
+      role="presentation"
+    />
+    <li
+      role="presentation"
+    />
+    <li
+      role="presentation"
+    />
+    <li
+      role="presentation"
+    />
+  </ul>
+</div>
+`;

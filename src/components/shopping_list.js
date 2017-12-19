@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ShoppingListItem from './shopping_list_item';
 import Modal from './modal'
+import Spinner from './spinner'
 require("../utils/helpers");
 
 class ShoppingList extends Component {
@@ -20,11 +21,11 @@ class ShoppingList extends Component {
             shoppingListItems: []
         };
 
-        this.getShoppingListItems();
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this._mounted = true;
+        this.getShoppingListItems();
     };
 
     componentWillUnmount() {
@@ -32,19 +33,21 @@ class ShoppingList extends Component {
     }
 
     getShoppingListItems() {
+        global.showSpinner(this);
         global.clearMessages(this);
-            global.callAPI('/shoppinglists/' + this.state.id + '/items/1000/1', 'GET')
+        global.callAPI('/shoppinglists/' + this.state.id + '/items/1000/1', 'GET')
             .then((responseJson) => {
                 if (responseJson.status && responseJson.status === "success") {
                     if (this._mounted) {
                         this.setState({
                             shoppingListItems: responseJson.shoppingListItems
                         });
+                        global.dismissSpinner(this);
                     }
                 }
             })
             .catch((error) => {
-                
+                global.dismissSpinner(this);
             });
     }
 
@@ -149,6 +152,8 @@ class ShoppingList extends Component {
 
         return (
             <div className={theClass}>
+
+                <Spinner ref={(spinner) => { this._spinner = spinner; }} />
 
                 <h3 className="item-text shopping-list-title">{this.state.title}</h3>
                 <div className="card-icon-holder">

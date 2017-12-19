@@ -26,3 +26,15 @@ global.clearMessages = (component) => {
         });
     }
 }
+
+global.dismissSpinner = (component) => {
+    if (component._spinner) {
+        component._spinner.showSpinner(false);
+    }
+}
+
+global.showSpinner = (component) => {
+    if (component._spinner) {
+        component._spinner.showSpinner(true);
+    }
+}

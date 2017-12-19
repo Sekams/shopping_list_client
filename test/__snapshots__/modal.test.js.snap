@@ -5,6 +5,7 @@ exports[`handles add shopping list 1`] = `
   className="card-modal"
   id="crud-div"
 >
+  <Spinner />
   <div
     className="card crud-card drop-shadow"
   >
@@ -56,6 +57,7 @@ exports[`handles add shopping list item 1`] = `
   className="card-modal"
   id="crud-div"
 >
+  <Spinner />
   <div
     className="card crud-card drop-shadow"
   >
@@ -107,6 +109,7 @@ exports[`handles additional methods 1`] = `
   className="card-modal"
   id="crud-div"
 >
+  <Spinner />
   <div
     className="card crud-card drop-shadow"
   >
@@ -156,6 +159,7 @@ exports[`handles additional methods 2`] = `
   className="card-modal"
   id="crud-div"
 >
+  <Spinner />
   <div
     className="card crud-card drop-shadow"
   >
@@ -206,6 +210,7 @@ exports[`handles additional methods 3`] = `
   className="card-modal"
   id="crud-div"
 >
+  <Spinner />
   <div
     className="card crud-card drop-shadow"
   >
@@ -256,6 +261,7 @@ exports[`handles additional methods 4`] = `
   className="card-modal"
   id="crud-div"
 >
+  <Spinner />
   <div
     className="card crud-card drop-shadow"
   >
@@ -306,6 +312,7 @@ exports[`handles additional methods 5`] = `
   className="card-modal"
   id="crud-div"
 >
+  <Spinner />
   <div
     className="card crud-card drop-shadow"
   >
@@ -348,6 +355,7 @@ exports[`handles additional methods 6`] = `
   className="card-modal"
   id="crud-div"
 >
+  <Spinner />
   <div
     className="card crud-card drop-shadow"
   >
@@ -398,6 +406,7 @@ exports[`handles additional methods 7`] = `
   className="card-modal"
   id="crud-div"
 >
+  <Spinner />
   <div
     className="card crud-card drop-shadow"
   >
@@ -440,6 +449,7 @@ exports[`handles change password 1`] = `
   className="card-modal"
   id="crud-div"
 >
+  <Spinner />
   <div
     className="card crud-card drop-shadow"
   >
@@ -491,6 +501,7 @@ exports[`handles delete shopping list 1`] = `
   className="card-modal"
   id="crud-div"
 >
+  <Spinner />
   <div
     className="card crud-card drop-shadow"
   >
@@ -533,6 +544,7 @@ exports[`handles delete shopping list item 1`] = `
   className="card-modal"
   id="crud-div"
 >
+  <Spinner />
   <div
     className="card crud-card drop-shadow"
   >
@@ -575,6 +587,7 @@ exports[`handles edit shopping list 1`] = `
   className="card-modal"
   id="crud-div"
 >
+  <Spinner />
   <div
     className="card crud-card drop-shadow"
   >
@@ -626,6 +639,7 @@ exports[`handles edit shopping list item 1`] = `
   className="card-modal"
   id="crud-div"
 >
+  <Spinner />
   <div
     className="card crud-card drop-shadow"
   >
@@ -677,6 +691,7 @@ exports[`renders the modal component 1`] = `
   className="card-modal"
   id="crud-div"
 >
+  <Spinner />
   <div
     className="card crud-card drop-shadow"
   >

@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders the main component 1`] = `
-<main>
+<main
+  role="main"
+>
   <Switch>
     <Route
       component={[Function]}
