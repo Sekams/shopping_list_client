@@ -5,6 +5,7 @@ exports[`handles inputs 1`] = `
   <NavBar
     page="login"
   />
+  <Spinner />
   <div
     className="login-wrapper"
   >
@@ -48,6 +49,7 @@ exports[`handles login 1`] = `
   <NavBar
     page="login"
   />
+  <Spinner />
   <div
     className="login-wrapper"
   >
@@ -93,6 +95,7 @@ exports[`handles unsuccessful login 1`] = `
   <NavBar
     page="login"
   />
+  <Spinner />
   <div
     className="login-wrapper"
   >
@@ -142,6 +145,7 @@ exports[`renders the login_form component 1`] = `
   <NavBar
     page="login"
   />
+  <Spinner />
   <div
     className="login-wrapper"
   >

@@ -13,6 +13,7 @@ test("renders the home_page component", () => {
     const wrapper = shallow(
         <HomePage {...props} />
     );
+    wrapper.props().children[1].ref();
     wrapper.instance().componentWillUnmount();
     expect(wrapper).toMatchSnapshot();
     global.localStorage.setItem("accessToken", 'wjcnejcnejncec');
@@ -90,7 +91,7 @@ test("calls showModal and clearMessages on the Modal", () => {
     );
     wrapper.instance().showModal({ preventDefault() { } });
     wrapper.update();
-    wrapper.props().children[4].props.showModal({ preventDefault() { } });
+    wrapper.props().children[5].props.showModal({ preventDefault() { } });
     expect(wrapper).toMatchSnapshot();
 });
 
@@ -357,6 +358,104 @@ test("calls onSearchTermChange for items", () => {
     const wrapper = shallow(
         <HomePage {...props} />
     );
+    wrapper.instance().onSearchTermChange("f");
+    wrapper.update();
+    expect(wrapper).toMatchSnapshot();
+});
+
+test("catches errors in onSearchTermChange", () => {
+    fetch.mockResponses(
+        [
+            JSON.stringify({ 
+                "message": "Shopping Lists found.",
+                "shoppingLists": [
+                    {
+                        "created_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+                        "id": 2,
+                        "modified_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+                        "title": "Food",
+                        "user_id": 1
+                    }
+                ],
+                "status": "success",
+                "total": 1
+            }), 
+            { status: 200 }
+        ],
+        [
+            JSON.stringify({ 
+                "message": "Shopping Lists Not found.",
+                "shoppingLists": [],
+                "status": "fail"
+            }), 
+            { status: 400 }
+        ],
+        [
+            JSON.stringify({ 
+                "message": "Shopping List Items Not found.",
+                "shoppingListItems": [],
+                "status": "fail",
+                "total": 1
+            }), 
+            { status: 400 },
+        ],
+        [
+            JSON.stringify({ 
+                "message": "Shopping List found.",
+                "shoppingList": {
+                    "created_on": "Mon, 20 Nov 2017 07:05:13 GMT",
+                    "id": 15,
+                    "modified_on": "Mon, 20 Nov 2017 07:49:21 GMT",
+                    "title": "Toys",
+                    "user_id": 1
+                },
+                "status": "success"
+            }), 
+            { status: 200 }
+        ],
+        [
+            JSON.stringify({ 
+                "message": "Shopping List found.",
+                "shoppingList": {
+                    "created_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+                    "id": 2,
+                    "modified_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+                    "title": "Food",
+                    "user_id": 1
+                },
+                "status": "success"
+            }), 
+            { status: 200 }
+        ],
+        [
+            JSON.stringify({ 
+                "message": "Shopping Lists found.",
+                "shoppingLists": [
+                    {
+                        "created_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+                        "id": 2,
+                        "modified_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+                        "title": "Food",
+                        "user_id": 1
+                    }
+                ],
+                "status": "success",
+                "total": 1
+            }), 
+            { status: 200 }
+        ]
+    )
+
+    const props = {
+        logged_in: true,
+        authorized: true,
+        page: 'home',
+        history: [],
+    };
+    const wrapper = shallow(
+        <HomePage {...props} />
+    );
+    wrapper.instance().verifyAuthorization();
     wrapper.instance().onSearchTermChange("f");
     wrapper.update();
     expect(wrapper).toMatchSnapshot();

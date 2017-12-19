@@ -425,6 +425,7 @@ test("handles additional methods", () => {
                 });
             }
         });
+        wrapper.props().children[0].ref();
         expect(wrapper).toMatchSnapshot();
     });
 });

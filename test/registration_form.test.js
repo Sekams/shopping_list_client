@@ -18,6 +18,7 @@ test("handles inputs", () => {
             target: { term },
         });
     });
+    wrapper.props().children[1].ref();
     wrapper.instance().handleSignUp({ preventDefault() { } })
     expect(wrapper).toMatchSnapshot();
 });

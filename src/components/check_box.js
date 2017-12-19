@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SnackBar from './snackbar'
+import Spinner from './spinner'
 require("../utils/helpers");
 
 class CheckBox extends Component {
@@ -23,6 +24,7 @@ class CheckBox extends Component {
     }
 
     toggleItemStatus = (event) => {
+        global.showSpinner(this);
 
         global.clearMessages(this);
 
@@ -40,11 +42,13 @@ class CheckBox extends Component {
                         msg_type: "success",
                         showing: false
                     });
+                    global.dismissSpinner(this);
                 } else {
                     this.setState({
                         msg: responseJson.message,
                         msg_type: "danger",
                     });
+                    global.dismissSpinner(this);
                 }
             })
             .catch((error) => {
@@ -52,6 +56,7 @@ class CheckBox extends Component {
                     msg: error.message,
                     msg_type: "danger"
                 });
+                global.dismissSpinner(this);
             });
     }
 
@@ -66,6 +71,7 @@ class CheckBox extends Component {
 
         return (
             <div>
+                <Spinner ref={(spinner) => { this._spinner = spinner; }} />
                 <input
                     id={this.props.id}
                     type="checkbox"

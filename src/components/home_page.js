@@ -4,6 +4,7 @@ import Modal from './modal'
 import NavBar from './nav_bar'
 import SnackBar from './snackbar'
 import Pagination from './pagination'
+import Spinner from './spinner'
 
 class HomePage extends Component {
     constructor(props) {
@@ -28,7 +29,7 @@ class HomePage extends Component {
 
         this.verifyAuthorization();
 
-        this.getShoppingLists();
+        this.getShoppingLists();        
     }
 
     verifyAuthorization() {
@@ -52,6 +53,8 @@ class HomePage extends Component {
 
     getShoppingLists() {
         if (this.verifyAuthorization()) {
+            global.showSpinner(this);
+
             global.clearMessages(this);
 
             global.callAPI('/shoppinglists/' + this.state.page_limit + '/' + global.localStorage.getItem("currentPage"), "GET")
@@ -61,11 +64,13 @@ class HomePage extends Component {
                             total_lists: responseJson.total,
                             shoppingLists: responseJson.shoppingLists
                         });
+                        global.dismissSpinner(this);
                     } else {
                         this.setState({
                             msg: "No Shopping Lists",
                             msg_type: "danger"
                         });
+                        global.dismissSpinner(this);
                     }
                 })
                 .catch((error) => {
@@ -73,6 +78,7 @@ class HomePage extends Component {
                         msg: error.message,
                         msg_type: "danger"
                     });
+                    global.dismissSpinner(this);
                 });
         }
     }
@@ -81,6 +87,7 @@ class HomePage extends Component {
         global.localStorage.setItem("searchTerm", term);
         if (this.verifyAuthorization()) {
             if (term) {
+                global.showSpinner(this);
                 global.clearMessages(this);
                 let newShoppingLists = [];
 
@@ -94,18 +101,20 @@ class HomePage extends Component {
                                 });
 
                             });
-
+                            global.dismissSpinner(this);
                         } else {
                             this.setState({
                                 msg: "No Shopping Lists",
                                 msg_type: "danger"
                             });
+                            global.dismissSpinner(this);
                         }
                     })
                     .catch((error) => {
-
+                        global.dismissSpinner(this);
                     });
 
+                global.showSpinner(this);
                 global.callAPI('/shoppinglists/search/item/' + term + '/1000/1', 'GET')
                     .then((responseJson) => {
                         if (responseJson.status && responseJson.status === "success") {
@@ -126,13 +135,16 @@ class HomePage extends Component {
                                             this.setState({
                                                 shoppingLists: newShoppingLists
                                             });
+                                            global.dismissSpinner(this);
                                         }
                                     })
-                                    .catch((error) => { });
+                                    .catch((error) => {
+                                    });
                             });
                         }
                     })
                     .catch((error) => {
+                        global.dismissSpinner(this);
                     });
 
                 this.onChangePage(newShoppingLists);
@@ -197,6 +209,8 @@ class HomePage extends Component {
                     logged_in={this.state.logged_in}
                     page='home'
                     onSearchTermChange={term => { this.onSearchTermChange(term) }} />
+
+                <Spinner ref={(spinner) => { this._spinner = spinner; }} />
 
                 <div className="wrapper">
                     <div className="home-wrapper">

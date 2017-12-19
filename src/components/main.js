@@ -5,7 +5,7 @@ import RegistrationForm from './registration_form'
 import HomePage from './home_page'
 
 const Main = () => (
-    <main>
+    <main role="main">
         <Switch>
             <Route exact path='/' component={HomePage} />
             <Route path='/login' component={LoginFrom} />

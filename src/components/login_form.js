@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import NavBar from './nav_bar'
-import SnackBar from './snackbar'
+import NavBar from './nav_bar';
+import SnackBar from './snackbar';
+import Spinner from './spinner';
 
 class LoginForm extends Component {
     constructor(props) {
@@ -27,6 +28,8 @@ class LoginForm extends Component {
     }
 
     handleLogin = (event) => {
+        global.showSpinner(this);
+        
         event.preventDefault();
 
         let loginForm = this.state;
@@ -45,6 +48,7 @@ class LoginForm extends Component {
                             msg: responseJson.message,
                             msg_type: 'success'
                         });
+                        global.dismissSpinner(this);
                         global.localStorage.setItem("accessToken", responseJson.access_token);
                         global.localStorage.setItem("username", loginForm.username);
                         global.localStorage.setItem("loggedIn", true);
@@ -56,9 +60,15 @@ class LoginForm extends Component {
                             msg: responseJson.message,
                             msg_type: 'danger'
                         });
+                        global.dismissSpinner(this);
                     }
                 })
                 .catch((error) => {
+                    this.setState({
+                        msg: error.message,
+                        msg_type: 'danger'
+                    });
+                    global.dismissSpinner(this);
                 });
         }
         else {
@@ -66,6 +76,7 @@ class LoginForm extends Component {
                 msg: 'Please fill in all the fields',
                 msg_type: 'danger'
             });
+            global.dismissSpinner(this);
         }
     }
 
@@ -82,6 +93,8 @@ class LoginForm extends Component {
             <div>
                 <NavBar
                     page='login' />
+
+                <Spinner ref={(spinner) => { this._spinner = spinner; }} />
 
                 <div className="login-wrapper">
                     <div className="card login-card drop-shadow">

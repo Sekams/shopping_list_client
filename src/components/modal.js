@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import SnackBar from './snackbar'
+import SnackBar from './snackbar';
+import Spinner from './spinner';
 require("../utils/helpers");
 
 class Modal extends Component {
@@ -77,6 +78,8 @@ class Modal extends Component {
         event.preventDefault();
 
         if (this.state.first_input) {
+            global.showSpinner(this);
+
             global.clearMessages(this);
 
             let addShoppingListFormData = new FormData();
@@ -94,11 +97,13 @@ class Modal extends Component {
                         global.localStorage.setItem("message", "Shopping List '" + responseJson.shoppingList.title + "' Created");
                         global.localStorage.setItem("messageType", "success");
                         window.location.reload();
+                        global.dismissSpinner(this);
                     } else {
                         this.setState({
                             msg: "Shopping List '" + addShoppingListFormData["title"] + "' Not Created",
                             msg_type: "danger",
                         });
+                        global.dismissSpinner(this);
                     }
                 })
                 .catch((error) => {
@@ -106,6 +111,7 @@ class Modal extends Component {
                         msg: error.message,
                         msg_type: "danger"
                     });
+                    global.dismissSpinner(this);
                 });
         }
         else {
@@ -120,6 +126,8 @@ class Modal extends Component {
         event.preventDefault();
 
         if (this.state.first_input) {
+            global.showSpinner(this);
+
             global.clearMessages(this);
 
             let editShoppingListFormData = new FormData();
@@ -137,11 +145,13 @@ class Modal extends Component {
                         global.localStorage.setItem("message", "Shopping List '" + this.props.first_input + "' Edited to '" + responseJson.shoppingList.title + "'");
                         global.localStorage.setItem("messageType", "success");
                         window.location.reload();
+                        global.dismissSpinner(this);
                     } else {
                         this.setState({
                             msg: "Shopping List '" + this.props.first_input + "' Not Edited",
                             msg_type: "danger",
                         });
+                        global.dismissSpinner(this);
                     }
                 })
                 .catch((error) => {
@@ -149,6 +159,7 @@ class Modal extends Component {
                         msg: error.message,
                         msg_type: "danger"
                     });
+                    global.dismissSpinner(this);
                 });
         }
         else {
@@ -160,6 +171,8 @@ class Modal extends Component {
     }
 
     deleteShoppingList = (event) => {
+        global.showSpinner(this);
+
         event.preventDefault();
 
         global.clearMessages(this);
@@ -175,11 +188,13 @@ class Modal extends Component {
                     global.localStorage.setItem("message", responseJson.message);
                     global.localStorage.setItem("messageType", "success");
                     window.location.reload();
+                    global.dismissSpinner(this);
                 } else {
                     this.setState({
                         msg: responseJson.message,
                         msg_type: "danger",
                     });
+                    global.dismissSpinner(this);
                 }
             })
             .catch((error) => {
@@ -187,10 +202,13 @@ class Modal extends Component {
                     msg: error.message,
                     msg_type: "danger"
                 });
+                global.dismissSpinner(this);
             });
     }
 
     changePassword = (event) => {
+        global.showSpinner(this);
+
         event.preventDefault();
 
         global.clearMessages(this);
@@ -210,6 +228,7 @@ class Modal extends Component {
                             msg_type: "success",
                             showing: false
                         });
+                        global.dismissSpinner(this);
                     }
                 })
                 .catch((error) => {
@@ -217,6 +236,7 @@ class Modal extends Component {
                         msg: error.message,
                         msg_type: "danger"
                     });
+                    global.dismissSpinner(this);
                 });
         }
         else {
@@ -225,10 +245,13 @@ class Modal extends Component {
                 msg_type: "danger",
                 showing: true
             });
+            global.dismissSpinner(this);
         }
     }
 
     addShoppingListItem = (event) => {
+        global.showSpinner(this);
+
         event.preventDefault();
 
         global.clearMessages(this);
@@ -250,13 +273,15 @@ class Modal extends Component {
                     global.localStorage.setItem("message", "Shopping List Item '" + responseJson.shoppingListItem.name + "' Created");
                     global.localStorage.setItem("messageType", "success");
                     window.location.reload();
-                }
+                } 
+                global.dismissSpinner(this);
             })
             .catch((error) => {
                 this.setState({
                     msg: error.message,
                     msg_type: "danger"
                 });
+                global.dismissSpinner(this);
             });
     };
 
@@ -264,6 +289,8 @@ class Modal extends Component {
         event.preventDefault();
 
         if (this.state.first_input && this.state.price) {
+            global.showSpinner(this);
+
             global.clearMessages(this);
 
             let editShoppingListItemFormData = new FormData();
@@ -283,11 +310,13 @@ class Modal extends Component {
                         global.localStorage.setItem("message", responseJson.message);
                         global.localStorage.setItem("messageType", "success");
                         window.location.reload();
+                        global.dismissSpinner(this);
                     } else {
                         this.setState({
                             msg: responseJson.message,
                             msg_type: "danger",
                         });
+                        global.dismissSpinner(this);
                     }
                 })
                 .catch((error) => {
@@ -295,6 +324,7 @@ class Modal extends Component {
                         msg: error.message,
                         msg_type: "danger"
                     });
+                    global.dismissSpinner(this);
                 });
         }
         else {
@@ -306,6 +336,8 @@ class Modal extends Component {
     };
 
     deleteShoppingListItem = (event) => {
+        global.showSpinner(this);
+
         event.preventDefault();
 
         global.clearMessages(this);
@@ -321,11 +353,13 @@ class Modal extends Component {
                     global.localStorage.setItem("message", responseJson.message);
                     global.localStorage.setItem("messageType", "success");
                     window.location.reload();
+                    global.dismissSpinner(this);
                 } else {
                     this.setState({
                         msg: responseJson.message,
                         msg_type: "danger",
                     });
+                    global.dismissSpinner(this);
                 }
             })
             .catch((error) => {
@@ -333,6 +367,7 @@ class Modal extends Component {
                     msg: error.message,
                     msg_type: "danger"
                 });
+                global.dismissSpinner(this);
             });
     }
 
@@ -412,6 +447,9 @@ class Modal extends Component {
         if (this.state.showing) {
             return (
                 <div className="card-modal" id="crud-div">
+
+                    <Spinner ref={(spinner) => { this._spinner = spinner; }} />
+
                     <div className="card crud-card drop-shadow">
                         <span className="close" onClick={this.closeModal}>&times;</span>
                         <h3 className="title crud-title">{this.props.title}</h3>

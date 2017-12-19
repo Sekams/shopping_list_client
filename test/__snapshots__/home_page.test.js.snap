@@ -9,6 +9,7 @@ exports[`calls onSearchTerm on the NavBar 1`] = `
     page="home"
     username={null}
   />
+  <Spinner />
   <div
     className="wrapper"
   >
@@ -47,6 +48,7 @@ exports[`calls onSearchTermChange 1`] = `
     page="home"
     username={null}
   />
+  <Spinner />
   <div
     className="wrapper"
   >
@@ -81,6 +83,7 @@ exports[`calls onSearchTermChange for items 1`] = `
     page="home"
     username={null}
   />
+  <Spinner />
   <div
     className="wrapper"
   >
@@ -115,6 +118,7 @@ exports[`calls showModal and clearMessages on the Modal 1`] = `
     page="home"
     username={null}
   />
+  <Spinner />
   <div
     className="wrapper"
   >
@@ -150,6 +154,41 @@ exports[`calls showModal and clearMessages on the Modal 1`] = `
 </div>
 `;
 
+exports[`catches errors in onSearchTermChange 1`] = `
+<div>
+  <NavBar
+    authorized={true}
+    logged_in="true"
+    onSearchTermChange={[Function]}
+    page="home"
+    username={null}
+  />
+  <Spinner />
+  <div
+    className="wrapper"
+  >
+    <div
+      className="home-wrapper"
+    />
+  </div>
+  <a
+    className="btn-fab round-button"
+    href=""
+    onClick={[Function]}
+  >
+    <i
+      className="fab-icon fa-plus"
+    />
+  </a>
+  <Pagination
+    initialPage={1}
+    items={Array []}
+    onChangePage={[Function]}
+    total_items={0}
+  />
+</div>
+`;
+
 exports[`handles authorization 1`] = `
 <div>
   <NavBar
@@ -159,6 +198,7 @@ exports[`handles authorization 1`] = `
     page="home"
     username={null}
   />
+  <Spinner />
   <div
     className="wrapper"
   >
@@ -197,6 +237,7 @@ exports[`handles empty lists 1`] = `
     page="home"
     username={null}
   />
+  <Spinner />
   <div
     className="wrapper"
   >
@@ -235,6 +276,7 @@ exports[`renders shopping lists 1`] = `
     page="home"
     username={null}
   />
+  <Spinner />
   <div
     className="wrapper"
   >
@@ -280,6 +322,7 @@ exports[`renders the home_page component 1`] = `
     page="home"
     username={null}
   />
+  <Spinner />
   <div
     className="wrapper"
   >
