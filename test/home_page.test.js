@@ -256,6 +256,7 @@ test("calls onSearchTermChange", () => {
     const wrapper = shallow(
         <HomePage {...props} />
     );
+    wrapper.instance().verifyAuthorization();
     wrapper.instance().onSearchTermChange("f");
     wrapper.update();
     expect(wrapper).toMatchSnapshot();

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SnackBar from './snackbar'
+require("../utils/helpers");
 
 class Modal extends Component {
     constructor(props) {
@@ -256,7 +257,6 @@ class Modal extends Component {
                     msg: error.message,
                     msg_type: "danger"
                 });
-                console.log(error);
             });
     };
 

@@ -1,5 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`calls the onInputChange function 1`] = `
+<div>
+  <input
+    checked={true}
+    id={1}
+    onChange={[Function]}
+    type="checkbox"
+  />
+</div>
+`;
+
+exports[`calls the onInputChange function 2`] = `
+<div>
+  <input
+    checked={true}
+    id={1}
+    onChange={[Function]}
+    type="checkbox"
+  />
+</div>
+`;
+
+exports[`catches errors 1`] = `
+<div>
+  <input
+    checked={false}
+    id={1}
+    onChange={[Function]}
+    type="checkbox"
+  />
+</div>
+`;
+
 exports[`renders the check_box component 1`] = `
 <div>
   <input

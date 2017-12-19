@@ -90,15 +90,25 @@ test("renders the nav bar option items for the login page", () => {
 });
 
 test("renders the nav bar option items for the home page logout", () => {
-    fetch.mockResponseOnce(JSON.stringify(
-        {
-            "message": "You successfully logged out.",
-            "status": "success",
-        }),
+    fetch.mockResponses(
+        [JSON.stringify(
+            {
+                "message": "You successfully logged out.",
+                "status": "success",
+            }),
         {
             status: 200,
             ok: true,
-        }
+        }],
+        [JSON.stringify(
+            {
+                "message": "You have not successfully logged out yet.",
+                "status": "fail",
+            }),
+        {
+            status: 202,
+            ok: true,
+        }]
     );
     const props = {
         logged_in: true,
@@ -113,5 +123,29 @@ test("renders the nav bar option items for the home page logout", () => {
         anchor.simulate('click', { preventDefault() { } });
     });
     wrapper.update();
+    wrapper.instance().handleLogout({ preventDefault() {} });
+    expect(wrapper).toMatchSnapshot();
+});
+
+test("handles missing access token", () => {
+    global.localStorage.removeItem('accessToken');
+    const wrapper = shallow(
+        <NavBarOptionItem />
+    );
+    wrapper.instance().handleLogout({ preventDefault() { } });
+    expect(wrapper).toMatchSnapshot();
+    global.localStorage.setItem("accessToken", "remvkrmvkmvim");
+});
+
+test("handles toggle dropdown", () => {
+    const wrapper = shallow(
+        <NavBarOptionItem />
+    );
+    wrapper.instance().setState({ show_dropdown: true });
+    wrapper.update();
+    wrapper.instance().toggleDropDownChangePw({ preventDefault() { } });
+    wrapper.instance().setState({ show_dropdown: true });
+    wrapper.update();
+    wrapper.instance().toggleDropDownPageLimit({ preventDefault() { } });
     expect(wrapper).toMatchSnapshot();
 });
