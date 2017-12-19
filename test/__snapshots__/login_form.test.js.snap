@@ -1,5 +1,142 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`handles inputs 1`] = `
+<div>
+  <NavBar
+    page="login"
+  />
+  <div
+    className="login-wrapper"
+  >
+    <div
+      className="card login-card drop-shadow"
+    >
+      <h3
+        className="title"
+      >
+        Login
+      </h3>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Username"
+          type="text"
+        />
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+        />
+        <button
+          className="btn btn-form-submit btn-login-submit"
+          type="submit"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`handles login 1`] = `
+<div>
+  <NavBar
+    page="login"
+  />
+  <div
+    className="login-wrapper"
+  >
+    <div
+      className="card login-card drop-shadow"
+    >
+      <h3
+        className="title"
+      >
+        Login
+      </h3>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Username"
+          type="text"
+          value="user"
+        />
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value="123456"
+        />
+        <button
+          className="btn btn-form-submit btn-login-submit"
+          type="submit"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`handles unsuccessful login 1`] = `
+<div>
+  <NavBar
+    page="login"
+  />
+  <div
+    className="login-wrapper"
+  >
+    <div
+      className="card login-card drop-shadow"
+    >
+      <h3
+        className="title"
+      >
+        Login
+      </h3>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Username"
+          type="text"
+          value="user"
+        />
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value="123456"
+        />
+        <button
+          className="btn btn-form-submit btn-login-submit"
+          type="submit"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+  <SnackBar
+    class="success-snackbar"
+    message="You logged in successfully."
+  />
+</div>
+`;
+
 exports[`renders the login_form component 1`] = `
 <div>
   <NavBar

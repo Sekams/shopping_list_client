@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+require("../utils/helpers");
 
 const defaultProps = {
     initialPage: 1

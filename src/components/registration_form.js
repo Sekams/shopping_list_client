@@ -89,7 +89,6 @@ class RegistrationForm extends Component {
                             }
                         })
                         .catch((error) => {
-                            console.error(error);
                         });
                 }
                 else {

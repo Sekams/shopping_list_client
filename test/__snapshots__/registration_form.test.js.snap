@@ -1,5 +1,123 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`handles inputs 1`] = `
+<div>
+  <NavBar
+    page="sign_up"
+  />
+  <div
+    className="register-wrapper"
+  >
+    <div
+      className="card register-card drop-shadow"
+    >
+      <h3
+        className="title"
+      >
+        Sign Up
+      </h3>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Username"
+          type="text"
+        />
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Email"
+          type="email"
+        />
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+        />
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Confirm Password"
+          type="password"
+        />
+        <button
+          className="btn btn-form-submit"
+          type="submit"
+        >
+          Finish
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`handles sign up 1`] = `
+<div>
+  <NavBar
+    page="sign_up"
+  />
+  <div
+    className="register-wrapper"
+  >
+    <div
+      className="card register-card drop-shadow"
+    >
+      <h3
+        className="title"
+      >
+        Sign Up
+      </h3>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Username"
+          type="text"
+          value=""
+        />
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Email"
+          type="email"
+          value="userexample.com"
+        />
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value="123456"
+        />
+        <input
+          className="form-input form-control"
+          onChange={[Function]}
+          placeholder="Confirm Password"
+          type="password"
+          value="123456"
+        />
+        <button
+          className="btn btn-form-submit"
+          type="submit"
+        >
+          Finish
+        </button>
+      </form>
+    </div>
+  </div>
+  <SnackBar
+    class="danger-snackbar"
+    message="Invalid email address!"
+  />
+</div>
+`;
+
 exports[`renders the registration_form component 1`] = `
 <div>
   <NavBar

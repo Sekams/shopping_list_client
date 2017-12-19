@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SnackBar from './snackbar'
+require("../utils/helpers");
 
 class CheckBox extends Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class CheckBox extends Component {
     }
 
     onInputChange(event, status) {
-        this.setState({ status });
+        this.setState({ status: status });
         this.toggleItemStatus(event);
     }
 
@@ -30,7 +31,7 @@ class CheckBox extends Component {
         editShoppingListItemFormData.append("new_name", this.state.name);
         editShoppingListItemFormData.append("new_price", this.state.price);
         editShoppingListItemFormData.append("new_status", !this.state.status);
-        
+
         global.callAPI('/shoppinglists/' + this.state.shopping_list_id + "/items/" + this.state.id, "PUT", editShoppingListItemFormData)
             .then((responseJson) => {
                 if (responseJson.status && responseJson.status === "success") {
@@ -52,8 +53,6 @@ class CheckBox extends Component {
                     msg_type: "danger"
                 });
             });
-
-        event.preventDefault();
     }
 
     render() {
