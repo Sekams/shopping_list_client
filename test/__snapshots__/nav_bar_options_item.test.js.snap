@@ -1,5 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`handles missing access token 1`] = `""`;
+
+exports[`handles toggle dropdown 1`] = `""`;
+
 exports[`renders the nav bar option items for the home page 1`] = `
 <li>
   <div

@@ -1,5 +1,677 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`handles add shopping list 1`] = `
+<div
+  className="card-modal"
+  id="crud-div"
+>
+  <div
+    className="card crud-card drop-shadow"
+  >
+    <span
+      className="close"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+    <h3
+      className="title crud-title"
+    >
+      A title
+    </h3>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-control"
+        id="first-input-id"
+        name="first_input"
+        onChange={[Function]}
+        placeholder="Enter Title"
+        type="text"
+        value=""
+      />
+      <input
+        className="form-input form-control"
+        id="price_input"
+        name="price"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value={100}
+      />
+      <button
+        className="btn btn-form-submit btn-modal-form-submit"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`handles add shopping list item 1`] = `
+<div
+  className="card-modal"
+  id="crud-div"
+>
+  <div
+    className="card crud-card drop-shadow"
+  >
+    <span
+      className="close"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+    <h3
+      className="title crud-title"
+    >
+      A title
+    </h3>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-control"
+        id="first-input-id"
+        name="first_input"
+        onChange={[Function]}
+        placeholder="Enter Name"
+        type="text"
+        value="First Input"
+      />
+      <input
+        className="form-input form-control"
+        id="price_input"
+        name="price"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value={100}
+      />
+      <button
+        className="btn btn-form-submit btn-modal-form-submit"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`handles additional methods 1`] = `
+<div
+  className="card-modal"
+  id="crud-div"
+>
+  <div
+    className="card crud-card drop-shadow"
+  >
+    <span
+      className="close"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+    <h3
+      className="title crud-title"
+    >
+      A title
+    </h3>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-control"
+        id="old-password-id"
+        name="old_password"
+        onChange={[Function]}
+        placeholder="Old Password"
+        type="password"
+      />
+      <input
+        className="form-input form-control"
+        id="new-password-id"
+        name="new_password"
+        onChange={[Function]}
+        placeholder="New Password"
+        type="password"
+      />
+      <button
+        className="btn btn-form-submit btn-modal-form-submit"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`handles additional methods 2`] = `
+<div
+  className="card-modal"
+  id="crud-div"
+>
+  <div
+    className="card crud-card drop-shadow"
+  >
+    <span
+      className="close"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+    <h3
+      className="title crud-title"
+    >
+      A title
+    </h3>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-control"
+        id="first-input-id"
+        name="first_input"
+        onChange={[Function]}
+        placeholder="Enter Title"
+        type="text"
+      />
+      <input
+        className="form-input form-control"
+        id="price_input"
+        name="price"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value=""
+      />
+      <button
+        className="btn btn-form-submit btn-modal-form-submit"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`handles additional methods 3`] = `
+<div
+  className="card-modal"
+  id="crud-div"
+>
+  <div
+    className="card crud-card drop-shadow"
+  >
+    <span
+      className="close"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+    <h3
+      className="title crud-title"
+    >
+      A title
+    </h3>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-control"
+        id="first-input-id"
+        name="first_input"
+        onChange={[Function]}
+        placeholder="Enter Name"
+        type="text"
+      />
+      <input
+        className="form-input form-control"
+        id="price_input"
+        name="price"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value=""
+      />
+      <button
+        className="btn btn-form-submit btn-modal-form-submit"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`handles additional methods 4`] = `
+<div
+  className="card-modal"
+  id="crud-div"
+>
+  <div
+    className="card crud-card drop-shadow"
+  >
+    <span
+      className="close"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+    <h3
+      className="title crud-title"
+    >
+      A title
+    </h3>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-control"
+        id="first-input-id"
+        name="first_input"
+        onChange={[Function]}
+        placeholder={null}
+        type="text"
+      />
+      <input
+        className="form-input form-control"
+        id="price_input"
+        name="price"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value=""
+      />
+      <button
+        className="btn btn-form-submit btn-modal-form-submit"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`handles additional methods 5`] = `
+<div
+  className="card-modal"
+  id="crud-div"
+>
+  <div
+    className="card crud-card drop-shadow"
+  >
+    <span
+      className="close"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+    <h3
+      className="title crud-title"
+    >
+      A title
+    </h3>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-input form-control"
+        id="price_input"
+        name="price"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value=""
+      />
+      <button
+        className="btn btn-form-submit btn-modal-form-submit"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`handles additional methods 6`] = `
+<div
+  className="card-modal"
+  id="crud-div"
+>
+  <div
+    className="card crud-card drop-shadow"
+  >
+    <span
+      className="close"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+    <h3
+      className="title crud-title"
+    >
+      A title
+    </h3>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-control"
+        id="first-input-id"
+        name="first_input"
+        onChange={[Function]}
+        placeholder={null}
+        type="text"
+      />
+      <input
+        className="form-input form-control"
+        id="price_input"
+        name="price"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value=""
+      />
+      <button
+        className="btn btn-form-submit btn-modal-form-submit"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`handles additional methods 7`] = `
+<div
+  className="card-modal"
+  id="crud-div"
+>
+  <div
+    className="card crud-card drop-shadow"
+  >
+    <span
+      className="close"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+    <h3
+      className="title crud-title"
+    >
+      A title
+    </h3>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-input form-control"
+        id="price_input"
+        name="price"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value=""
+      />
+      <button
+        className="btn btn-form-submit btn-modal-form-submit"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`handles change password 1`] = `
+<div
+  className="card-modal"
+  id="crud-div"
+>
+  <div
+    className="card crud-card drop-shadow"
+  >
+    <span
+      className="close"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+    <h3
+      className="title crud-title"
+    >
+      A title
+    </h3>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-control"
+        id="old-password-id"
+        name="old_password"
+        onChange={[Function]}
+        placeholder="Old Password"
+        type="password"
+        value=""
+      />
+      <input
+        className="form-input form-control"
+        id="price_input"
+        name="price"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value={100}
+      />
+      <button
+        className="btn btn-form-submit btn-modal-form-submit"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`handles delete shopping list 1`] = `
+<div
+  className="card-modal"
+  id="crud-div"
+>
+  <div
+    className="card crud-card drop-shadow"
+  >
+    <span
+      className="close"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+    <h3
+      className="title crud-title"
+    >
+      A title
+    </h3>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-input form-control"
+        id="price_input"
+        name="price"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value={100}
+      />
+      <button
+        className="btn btn-form-submit btn-modal-form-submit"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`handles delete shopping list item 1`] = `
+<div
+  className="card-modal"
+  id="crud-div"
+>
+  <div
+    className="card crud-card drop-shadow"
+  >
+    <span
+      className="close"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+    <h3
+      className="title crud-title"
+    >
+      A title
+    </h3>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-input form-control"
+        id="price_input"
+        name="price"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value={100}
+      />
+      <button
+        className="btn btn-form-submit btn-modal-form-submit"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`handles edit shopping list 1`] = `
+<div
+  className="card-modal"
+  id="crud-div"
+>
+  <div
+    className="card crud-card drop-shadow"
+  >
+    <span
+      className="close"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+    <h3
+      className="title crud-title"
+    >
+      A title
+    </h3>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-control"
+        id="first-input-id"
+        name="first_input"
+        onChange={[Function]}
+        placeholder={null}
+        type="text"
+        value=""
+      />
+      <input
+        className="form-input form-control"
+        id="price_input"
+        name="price"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value={100}
+      />
+      <button
+        className="btn btn-form-submit btn-modal-form-submit"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`handles edit shopping list item 1`] = `
+<div
+  className="card-modal"
+  id="crud-div"
+>
+  <div
+    className="card crud-card drop-shadow"
+  >
+    <span
+      className="close"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+    <h3
+      className="title crud-title"
+    >
+      A title
+    </h3>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-control"
+        id="first-input-id"
+        name="first_input"
+        onChange={[Function]}
+        placeholder={null}
+        type="text"
+        value=""
+      />
+      <input
+        className="form-input form-control"
+        id="price_input"
+        name="price"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value={100}
+      />
+      <button
+        className="btn btn-form-submit btn-modal-form-submit"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`renders the modal component 1`] = `
 <div
   className="card-modal"

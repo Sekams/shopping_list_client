@@ -57,28 +57,22 @@ class HomePage extends Component {
             global.callAPI('/shoppinglists/' + this.state.page_limit + '/' + global.localStorage.getItem("currentPage"), "GET")
                 .then((responseJson) => {
                     if (responseJson.status && responseJson.status === "success") {
-                        if (this._mounted) {
-                            this.setState({
-                                total_lists: responseJson.total,
-                                shoppingLists: responseJson.shoppingLists
-                            });
-                        }
-                    } else {
-                        if (this._mounted) {
-                            this.setState({
-                                msg: "No Shopping Lists",
-                                msg_type: "danger"
-                            });
-                        }
-                    }
-                })
-                .catch((error) => {
-                    if (this._mounted) {
                         this.setState({
-                            msg: error.message,
+                            total_lists: responseJson.total,
+                            shoppingLists: responseJson.shoppingLists
+                        });
+                    } else {
+                        this.setState({
+                            msg: "No Shopping Lists",
                             msg_type: "danger"
                         });
                     }
+                })
+                .catch((error) => {
+                    this.setState({
+                        msg: error.message,
+                        msg_type: "danger"
+                    });
                 });
         }
     }
@@ -95,21 +89,17 @@ class HomePage extends Component {
                         if (responseJson.status && responseJson.status === "success") {
                             responseJson.shoppingLists.forEach((shoppingList) => {
                                 newShoppingLists.push(shoppingList);
-                                if (this._mounted) {
-                                    this.setState({
-                                        shoppingLists: newShoppingLists
-                                    });
-                                }
+                                this.setState({
+                                    shoppingLists: newShoppingLists
+                                });
 
                             });
 
                         } else {
-                            if (this._mounted) {
-                                this.setState({
-                                    msg: "No Shopping Lists",
-                                    msg_type: "danger"
-                                });
-                            }
+                            this.setState({
+                                msg: "No Shopping Lists",
+                                msg_type: "danger"
+                            });
                         }
                     })
                     .catch((error) => {
@@ -133,12 +123,9 @@ class HomePage extends Component {
                                             if (!exists) {
                                                 newShoppingLists.push(responseJson.shoppingList);
                                             }
-                                            if (this._mounted) {
-                                                this.setState({
-                                                    // total_lists: 0,
-                                                    shoppingLists: newShoppingLists
-                                                });
-                                            }
+                                            this.setState({
+                                                shoppingLists: newShoppingLists
+                                            });
                                         }
                                     })
                                     .catch((error) => { });
@@ -164,17 +151,15 @@ class HomePage extends Component {
     showModal = (event) => {
         event.preventDefault();
 
-        if (this._mounted) {
-            if (this.state.show_modal) {
-                this.setState({
-                    show_modal: false
-                });
-            }
-            else {
-                this.setState({
-                    show_modal: true
-                });
-            }
+        if (this.state.show_modal) {
+            this.setState({
+                show_modal: false
+            });
+        }
+        else {
+            this.setState({
+                show_modal: true
+            });
         }
     }
 
