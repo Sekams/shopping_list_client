@@ -18,24 +18,28 @@ class RegistrationForm extends Component {
         };
     }
 
+    //Change state username according to the username input
     handleUsername(username) {
         this.setState({
             username: username,
             msg: ''
         });
     }
+    //Change state password according to the password input
     handlePassword(password) {
         this.setState({
             password: password,
             msg: ''
         });
     }
+    //Change state email according to the email input
     handleEmail(email) {
         this.setState({
             email: email,
             msg: ''
         });
     }
+    //Change state confirm password according to the confirm password input
     handleConfirmPassword(confirm_password) {
         this.setState({
             confirm_password: confirm_password,
@@ -43,6 +47,7 @@ class RegistrationForm extends Component {
         });
     }
 
+    //Check that an email address is valid
     verifyEmail(email) {
         if (!(email.includes("@")) || !(email.split("@")[1].includes(".")) || (email.replace("@", "").includes("@")) || email.includes("@.")) {
             return false;
@@ -50,6 +55,7 @@ class RegistrationForm extends Component {
         return true;
     }
 
+    //Check that 2 passwords match
     matchPasswords(password, confirm_password) {
         if (password === confirm_password) {
             return true;
@@ -57,6 +63,7 @@ class RegistrationForm extends Component {
         return false
     }
 
+    //Handle the event of signing up
     handleSignUp = (event) => {
         global.showSpinner(this);
 
@@ -65,7 +72,7 @@ class RegistrationForm extends Component {
         let signUpForm = this.state;
         let formData = new FormData();
 
-        this.clearMessages();
+        global.clearMessages(this);
 
         if (signUpForm.username && signUpForm.password && signUpForm.email && signUpForm.confirm_password) {
             formData.append('username', signUpForm.username);
@@ -73,7 +80,9 @@ class RegistrationForm extends Component {
                 formData.append('email', signUpForm.email);
                 if (this.matchPasswords(signUpForm.password, signUpForm.confirm_password)) {
                     formData.append('password', signUpForm.password);
+                    //Make an HTTP request to the API to register a user
                     global.callAPI('/auth/register', "POST", formData)
+                        //Handle promise response
                         .then((responseJson) => {
 
                             if (responseJson.status && responseJson.status === "success") {
@@ -93,6 +102,7 @@ class RegistrationForm extends Component {
                                 global.dismissSpinner(this);
                             }
                         })
+                        //Handle errors
                         .catch((error) => {
                             this.setState({
                                 msg: error.message,
@@ -126,16 +136,10 @@ class RegistrationForm extends Component {
         }
     }
 
-    clearMessages() {
-        this.setState({
-            msg: '',
-            msg_type: ''
-        });
-    }
-
     render() {
         let snackBar = null;
 
+        //Render Snackbar if there are any messages
         if (this.state.msg && this.state.msg_type) {
             snackBar = <SnackBar
                 class={this.state.msg_type + "-snackbar"}

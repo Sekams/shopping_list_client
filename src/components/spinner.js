@@ -9,6 +9,7 @@ class Spinner extends Component {
         };
     }
 
+    //Handle the event for showing/hiding the spinner
     showSpinner = (show) => {
         if (show) {
             this.setState({ class_name: "spinner-wrapper" });

@@ -10,22 +10,24 @@ class SnackBar extends Component {
             class: props.class
         };
 
+        //Request an animation frame in the view
         requestAnimationFrame(() => this.showSnackBar())
     }
 
-
-
+    // Ensure that the component has been mounted into view
     componentDidMount() {
         this._mounted = true;
         global.localStorage.setItem("message", "");
         global.localStorage.setItem("messageType", "");
     }
 
+    //Check if the component is yet to be mouted into view
     componentWillUnmount() {
         this._mounted = false;
         timer.clearTimeout(this);
     }
 
+    //Set the timeout for showing the Snackbar animation 
     showSnackBar() {
         if (this._mounted) {
             this.setState({ class: this.props.class + " show" }, () => timer.setTimeout(

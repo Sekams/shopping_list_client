@@ -2,7 +2,10 @@ import React from 'react';
 import NavBarOptionItem from './nav_bar_option_item';
 
 const NavBarOptions = (props) => {
+    //Set the options to be rendered in the Navbar
     const optionNames = ["search", "greeting", "link"]
+
+    //Render a NavBarOptionItem for each option
     const options = optionNames.map((optionName) => {
         return <NavBarOptionItem
             key={optionName}

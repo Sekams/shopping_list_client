@@ -22,23 +22,17 @@ class ShoppingListItem extends Component {
         };
     }
 
+    //Ensure that the component has been mounted into view
     componentDidMount() {
         this._mounted = true;
     }
 
+    //Check if the component is yet to be mounted
     componentWillUnmount() {
         this._mounted = false;
     }
 
-    clearMessages() {
-        if (this._mounted) {
-            this.setState({
-                msg: '',
-                msg_type: ''
-            });
-        }
-    }
-
+    //Handle the event for putting the modal into view
     showModal = (event) => {
         event.preventDefault();
         
@@ -56,6 +50,7 @@ class ShoppingListItem extends Component {
         }
     }
 
+    //Handle the event of editing a shopping list item
     editShoppingListItem = (event) => {
         event.preventDefault();
 
@@ -71,6 +66,7 @@ class ShoppingListItem extends Component {
         }
     }
 
+    //Handle the event of deleting a shopping list item
     deleteShoppingListItem = (event) => {
         event.preventDefault();
 
@@ -90,6 +86,7 @@ class ShoppingListItem extends Component {
         let modal = null;
         let theClass = "list-card";
 
+        //Render modal is expected
         if (this.state.show_modal) {
             modal = <Modal
                 title={this.state.modal_title}
@@ -100,10 +97,10 @@ class ShoppingListItem extends Component {
                 shopping_list_id={this.state.shopping_list_id}
                 shopping_list_item_id={this.state.id}
                 shopping_list_item_status={this.state.status}
-                clearMessages={() => this.clearMessages()}
                 showModal={(event) => this.showModal(event)} />;
         }
 
+        //Check if the shopping list item is being searched for and highlight it if true
         if (global.localStorage.getItem("searchTerm") && this.state.name.substring(0, global.localStorage.getItem("searchTerm").length).toLowerCase() === global.localStorage.getItem("searchTerm").toLowerCase()) {
             theClass = theClass + " highlighted-item";
         }

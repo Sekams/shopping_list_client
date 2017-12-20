@@ -12,7 +12,6 @@ test("clears messages", () => {
     const wrapper = shallow(
         <ShoppingListItem />
     );
-    wrapper.instance().clearMessages();
     expect(wrapper).toMatchSnapshot();
 });
 
@@ -75,7 +74,6 @@ test("calls methods on modal", () => {
     );
     wrapper.instance().showModal({ preventDefault() {} });
     wrapper.update();
-    wrapper.props().children[2].props.clearMessages();
     wrapper.props().children[2].props.showModal({ preventDefault() {} });
     expect(wrapper).toMatchSnapshot();
 });

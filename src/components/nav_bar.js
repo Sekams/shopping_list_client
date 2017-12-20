@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 const NavBar = (props) => {
     return (
+        //Render NavBar
         <nav className="navbar navbar-fixed-top drop-shadow" id="home-navbar">
             <div className="container">
                 <div className="navbar-header">
