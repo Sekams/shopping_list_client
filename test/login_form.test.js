@@ -1,10 +1,19 @@
 import React from 'react';
 import LoginForm from '../src/components/login_form'
+import Spinner from '../src/components/spinner'
 
 test("renders the login_form component", () => {
     const wrapper = shallow(
         <LoginForm />
     );
+    const spinner = shallow(
+        <Spinner />
+    );
+    wrapper.instance()._spinner = spinner.instance();
+    wrapper.instance()._spinner.showSpinner = jest.fn();
+    global.showSpinner(wrapper.instance());
+    global.dismissSpinner(wrapper.instance());
+    wrapper.props().children[1].ref();
     expect(wrapper).toMatchSnapshot();
 });
 

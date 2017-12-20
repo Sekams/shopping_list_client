@@ -9,11 +9,13 @@ class NavBarDropdown extends Component {
         };
     }
 
+    //Handle the event of placing the modal into view
     showModal = (event) => {
         event.preventDefault();
         this.props.showModal(event);
     }
 
+    //Set the page limit of the application
     setLimit6 = (event) => {
         global.localStorage.setItem("pageLimit", 6);
         this.props.setPageLimit(event);
@@ -32,6 +34,7 @@ class NavBarDropdown extends Component {
     }
 
     render() {
+        //Render dropdown for changing password
         if (this.state.owner === "change_password") {
             return (
                 <ul id="account-navbar-dropdown" className="dropdown-menu show">
@@ -40,6 +43,7 @@ class NavBarDropdown extends Component {
                 </ul>
             );
         }
+        //Render dropdown for setting the page limit
         else if (this.state.owner === "page_limit") {
             return (
                 <ul id="page-limit-navbar-dropdown" className="dropdown-menu show">

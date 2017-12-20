@@ -148,3 +148,18 @@ test("catches errors", () => {
     wrapper.instance().toggleItemStatus({ preventDefault() { } });
     expect(wrapper).toMatchSnapshot();
 });
+
+test("shows spinner", () => {
+    const props = {
+        id: 1,
+        name: 'Tomatoes',
+        price: 120,
+        status: false,
+        shopping_list_id: 1
+    };
+    const wrapper = shallow(
+        <CheckBox {...props} />
+    );
+    wrapper.props().children[0].ref();
+    expect(wrapper).toMatchSnapshot();
+});

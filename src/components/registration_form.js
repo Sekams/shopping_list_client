@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import NavBar from './nav_bar'
-import SnackBar from './snackbar'
+import NavBar from './nav_bar';
+import SnackBar from './snackbar';
+import Spinner from './spinner';
 
 class RegistrationForm extends Component {
     constructor(props) {
@@ -17,24 +18,28 @@ class RegistrationForm extends Component {
         };
     }
 
+    //Change state username according to the username input
     handleUsername(username) {
         this.setState({
             username: username,
             msg: ''
         });
     }
+    //Change state password according to the password input
     handlePassword(password) {
         this.setState({
             password: password,
             msg: ''
         });
     }
+    //Change state email according to the email input
     handleEmail(email) {
         this.setState({
             email: email,
             msg: ''
         });
     }
+    //Change state confirm password according to the confirm password input
     handleConfirmPassword(confirm_password) {
         this.setState({
             confirm_password: confirm_password,
@@ -42,6 +47,7 @@ class RegistrationForm extends Component {
         });
     }
 
+    //Check that an email address is valid
     verifyEmail(email) {
         if (!(email.includes("@")) || !(email.split("@")[1].includes(".")) || (email.replace("@", "").includes("@")) || email.includes("@.")) {
             return false;
@@ -49,6 +55,7 @@ class RegistrationForm extends Component {
         return true;
     }
 
+    //Check that 2 passwords match
     matchPasswords(password, confirm_password) {
         if (password === confirm_password) {
             return true;
@@ -56,13 +63,16 @@ class RegistrationForm extends Component {
         return false
     }
 
+    //Handle the event of signing up
     handleSignUp = (event) => {
+        global.showSpinner(this);
+
         event.preventDefault();
 
         let signUpForm = this.state;
         let formData = new FormData();
 
-        this.clearMessages();
+        global.clearMessages(this);
 
         if (signUpForm.username && signUpForm.password && signUpForm.email && signUpForm.confirm_password) {
             formData.append('username', signUpForm.username);
@@ -70,7 +80,9 @@ class RegistrationForm extends Component {
                 formData.append('email', signUpForm.email);
                 if (this.matchPasswords(signUpForm.password, signUpForm.confirm_password)) {
                     formData.append('password', signUpForm.password);
+                    //Make an HTTP request to the API to register a user
                     global.callAPI('/auth/register', "POST", formData)
+                        //Handle promise response
                         .then((responseJson) => {
 
                             if (responseJson.status && responseJson.status === "success") {
@@ -81,14 +93,22 @@ class RegistrationForm extends Component {
                                 global.localStorage.setItem("message", responseJson.message);
                                 global.localStorage.setItem("messageType", "success");
                                 this.props.history.push('/login');
+                                global.dismissSpinner(this);
                             } else {
                                 this.setState({
                                     msg: responseJson.message,
                                     msg_type: 'danger'
                                 });
+                                global.dismissSpinner(this);
                             }
                         })
+                        //Handle errors
                         .catch((error) => {
+                            this.setState({
+                                msg: error.message,
+                                msg_type: 'danger'
+                            });
+                            global.dismissSpinner(this);
                         });
                 }
                 else {
@@ -96,6 +116,7 @@ class RegistrationForm extends Component {
                         msg: 'Passwords don\'t match!',
                         msg_type: 'danger'
                     });
+                    global.dismissSpinner(this);
                 }
             }
             else {
@@ -103,6 +124,7 @@ class RegistrationForm extends Component {
                     msg: 'Invalid email address!',
                     msg_type: 'danger'
                 });
+                global.dismissSpinner(this);
             }
         }
         else {
@@ -110,19 +132,14 @@ class RegistrationForm extends Component {
                 msg: 'Please fill in all the fields',
                 msg_type: 'danger'
             });
+            global.dismissSpinner(this);
         }
-    }
-
-    clearMessages() {
-        this.setState({
-            msg: '',
-            msg_type: ''
-        });
     }
 
     render() {
         let snackBar = null;
 
+        //Render Snackbar if there are any messages
         if (this.state.msg && this.state.msg_type) {
             snackBar = <SnackBar
                 class={this.state.msg_type + "-snackbar"}
@@ -133,6 +150,8 @@ class RegistrationForm extends Component {
             <div>
                 <NavBar
                     page='sign_up' />
+
+                <Spinner ref={(spinner) => { this._spinner = spinner; }} />
 
                 <div className="register-wrapper">
                     <div className="card register-card drop-shadow">

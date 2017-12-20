@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import SnackBar from './snackbar'
+import SnackBar from './snackbar';
+import Spinner from './spinner';
 require("../utils/helpers");
 
 class Modal extends Component {
@@ -22,68 +23,85 @@ class Modal extends Component {
         this.handleOnSubmit = this.handleOnSubmit.bind(this);
     }
 
-
+    //Change component state according to the old password input
     handleOldPassword(old_password) {
         this.setState({
             old_password: old_password
         });
     }
+    //Change component state according to the new password input
     handleNewPassword(new_password) {
         this.setState({
             new_password: new_password
         });
     }
 
+    //Change component state according to the first input element
     handleFirstInput(first_input) {
         this.setState({
             first_input: first_input
         });
     }
 
+    //Change component state according to the old password input
     handlePrice(price) {
         this.setState({
             price: price
         });
     }
 
+    //Make appropriate API calls according to the submitted form
     handleOnSubmit = (event) => {
 
+        //Handle change password form submission
         if (this.props.owner === "change_password") {
             this.changePassword(event);
         }
+        //Handle add shopping list form submission
         else if (this.props.owner === "add_shopping_list") {
             this.addShoppingList(event);
         }
+        //Handle add shopping list item form submission
         else if (this.props.owner === "add_shopping_list_item") {
             this.addShoppingListItem(event);
         }
+        //Handle edit shopping list form submission
         else if (this.props.owner === "edit_shopping_list") {
             this.editShoppingList(event);
         }
+        //Handle delete shopping list form submission
         else if (this.props.owner === "delete_shopping_list") {
             this.deleteShoppingList(event);
         }
+        //Handle edit shopping list item form submission
         else if (this.props.owner === "edit_shopping_list_item") {
             this.editShoppingListItem(event);
         }
+        //Handle delete shopping list item form submission
         else if (this.props.owner === "delete_shopping_list_item") {
             this.deleteShoppingListItem(event);
         }
 
+        //Prevent function from refreshing
         event.preventDefault();
     }
 
+    //Handle event for adding shopping lists
     addShoppingList = (event) => {
         event.preventDefault();
 
         if (this.state.first_input) {
+            global.showSpinner(this);
+
             global.clearMessages(this);
 
             let addShoppingListFormData = new FormData();
 
             addShoppingListFormData.append("title", this.state.first_input);
 
+            //Make API request to add a shopping list
             global.callAPI('/shoppinglists/', "POST", addShoppingListFormData)
+                //Handle promise response
                 .then((responseJson) => {
                     if (responseJson.status && responseJson.status === "success") {
                         this.setState({
@@ -94,18 +112,22 @@ class Modal extends Component {
                         global.localStorage.setItem("message", "Shopping List '" + responseJson.shoppingList.title + "' Created");
                         global.localStorage.setItem("messageType", "success");
                         window.location.reload();
+                        global.dismissSpinner(this);
                     } else {
                         this.setState({
                             msg: "Shopping List '" + addShoppingListFormData["title"] + "' Not Created",
                             msg_type: "danger",
                         });
+                        global.dismissSpinner(this);
                     }
                 })
+                //Handle any error
                 .catch((error) => {
                     this.setState({
                         msg: error.message,
                         msg_type: "danger"
                     });
+                    global.dismissSpinner(this);
                 });
         }
         else {
@@ -116,10 +138,13 @@ class Modal extends Component {
         }
     }
 
+    //Handle event for editing shopping lists
     editShoppingList = (event) => {
         event.preventDefault();
 
         if (this.state.first_input) {
+            global.showSpinner(this);
+
             global.clearMessages(this);
 
             let editShoppingListFormData = new FormData();
@@ -137,11 +162,13 @@ class Modal extends Component {
                         global.localStorage.setItem("message", "Shopping List '" + this.props.first_input + "' Edited to '" + responseJson.shoppingList.title + "'");
                         global.localStorage.setItem("messageType", "success");
                         window.location.reload();
+                        global.dismissSpinner(this);
                     } else {
                         this.setState({
                             msg: "Shopping List '" + this.props.first_input + "' Not Edited",
                             msg_type: "danger",
                         });
+                        global.dismissSpinner(this);
                     }
                 })
                 .catch((error) => {
@@ -149,6 +176,7 @@ class Modal extends Component {
                         msg: error.message,
                         msg_type: "danger"
                     });
+                    global.dismissSpinner(this);
                 });
         }
         else {
@@ -159,7 +187,10 @@ class Modal extends Component {
         }
     }
 
+    //Handle event for deleting shopping lists
     deleteShoppingList = (event) => {
+        global.showSpinner(this);
+
         event.preventDefault();
 
         global.clearMessages(this);
@@ -175,11 +206,13 @@ class Modal extends Component {
                     global.localStorage.setItem("message", responseJson.message);
                     global.localStorage.setItem("messageType", "success");
                     window.location.reload();
+                    global.dismissSpinner(this);
                 } else {
                     this.setState({
                         msg: responseJson.message,
                         msg_type: "danger",
                     });
+                    global.dismissSpinner(this);
                 }
             })
             .catch((error) => {
@@ -187,10 +220,14 @@ class Modal extends Component {
                     msg: error.message,
                     msg_type: "danger"
                 });
+                global.dismissSpinner(this);
             });
     }
 
+    //Handle event for changing a password
     changePassword = (event) => {
+        global.showSpinner(this);
+
         event.preventDefault();
 
         global.clearMessages(this);
@@ -210,6 +247,7 @@ class Modal extends Component {
                             msg_type: "success",
                             showing: false
                         });
+                        global.dismissSpinner(this);
                     }
                 })
                 .catch((error) => {
@@ -217,6 +255,7 @@ class Modal extends Component {
                         msg: error.message,
                         msg_type: "danger"
                     });
+                    global.dismissSpinner(this);
                 });
         }
         else {
@@ -225,10 +264,14 @@ class Modal extends Component {
                 msg_type: "danger",
                 showing: true
             });
+            global.dismissSpinner(this);
         }
     }
 
+    //Handle event for adding shopping list items
     addShoppingListItem = (event) => {
+        global.showSpinner(this);
+
         event.preventDefault();
 
         global.clearMessages(this);
@@ -250,20 +293,25 @@ class Modal extends Component {
                     global.localStorage.setItem("message", "Shopping List Item '" + responseJson.shoppingListItem.name + "' Created");
                     global.localStorage.setItem("messageType", "success");
                     window.location.reload();
-                }
+                } 
+                global.dismissSpinner(this);
             })
             .catch((error) => {
                 this.setState({
                     msg: error.message,
                     msg_type: "danger"
                 });
+                global.dismissSpinner(this);
             });
     };
 
+    //Handle event for editing shopping list items
     editShoppingListItem = (event) => {
         event.preventDefault();
 
         if (this.state.first_input && this.state.price) {
+            global.showSpinner(this);
+
             global.clearMessages(this);
 
             let editShoppingListItemFormData = new FormData();
@@ -283,11 +331,13 @@ class Modal extends Component {
                         global.localStorage.setItem("message", responseJson.message);
                         global.localStorage.setItem("messageType", "success");
                         window.location.reload();
+                        global.dismissSpinner(this);
                     } else {
                         this.setState({
                             msg: responseJson.message,
                             msg_type: "danger",
                         });
+                        global.dismissSpinner(this);
                     }
                 })
                 .catch((error) => {
@@ -295,6 +345,7 @@ class Modal extends Component {
                         msg: error.message,
                         msg_type: "danger"
                     });
+                    global.dismissSpinner(this);
                 });
         }
         else {
@@ -305,7 +356,10 @@ class Modal extends Component {
         }
     };
 
+    //Handle event for deleting shopping list items
     deleteShoppingListItem = (event) => {
+        global.showSpinner(this);
+
         event.preventDefault();
 
         global.clearMessages(this);
@@ -321,11 +375,13 @@ class Modal extends Component {
                     global.localStorage.setItem("message", responseJson.message);
                     global.localStorage.setItem("messageType", "success");
                     window.location.reload();
+                    global.dismissSpinner(this);
                 } else {
                     this.setState({
                         msg: responseJson.message,
                         msg_type: "danger",
                     });
+                    global.dismissSpinner(this);
                 }
             })
             .catch((error) => {
@@ -333,15 +389,18 @@ class Modal extends Component {
                     msg: error.message,
                     msg_type: "danger"
                 });
+                global.dismissSpinner(this);
             });
     }
 
     render() {
         let buttons, firstInput, secondInput, snackBar, placeHolder = null;
 
+        //Render single submit button
         if (this.props.create || this.props.owner === "change_password") {
             buttons = <button className="btn btn-form-submit btn-modal-form-submit" type="submit">Save</button>;
         }
+        //Render two buttons
         else {
             buttons = <div className="card-modal-button-wrapper">
                 <div className="modal-left-button">
@@ -352,7 +411,8 @@ class Modal extends Component {
                 </div>
             </div>
         }
-
+    
+        //Render two input fields
         if (this.props.owner === "change_password") {
             firstInput = <input
                 id="old-password-id"
@@ -372,9 +432,11 @@ class Modal extends Component {
                 onChange={event => this.handleNewPassword(event.target.value)}
                 placeholder="New Password" />;
         }
+        // Render no inputs when deleting
         else if (this.props.owner === "delete_shopping_list" || this.props.owner === "delete_shopping_list_item") {
 
         }
+        //Render single input
         else {
             if (this.props.owner === "add_shopping_list") {
                 placeHolder = "Enter Title";
@@ -392,6 +454,7 @@ class Modal extends Component {
                 placeholder={placeHolder} />;
         }
 
+        //Render input for digits
         if (this.props.price) {
             secondInput = <input
                 id="price_input"
@@ -403,15 +466,20 @@ class Modal extends Component {
                 placeholder="Enter Price" />
         }
 
+        //Render Snackbar if there are messages to show
         if (this.state.msg && this.state.msg_type) {
             snackBar = <SnackBar
                 class={this.state.msg_type + "-snackbar"}
                 message={this.state.msg} />;
         }
 
+        //Render modal if it is required
         if (this.state.showing) {
             return (
                 <div className="card-modal" id="crud-div">
+
+                    <Spinner ref={(spinner) => { this._spinner = spinner; }} />
+
                     <div className="card crud-card drop-shadow">
                         <span className="close" onClick={this.closeModal}>&times;</span>
                         <h3 className="title crud-title">{this.props.title}</h3>
@@ -436,6 +504,7 @@ class Modal extends Component {
         }
     }
 
+    //Handle the event of removing the modal from view
     closeModal = (event) => {
         event.preventDefault();
 
