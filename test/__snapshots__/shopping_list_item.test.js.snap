@@ -55,7 +55,6 @@ exports[`calls methods on modal 1`] = `
     status={false}
   />
   <Modal
-    clearMessages={[Function]}
     create={false}
     owner=""
     price={200}
@@ -170,7 +169,6 @@ exports[`clicks anchors and shows modal 1`] = `
     status={false}
   />
   <Modal
-    clearMessages={[Function]}
     create={false}
     first_input=""
     owner="delete_shopping_list_item"

@@ -23,19 +23,24 @@ class ShoppingList extends Component {
 
     }
 
+    //Ensure that the component is mounted into view
     componentDidMount() {
         this._mounted = true;
         this.getShoppingListItems();
     };
 
+    //Check if the component is yet to be mounted into view
     componentWillUnmount() {
         this._mounted = false;
     }
 
+    //Get all shopping list items of the shopping list
     getShoppingListItems() {
         global.showSpinner(this);
         global.clearMessages(this);
+        //Make an HTTP request to the API to get all shopping list items of the shopping list
         global.callAPI('/shoppinglists/' + this.state.id + '/items/1000/1', 'GET')
+            //Handle promise response
             .then((responseJson) => {
                 if (responseJson.status && responseJson.status === "success") {
                     if (this._mounted) {
@@ -46,11 +51,13 @@ class ShoppingList extends Component {
                     }
                 }
             })
+            //Handle errors
             .catch((error) => {
                 global.dismissSpinner(this);
             });
     }
 
+    //Handle the event of adding a shopping list item
     addShoppingListItem = (event) => {
         event.preventDefault();
 
@@ -66,6 +73,7 @@ class ShoppingList extends Component {
         }
     }
 
+    //Handle the event of editing a shopping list
     editShoppingList = (event) => {
         event.preventDefault();
 
@@ -81,6 +89,7 @@ class ShoppingList extends Component {
         }
     }
 
+    //Handle the event of deleting a shopping list
     deleteShoppingList = (event) => {
         event.preventDefault();
 
@@ -96,6 +105,7 @@ class ShoppingList extends Component {
         }
     }
 
+    //Handle the event for putting modal into view
     showModal(event) {
         event.preventDefault();
 
@@ -117,6 +127,7 @@ class ShoppingList extends Component {
         let shoppingListItems, modal = null;
         let theClass = "card-container";
 
+        //Render a shopping list item component for each of the items
         if (this.state.shoppingListItems) {
             shoppingListItems = this.state.shoppingListItems.map((item) => {
                 return <ShoppingListItem
@@ -131,6 +142,7 @@ class ShoppingList extends Component {
             });
         }
 
+        //Render modal if expected
         if (this.state.show_modal) {
             modal = <Modal
                 title={this.state.modal_title}
@@ -143,6 +155,7 @@ class ShoppingList extends Component {
                 showModal={(event) => this.showModal(event)} />;
         }
 
+        //Check if the shopping list is being searched for and highlight it if true
         if (global.localStorage.getItem("searchTerm") && this.state.title.substring(0, global.localStorage.getItem("searchTerm").length).toLowerCase() === global.localStorage.getItem("searchTerm").toLowerCase()) {
             theClass = theClass + " highlighted";
         }

@@ -17,6 +17,7 @@ class NavBarOptionItem extends Component {
         };
     }
 
+    //Handle the event of showing/hiding the change password dropdown menu
     toggleDropDownChangePw = (event) => {
         event.preventDefault();
 
@@ -36,6 +37,7 @@ class NavBarOptionItem extends Component {
         }
     }
 
+    //Handle the event of showing/hiding the page limit dropdown menu
     toggleDropDownPageLimit = (event) => {
         event.preventDefault();
 
@@ -55,12 +57,14 @@ class NavBarOptionItem extends Component {
         }
     }
 
+    //Handle the event for setting the page limit
     setPageLimit = (event) => {
         this.setState({
             page_limit: global.localStorage.getItem("pageLimit")
         });
     }
 
+    //Handle the event of putting the modal into view
     showModal = (event) => {
         event.preventDefault();
 
@@ -70,11 +74,14 @@ class NavBarOptionItem extends Component {
         });
     }
 
+    //Handle the logout event
     handleLogout = (event) => {
         event.preventDefault();
 
         if (global.localStorage.getItem("accessToken")) {
+            //Make an HTTP request to the API to logout the user
             global.callAPI('/auth/logout', "POST")
+                //Handle promise response
                 .then((responseJson) => {
                     if (responseJson.status && responseJson.status === "success") {
                         global.localStorage.setItem("accessToken", "");
@@ -87,6 +94,7 @@ class NavBarOptionItem extends Component {
                         global.localStorage.setItem("messageType", "danger");
                     }
                 })
+                //Handle errors
                 .catch((error) => {
                 });
         }
@@ -94,12 +102,14 @@ class NavBarOptionItem extends Component {
             global.localStorage.setItem("message", "Please Login");
             global.localStorage.setItem("messageType", "danger");
         }
+        //Load the login page
         window.location = "/login";
     }
 
     render() {
         let dropdown, modal = null;
 
+        // Render the dropdown menu on the NavBar if expected
         if (this.state.show_dropdown) {
             dropdown = <NavBarDropdown
                 owner={this.state.dropdown_owner}
@@ -107,12 +117,14 @@ class NavBarOptionItem extends Component {
                 setPageLimit={(event) => this.setPageLimit(event)} />;
         }
 
+        // Render the modal on the NavBar if expected
         if (this.state.show_modal) {
             modal = <Modal
                 title="Change Password"
                 owner="change_password" />;
         }
 
+        //Render search bar and page limit drop down
         if (this.props.logged_in && this.props.authorized && this.props.page === 'home' && this.props.name === 'search') {
             return (
                 <li>
@@ -127,6 +139,7 @@ class NavBarOptionItem extends Component {
                 </li>
             );
         }
+        //Render greeting and account dropdown
         if (this.props.username && this.props.name === 'greeting') {
             return (
                 <li>
@@ -136,6 +149,7 @@ class NavBarOptionItem extends Component {
                 </li>
             );
         }
+        //Render logout link
         if (this.props.logged_in && this.props.authorized && this.props.page === 'home' && this.props.name === 'link') {
             return (
                 <li>
@@ -143,6 +157,7 @@ class NavBarOptionItem extends Component {
                 </li>
             );
         }
+        // Render login link
         else if (this.props.page === 'sign_up' && this.props.name === 'link') {
             return (
                 <li>
@@ -150,6 +165,7 @@ class NavBarOptionItem extends Component {
                 </li>
             );
         }
+        //Render sign up link
         else if (this.props.page === 'login' && this.props.name === 'link') {
             return (
                 <li>

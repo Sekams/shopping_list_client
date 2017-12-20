@@ -6,6 +6,7 @@ import HomePage from './home_page'
 
 const Main = () => (
     <main role="main">
+        {/* Handle all the routes that are in the application*/}
         <Switch>
             <Route exact path='/' component={HomePage} />
             <Route path='/login' component={LoginFrom} />
