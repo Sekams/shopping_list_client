@@ -62,6 +62,7 @@ class NavBarOptionItem extends Component {
         this.setState({
             page_limit: global.localStorage.getItem("pageLimit")
         });
+        global.localStorage.setItem("currentPage", 1);
     }
 
     //Handle the event of putting the modal into view

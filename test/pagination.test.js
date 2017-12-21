@@ -43,15 +43,11 @@ test("handle all clicks", () => {
 
 test("handles no pages", () => {
     global.localStorage.setItem("pageLimit", 6);
-    global.localStorage.setItem("searchTerm", "");
-    const home_page = shallow(
-        <HomePage {...{ history: [] }} />
-    );
+    global.localStorage.setItem("searchTerm", "vknnrv");
     const props = {
         items: [1, 2, 3],
         total_items: 3,
-        onChangePage: jest.fn(),
-        home_component: home_page.instance()
+        onChangePage: jest.fn()
     }
     const wrapper = shallow(
         <Pagination {...props} />
