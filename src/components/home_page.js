@@ -28,6 +28,8 @@ class HomePage extends Component {
         this.onChangePage = this.onChangePage.bind(this);
 
         this.verifyAuthorization();
+
+        global.localStorage.setItem("searchTerm", '');
     }
 
     //Check if the user was successfully logged in
@@ -62,13 +64,13 @@ class HomePage extends Component {
             global.callAPI('/shoppinglists/' + this.state.page_limit + '/' + global.localStorage.getItem("currentPage"), "GET")
                 //Handle promise response
                 .then((responseJson) => {
-                    
+
                     if (responseJson.status && responseJson.status === "success") {
                         this.setState({
                             total_lists: responseJson.total,
-                            shoppingLists: responseJson.shoppingLists
+                            shoppingLists: responseJson.shoppingLists,
+                            remove_spinner: true
                         });
-                        // global.dismissSpinner(this);
                     } else {
                         this.setState({
                             msg: "No Shopping Lists",
@@ -94,6 +96,7 @@ class HomePage extends Component {
         if (this.verifyAuthorization()) {
             if (term) {
                 global.showSpinner(this);
+
                 global.clearMessages(this);
                 let newShoppingLists = [];
 
@@ -105,23 +108,22 @@ class HomePage extends Component {
                             responseJson.shoppingLists.forEach((shoppingList) => {
                                 newShoppingLists.push(shoppingList);
                                 this.setState({
-                                    shoppingLists: newShoppingLists
+                                    shoppingLists: newShoppingLists,
                                 });
 
                             });
-                            global.dismissSpinner(this);
                         } else {
                             this.setState({
                                 msg: "No Shopping Lists",
-                                msg_type: "danger"
+                                msg_type: "danger",
                             });
-                            global.dismissSpinner(this);
                         }
                     })
                     //Handle any errors if any
                     .catch((error) => {
                         global.dismissSpinner(this);
                     });
+
 
                 global.showSpinner(this);
                 //Make API request to get all shopping list items whose name starts with the search term
@@ -148,7 +150,6 @@ class HomePage extends Component {
                                             this.setState({
                                                 shoppingLists: newShoppingLists
                                             });
-                                            global.dismissSpinner(this);
                                         }
                                     })
                                     //Handle errors if any

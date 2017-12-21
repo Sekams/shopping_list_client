@@ -507,4 +507,75 @@ exports[`handle pages 2`] = `
 
 exports[`handles no pages 1`] = `""`;
 
-exports[`renders the pagination component 1`] = `""`;
+exports[`renders the pagination component 1`] = `
+<ul
+  className="pagination pagination-list"
+>
+  <li
+    className="disabled"
+  >
+    <a
+      onClick={[Function]}
+    >
+      ««
+    </a>
+  </li>
+  <li
+    className="disabled"
+  >
+    <a
+      onClick={[Function]}
+    >
+      «
+    </a>
+  </li>
+  <li
+    className="active"
+    key="0"
+  >
+    <a
+      onClick={[Function]}
+    >
+      1
+    </a>
+  </li>
+  <li
+    className=""
+    key="1"
+  >
+    <a
+      onClick={[Function]}
+    >
+      2
+    </a>
+  </li>
+  <li
+    className=""
+    key="2"
+  >
+    <a
+      onClick={[Function]}
+    >
+      3
+    </a>
+  </li>
+  <li
+    className=""
+  >
+    <a
+      onClick={[Function]}
+    >
+      »
+    </a>
+  </li>
+  <li
+    className=""
+  >
+    <a
+      onClick={[Function]}
+    >
+      »»
+    </a>
+  </li>
+</ul>
+`;

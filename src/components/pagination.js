@@ -41,7 +41,7 @@ class Pagination extends Component {
 
         global.showSpinner(this.props.home_component);
         if (!global.localStorage.getItem("searchTerm")) {
-                global.callAPI('/shoppinglists/' + global.localStorage.getItem("pageLimit") + '/' + global.localStorage.getItem("currentPage"), "GET")
+            global.callAPI('/shoppinglists/' + global.localStorage.getItem("pageLimit") + '/' + global.localStorage.getItem("currentPage"), "GET")
                 .then((responseJson) => {
                     if (responseJson.status && responseJson.status === "success") {
                         this.props.onChangePage(responseJson.shoppingLists);
