@@ -39,6 +39,7 @@ class Pagination extends Component {
         // update state
         this.setState({ pager: pager });
 
+        global.showSpinner(this.props.home_component);
         if (!global.localStorage.getItem("searchTerm")) {
                 global.callAPI('/shoppinglists/' + global.localStorage.getItem("pageLimit") + '/' + global.localStorage.getItem("currentPage"), "GET")
                 .then((responseJson) => {

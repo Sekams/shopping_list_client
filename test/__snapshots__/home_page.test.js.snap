@@ -27,14 +27,102 @@ exports[`calls onSearchTerm on the NavBar 1`] = `
     />
   </a>
   <Pagination
+    home_component={
+      HomePage {
+        "_mounted": true,
+        "context": Object {},
+        "onChangePage": [Function],
+        "props": Object {
+          "authorized": true,
+          "history": Array [],
+          "logged_in": true,
+          "page": "home",
+        },
+        "refs": Object {},
+        "showModal": [Function],
+        "state": Object {
+          "authorized": true,
+          "logged_in": "true",
+          "msg": "",
+          "msg_type": "",
+          "new_shopping_list_title": "",
+          "pageOfItems": Array [],
+          "page_limit": null,
+          "searchTerm": "",
+          "shoppingLists": Array [],
+          "show_modal": false,
+          "total_lists": 0,
+          "username": null,
+        },
+        "updater": Updater {
+          "_callbacks": Array [],
+          "_renderer": ReactShallowRenderer {
+            "_context": Object {},
+            "_element": <HomePage
+              authorized={true}
+              history={Array []}
+              logged_in={true}
+              page="home"
+            />,
+            "_forcedUpdate": false,
+            "_instance": [Circular],
+            "_newState": Object {
+              "authorized": true,
+              "logged_in": "true",
+              "msg": "",
+              "msg_type": "",
+              "new_shopping_list_title": "",
+              "pageOfItems": Array [],
+              "page_limit": null,
+              "searchTerm": "",
+              "shoppingLists": Array [],
+              "show_modal": false,
+              "total_lists": 0,
+              "username": null,
+            },
+            "_rendered": <div>
+              <NavBar
+                authorized={true}
+                logged_in="true"
+                onSearchTermChange={[Function]}
+                page="home"
+                username={null}
+              />
+              <Spinner />
+              <div
+                className="wrapper"
+              >
+                <div
+                  className="home-wrapper"
+                />
+              </div>
+              <a
+                className="btn-fab round-button"
+                href=""
+                onClick={[Function]}
+              >
+                <i
+                  className="fab-icon fa-plus"
+                />
+              </a>
+              <Pagination
+                home_component={[Circular]}
+                initialPage={1}
+                items={Array []}
+                onChangePage={[Function]}
+                total_items={0}
+              />
+            </div>,
+            "_rendering": false,
+            "_updater": [Circular],
+          },
+        },
+      }
+    }
     initialPage={1}
     items={Array []}
     onChangePage={[Function]}
     total_items={0}
-  />
-  <SnackBar
-    class="danger-snackbar"
-    message="Please Login"
   />
 </div>
 `;
@@ -66,6 +154,98 @@ exports[`calls onSearchTermChange 1`] = `
     />
   </a>
   <Pagination
+    home_component={
+      HomePage {
+        "_mounted": true,
+        "context": Object {},
+        "onChangePage": [Function],
+        "props": Object {
+          "authorized": true,
+          "history": Array [],
+          "logged_in": true,
+          "page": "home",
+        },
+        "refs": Object {},
+        "showModal": [Function],
+        "state": Object {
+          "authorized": true,
+          "logged_in": "true",
+          "msg": "",
+          "msg_type": "",
+          "new_shopping_list_title": "",
+          "pageOfItems": Array [],
+          "page_limit": null,
+          "searchTerm": "",
+          "shoppingLists": Array [],
+          "show_modal": false,
+          "total_lists": 0,
+          "username": null,
+        },
+        "updater": Updater {
+          "_callbacks": Array [],
+          "_renderer": ReactShallowRenderer {
+            "_context": Object {},
+            "_element": <HomePage
+              authorized={true}
+              history={Array []}
+              logged_in={true}
+              page="home"
+            />,
+            "_forcedUpdate": false,
+            "_instance": [Circular],
+            "_newState": Object {
+              "authorized": true,
+              "logged_in": "true",
+              "msg": "",
+              "msg_type": "",
+              "new_shopping_list_title": "",
+              "pageOfItems": Array [],
+              "page_limit": null,
+              "searchTerm": "",
+              "shoppingLists": Array [],
+              "show_modal": false,
+              "total_lists": 0,
+              "username": null,
+            },
+            "_rendered": <div>
+              <NavBar
+                authorized={true}
+                logged_in="true"
+                onSearchTermChange={[Function]}
+                page="home"
+                username={null}
+              />
+              <Spinner />
+              <div
+                className="wrapper"
+              >
+                <div
+                  className="home-wrapper"
+                />
+              </div>
+              <a
+                className="btn-fab round-button"
+                href=""
+                onClick={[Function]}
+              >
+                <i
+                  className="fab-icon fa-plus"
+                />
+              </a>
+              <Pagination
+                home_component={[Circular]}
+                initialPage={1}
+                items={Array []}
+                onChangePage={[Function]}
+                total_items={0}
+              />
+            </div>,
+            "_rendering": false,
+            "_updater": [Circular],
+          },
+        },
+      }
+    }
     initialPage={1}
     items={Array []}
     onChangePage={[Function]}
@@ -101,6 +281,98 @@ exports[`calls onSearchTermChange for items 1`] = `
     />
   </a>
   <Pagination
+    home_component={
+      HomePage {
+        "_mounted": true,
+        "context": Object {},
+        "onChangePage": [Function],
+        "props": Object {
+          "authorized": true,
+          "history": Array [],
+          "logged_in": true,
+          "page": "home",
+        },
+        "refs": Object {},
+        "showModal": [Function],
+        "state": Object {
+          "authorized": true,
+          "logged_in": "true",
+          "msg": "",
+          "msg_type": "",
+          "new_shopping_list_title": "",
+          "pageOfItems": Array [],
+          "page_limit": null,
+          "searchTerm": "",
+          "shoppingLists": Array [],
+          "show_modal": false,
+          "total_lists": 0,
+          "username": null,
+        },
+        "updater": Updater {
+          "_callbacks": Array [],
+          "_renderer": ReactShallowRenderer {
+            "_context": Object {},
+            "_element": <HomePage
+              authorized={true}
+              history={Array []}
+              logged_in={true}
+              page="home"
+            />,
+            "_forcedUpdate": false,
+            "_instance": [Circular],
+            "_newState": Object {
+              "authorized": true,
+              "logged_in": "true",
+              "msg": "",
+              "msg_type": "",
+              "new_shopping_list_title": "",
+              "pageOfItems": Array [],
+              "page_limit": null,
+              "searchTerm": "",
+              "shoppingLists": Array [],
+              "show_modal": false,
+              "total_lists": 0,
+              "username": null,
+            },
+            "_rendered": <div>
+              <NavBar
+                authorized={true}
+                logged_in="true"
+                onSearchTermChange={[Function]}
+                page="home"
+                username={null}
+              />
+              <Spinner />
+              <div
+                className="wrapper"
+              >
+                <div
+                  className="home-wrapper"
+                />
+              </div>
+              <a
+                className="btn-fab round-button"
+                href=""
+                onClick={[Function]}
+              >
+                <i
+                  className="fab-icon fa-plus"
+                />
+              </a>
+              <Pagination
+                home_component={[Circular]}
+                initialPage={1}
+                items={Array []}
+                onChangePage={[Function]}
+                total_items={0}
+              />
+            </div>,
+            "_rendering": false,
+            "_updater": [Circular],
+          },
+        },
+      }
+    }
     initialPage={1}
     items={Array []}
     onChangePage={[Function]}
@@ -136,6 +408,98 @@ exports[`calls showModal and clearMessages on the Modal 1`] = `
     />
   </a>
   <Pagination
+    home_component={
+      HomePage {
+        "_mounted": true,
+        "context": Object {},
+        "onChangePage": [Function],
+        "props": Object {
+          "authorized": true,
+          "history": Array [],
+          "logged_in": true,
+          "page": "home",
+        },
+        "refs": Object {},
+        "showModal": [Function],
+        "state": Object {
+          "authorized": true,
+          "logged_in": "true",
+          "msg": "",
+          "msg_type": "",
+          "new_shopping_list_title": "",
+          "pageOfItems": Array [],
+          "page_limit": null,
+          "searchTerm": "",
+          "shoppingLists": Array [],
+          "show_modal": false,
+          "total_lists": 0,
+          "username": null,
+        },
+        "updater": Updater {
+          "_callbacks": Array [],
+          "_renderer": ReactShallowRenderer {
+            "_context": Object {},
+            "_element": <HomePage
+              authorized={true}
+              history={Array []}
+              logged_in={true}
+              page="home"
+            />,
+            "_forcedUpdate": false,
+            "_instance": [Circular],
+            "_newState": Object {
+              "authorized": true,
+              "logged_in": "true",
+              "msg": "",
+              "msg_type": "",
+              "new_shopping_list_title": "",
+              "pageOfItems": Array [],
+              "page_limit": null,
+              "searchTerm": "",
+              "shoppingLists": Array [],
+              "show_modal": false,
+              "total_lists": 0,
+              "username": null,
+            },
+            "_rendered": <div>
+              <NavBar
+                authorized={true}
+                logged_in="true"
+                onSearchTermChange={[Function]}
+                page="home"
+                username={null}
+              />
+              <Spinner />
+              <div
+                className="wrapper"
+              >
+                <div
+                  className="home-wrapper"
+                />
+              </div>
+              <a
+                className="btn-fab round-button"
+                href=""
+                onClick={[Function]}
+              >
+                <i
+                  className="fab-icon fa-plus"
+                />
+              </a>
+              <Pagination
+                home_component={[Circular]}
+                initialPage={1}
+                items={Array []}
+                onChangePage={[Function]}
+                total_items={0}
+              />
+            </div>,
+            "_rendering": false,
+            "_updater": [Circular],
+          },
+        },
+      }
+    }
     initialPage={1}
     items={Array []}
     onChangePage={[Function]}
@@ -146,10 +510,6 @@ exports[`calls showModal and clearMessages on the Modal 1`] = `
     owner="add_shopping_list"
     showModal={[Function]}
     title="Create Shopping List"
-  />
-  <SnackBar
-    class="danger-snackbar"
-    message="Please Login"
   />
 </div>
 `;
@@ -181,6 +541,98 @@ exports[`catches errors in onSearchTermChange 1`] = `
     />
   </a>
   <Pagination
+    home_component={
+      HomePage {
+        "_mounted": true,
+        "context": Object {},
+        "onChangePage": [Function],
+        "props": Object {
+          "authorized": true,
+          "history": Array [],
+          "logged_in": true,
+          "page": "home",
+        },
+        "refs": Object {},
+        "showModal": [Function],
+        "state": Object {
+          "authorized": true,
+          "logged_in": "true",
+          "msg": "",
+          "msg_type": "",
+          "new_shopping_list_title": "",
+          "pageOfItems": Array [],
+          "page_limit": null,
+          "searchTerm": "",
+          "shoppingLists": Array [],
+          "show_modal": false,
+          "total_lists": 0,
+          "username": null,
+        },
+        "updater": Updater {
+          "_callbacks": Array [],
+          "_renderer": ReactShallowRenderer {
+            "_context": Object {},
+            "_element": <HomePage
+              authorized={true}
+              history={Array []}
+              logged_in={true}
+              page="home"
+            />,
+            "_forcedUpdate": false,
+            "_instance": [Circular],
+            "_newState": Object {
+              "authorized": true,
+              "logged_in": "true",
+              "msg": "",
+              "msg_type": "",
+              "new_shopping_list_title": "",
+              "pageOfItems": Array [],
+              "page_limit": null,
+              "searchTerm": "",
+              "shoppingLists": Array [],
+              "show_modal": false,
+              "total_lists": 0,
+              "username": null,
+            },
+            "_rendered": <div>
+              <NavBar
+                authorized={true}
+                logged_in="true"
+                onSearchTermChange={[Function]}
+                page="home"
+                username={null}
+              />
+              <Spinner />
+              <div
+                className="wrapper"
+              >
+                <div
+                  className="home-wrapper"
+                />
+              </div>
+              <a
+                className="btn-fab round-button"
+                href=""
+                onClick={[Function]}
+              >
+                <i
+                  className="fab-icon fa-plus"
+                />
+              </a>
+              <Pagination
+                home_component={[Circular]}
+                initialPage={1}
+                items={Array []}
+                onChangePage={[Function]}
+                total_items={0}
+              />
+            </div>,
+            "_rendering": false,
+            "_updater": [Circular],
+          },
+        },
+      }
+    }
     initialPage={1}
     items={Array []}
     onChangePage={[Function]}
@@ -216,14 +668,98 @@ exports[`handles authorization 1`] = `
     />
   </a>
   <Pagination
+    home_component={
+      HomePage {
+        "_mounted": true,
+        "context": Object {},
+        "onChangePage": [Function],
+        "props": Object {
+          "history": Array [],
+          "page": "home",
+        },
+        "refs": Object {},
+        "showModal": [Function],
+        "state": Object {
+          "authorized": true,
+          "logged_in": "true",
+          "msg": "",
+          "msg_type": "",
+          "new_shopping_list_title": "",
+          "pageOfItems": Array [],
+          "page_limit": null,
+          "searchTerm": "",
+          "shoppingLists": Array [],
+          "show_modal": false,
+          "total_lists": 0,
+          "username": null,
+        },
+        "updater": Updater {
+          "_callbacks": Array [],
+          "_renderer": ReactShallowRenderer {
+            "_context": Object {},
+            "_element": <HomePage
+              history={Array []}
+              page="home"
+            />,
+            "_forcedUpdate": false,
+            "_instance": [Circular],
+            "_newState": Object {
+              "authorized": true,
+              "logged_in": "true",
+              "msg": "",
+              "msg_type": "",
+              "new_shopping_list_title": "",
+              "pageOfItems": Array [],
+              "page_limit": null,
+              "searchTerm": "",
+              "shoppingLists": Array [],
+              "show_modal": false,
+              "total_lists": 0,
+              "username": null,
+            },
+            "_rendered": <div>
+              <NavBar
+                authorized={true}
+                logged_in="true"
+                onSearchTermChange={[Function]}
+                page="home"
+                username={null}
+              />
+              <Spinner />
+              <div
+                className="wrapper"
+              >
+                <div
+                  className="home-wrapper"
+                />
+              </div>
+              <a
+                className="btn-fab round-button"
+                href=""
+                onClick={[Function]}
+              >
+                <i
+                  className="fab-icon fa-plus"
+                />
+              </a>
+              <Pagination
+                home_component={[Circular]}
+                initialPage={1}
+                items={Array []}
+                onChangePage={[Function]}
+                total_items={0}
+              />
+            </div>,
+            "_rendering": false,
+            "_updater": [Circular],
+          },
+        },
+      }
+    }
     initialPage={1}
     items={Array []}
     onChangePage={[Function]}
     total_items={0}
-  />
-  <SnackBar
-    class="danger-snackbar"
-    message="Please Login"
   />
 </div>
 `;
@@ -255,14 +791,102 @@ exports[`handles empty lists 1`] = `
     />
   </a>
   <Pagination
+    home_component={
+      HomePage {
+        "_mounted": true,
+        "context": Object {},
+        "onChangePage": [Function],
+        "props": Object {
+          "authorized": true,
+          "history": Array [],
+          "logged_in": true,
+          "page": "home",
+        },
+        "refs": Object {},
+        "showModal": [Function],
+        "state": Object {
+          "authorized": true,
+          "logged_in": "true",
+          "msg": "",
+          "msg_type": "",
+          "new_shopping_list_title": "",
+          "pageOfItems": Array [],
+          "page_limit": null,
+          "searchTerm": "",
+          "shoppingLists": Array [],
+          "show_modal": false,
+          "total_lists": 0,
+          "username": null,
+        },
+        "updater": Updater {
+          "_callbacks": Array [],
+          "_renderer": ReactShallowRenderer {
+            "_context": Object {},
+            "_element": <HomePage
+              authorized={true}
+              history={Array []}
+              logged_in={true}
+              page="home"
+            />,
+            "_forcedUpdate": false,
+            "_instance": [Circular],
+            "_newState": Object {
+              "authorized": true,
+              "logged_in": "true",
+              "msg": "",
+              "msg_type": "",
+              "new_shopping_list_title": "",
+              "pageOfItems": Array [],
+              "page_limit": null,
+              "searchTerm": "",
+              "shoppingLists": Array [],
+              "show_modal": false,
+              "total_lists": 0,
+              "username": null,
+            },
+            "_rendered": <div>
+              <NavBar
+                authorized={true}
+                logged_in="true"
+                onSearchTermChange={[Function]}
+                page="home"
+                username={null}
+              />
+              <Spinner />
+              <div
+                className="wrapper"
+              >
+                <div
+                  className="home-wrapper"
+                />
+              </div>
+              <a
+                className="btn-fab round-button"
+                href=""
+                onClick={[Function]}
+              >
+                <i
+                  className="fab-icon fa-plus"
+                />
+              </a>
+              <Pagination
+                home_component={[Circular]}
+                initialPage={1}
+                items={Array []}
+                onChangePage={[Function]}
+                total_items={0}
+              />
+            </div>,
+            "_rendering": false,
+            "_updater": [Circular],
+          },
+        },
+      }
+    }
     initialPage={1}
     items={Array []}
     onChangePage={[Function]}
     total_items={0}
-  />
-  <SnackBar
-    class="danger-snackbar"
-    message="Please Login"
   />
 </div>
 `;
@@ -284,11 +908,277 @@ exports[`renders shopping lists 1`] = `
       className="home-wrapper"
     >
       <ShoppingList
+        home_component={
+          HomePage {
+            "_mounted": true,
+            "context": Object {},
+            "onChangePage": [Function],
+            "props": Object {
+              "authorized": true,
+              "history": Array [],
+              "logged_in": true,
+              "page": "home",
+            },
+            "refs": Object {},
+            "showModal": [Function],
+            "state": Object {
+              "authorized": true,
+              "logged_in": "true",
+              "msg": "",
+              "msg_type": "",
+              "new_shopping_list_title": "",
+              "pageOfItems": Array [
+                Object {
+                  "created_on": "Fri, 17 Nov 2017 22:45:13 GMT",
+                  "id": 1,
+                  "modified_on": "Fri, 17 Nov 2017 22:45:13 GMT",
+                  "title": "Groceries",
+                  "user_id": 1,
+                },
+                Object {
+                  "created_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+                  "id": 2,
+                  "modified_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+                  "title": "Food",
+                  "user_id": 1,
+                },
+              ],
+              "page_limit": null,
+              "searchTerm": "",
+              "shoppingLists": Array [],
+              "show_modal": false,
+              "total_lists": 0,
+              "username": null,
+            },
+            "updater": Updater {
+              "_callbacks": Array [],
+              "_renderer": ReactShallowRenderer {
+                "_context": Object {},
+                "_element": <HomePage
+                  authorized={true}
+                  history={Array []}
+                  logged_in={true}
+                  page="home"
+                />,
+                "_forcedUpdate": false,
+                "_instance": [Circular],
+                "_newState": Object {
+                  "authorized": true,
+                  "logged_in": "true",
+                  "msg": "",
+                  "msg_type": "",
+                  "new_shopping_list_title": "",
+                  "pageOfItems": Array [
+                    Object {
+                      "created_on": "Fri, 17 Nov 2017 22:45:13 GMT",
+                      "id": 1,
+                      "modified_on": "Fri, 17 Nov 2017 22:45:13 GMT",
+                      "title": "Groceries",
+                      "user_id": 1,
+                    },
+                    Object {
+                      "created_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+                      "id": 2,
+                      "modified_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+                      "title": "Food",
+                      "user_id": 1,
+                    },
+                  ],
+                  "page_limit": null,
+                  "searchTerm": "",
+                  "shoppingLists": Array [],
+                  "show_modal": false,
+                  "total_lists": 0,
+                  "username": null,
+                },
+                "_rendered": <div>
+                  <NavBar
+                    authorized={true}
+                    logged_in="true"
+                    onSearchTermChange={[Function]}
+                    page="home"
+                    username={null}
+                  />
+                  <Spinner />
+                  <div
+                    className="wrapper"
+                  >
+                    <div
+                      className="home-wrapper"
+                    >
+                      <ShoppingList
+                        home_component={[Circular]}
+                        id={1}
+                        title="Groceries"
+                      />
+                      <ShoppingList
+                        home_component={[Circular]}
+                        id={2}
+                        title="Food"
+                      />
+                    </div>
+                  </div>
+                  <a
+                    className="btn-fab round-button"
+                    href=""
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="fab-icon fa-plus"
+                    />
+                  </a>
+                  <Pagination
+                    home_component={[Circular]}
+                    initialPage={1}
+                    items={Array []}
+                    onChangePage={[Function]}
+                    total_items={0}
+                  />
+                </div>,
+                "_rendering": false,
+                "_updater": [Circular],
+              },
+            },
+          }
+        }
         id={1}
         key="1"
         title="Groceries"
       />
       <ShoppingList
+        home_component={
+          HomePage {
+            "_mounted": true,
+            "context": Object {},
+            "onChangePage": [Function],
+            "props": Object {
+              "authorized": true,
+              "history": Array [],
+              "logged_in": true,
+              "page": "home",
+            },
+            "refs": Object {},
+            "showModal": [Function],
+            "state": Object {
+              "authorized": true,
+              "logged_in": "true",
+              "msg": "",
+              "msg_type": "",
+              "new_shopping_list_title": "",
+              "pageOfItems": Array [
+                Object {
+                  "created_on": "Fri, 17 Nov 2017 22:45:13 GMT",
+                  "id": 1,
+                  "modified_on": "Fri, 17 Nov 2017 22:45:13 GMT",
+                  "title": "Groceries",
+                  "user_id": 1,
+                },
+                Object {
+                  "created_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+                  "id": 2,
+                  "modified_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+                  "title": "Food",
+                  "user_id": 1,
+                },
+              ],
+              "page_limit": null,
+              "searchTerm": "",
+              "shoppingLists": Array [],
+              "show_modal": false,
+              "total_lists": 0,
+              "username": null,
+            },
+            "updater": Updater {
+              "_callbacks": Array [],
+              "_renderer": ReactShallowRenderer {
+                "_context": Object {},
+                "_element": <HomePage
+                  authorized={true}
+                  history={Array []}
+                  logged_in={true}
+                  page="home"
+                />,
+                "_forcedUpdate": false,
+                "_instance": [Circular],
+                "_newState": Object {
+                  "authorized": true,
+                  "logged_in": "true",
+                  "msg": "",
+                  "msg_type": "",
+                  "new_shopping_list_title": "",
+                  "pageOfItems": Array [
+                    Object {
+                      "created_on": "Fri, 17 Nov 2017 22:45:13 GMT",
+                      "id": 1,
+                      "modified_on": "Fri, 17 Nov 2017 22:45:13 GMT",
+                      "title": "Groceries",
+                      "user_id": 1,
+                    },
+                    Object {
+                      "created_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+                      "id": 2,
+                      "modified_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+                      "title": "Food",
+                      "user_id": 1,
+                    },
+                  ],
+                  "page_limit": null,
+                  "searchTerm": "",
+                  "shoppingLists": Array [],
+                  "show_modal": false,
+                  "total_lists": 0,
+                  "username": null,
+                },
+                "_rendered": <div>
+                  <NavBar
+                    authorized={true}
+                    logged_in="true"
+                    onSearchTermChange={[Function]}
+                    page="home"
+                    username={null}
+                  />
+                  <Spinner />
+                  <div
+                    className="wrapper"
+                  >
+                    <div
+                      className="home-wrapper"
+                    >
+                      <ShoppingList
+                        home_component={[Circular]}
+                        id={1}
+                        title="Groceries"
+                      />
+                      <ShoppingList
+                        home_component={[Circular]}
+                        id={2}
+                        title="Food"
+                      />
+                    </div>
+                  </div>
+                  <a
+                    className="btn-fab round-button"
+                    href=""
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="fab-icon fa-plus"
+                    />
+                  </a>
+                  <Pagination
+                    home_component={[Circular]}
+                    initialPage={1}
+                    items={Array []}
+                    onChangePage={[Function]}
+                    total_items={0}
+                  />
+                </div>,
+                "_rendering": false,
+                "_updater": [Circular],
+              },
+            },
+          }
+        }
         id={2}
         key="2"
         title="Food"
@@ -305,6 +1195,139 @@ exports[`renders shopping lists 1`] = `
     />
   </a>
   <Pagination
+    home_component={
+      HomePage {
+        "_mounted": true,
+        "context": Object {},
+        "onChangePage": [Function],
+        "props": Object {
+          "authorized": true,
+          "history": Array [],
+          "logged_in": true,
+          "page": "home",
+        },
+        "refs": Object {},
+        "showModal": [Function],
+        "state": Object {
+          "authorized": true,
+          "logged_in": "true",
+          "msg": "",
+          "msg_type": "",
+          "new_shopping_list_title": "",
+          "pageOfItems": Array [
+            Object {
+              "created_on": "Fri, 17 Nov 2017 22:45:13 GMT",
+              "id": 1,
+              "modified_on": "Fri, 17 Nov 2017 22:45:13 GMT",
+              "title": "Groceries",
+              "user_id": 1,
+            },
+            Object {
+              "created_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+              "id": 2,
+              "modified_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+              "title": "Food",
+              "user_id": 1,
+            },
+          ],
+          "page_limit": null,
+          "searchTerm": "",
+          "shoppingLists": Array [],
+          "show_modal": false,
+          "total_lists": 0,
+          "username": null,
+        },
+        "updater": Updater {
+          "_callbacks": Array [],
+          "_renderer": ReactShallowRenderer {
+            "_context": Object {},
+            "_element": <HomePage
+              authorized={true}
+              history={Array []}
+              logged_in={true}
+              page="home"
+            />,
+            "_forcedUpdate": false,
+            "_instance": [Circular],
+            "_newState": Object {
+              "authorized": true,
+              "logged_in": "true",
+              "msg": "",
+              "msg_type": "",
+              "new_shopping_list_title": "",
+              "pageOfItems": Array [
+                Object {
+                  "created_on": "Fri, 17 Nov 2017 22:45:13 GMT",
+                  "id": 1,
+                  "modified_on": "Fri, 17 Nov 2017 22:45:13 GMT",
+                  "title": "Groceries",
+                  "user_id": 1,
+                },
+                Object {
+                  "created_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+                  "id": 2,
+                  "modified_on": "Fri, 17 Nov 2017 22:45:42 GMT",
+                  "title": "Food",
+                  "user_id": 1,
+                },
+              ],
+              "page_limit": null,
+              "searchTerm": "",
+              "shoppingLists": Array [],
+              "show_modal": false,
+              "total_lists": 0,
+              "username": null,
+            },
+            "_rendered": <div>
+              <NavBar
+                authorized={true}
+                logged_in="true"
+                onSearchTermChange={[Function]}
+                page="home"
+                username={null}
+              />
+              <Spinner />
+              <div
+                className="wrapper"
+              >
+                <div
+                  className="home-wrapper"
+                >
+                  <ShoppingList
+                    home_component={[Circular]}
+                    id={1}
+                    title="Groceries"
+                  />
+                  <ShoppingList
+                    home_component={[Circular]}
+                    id={2}
+                    title="Food"
+                  />
+                </div>
+              </div>
+              <a
+                className="btn-fab round-button"
+                href=""
+                onClick={[Function]}
+              >
+                <i
+                  className="fab-icon fa-plus"
+                />
+              </a>
+              <Pagination
+                home_component={[Circular]}
+                initialPage={1}
+                items={Array []}
+                onChangePage={[Function]}
+                total_items={0}
+              />
+            </div>,
+            "_rendering": false,
+            "_updater": [Circular],
+          },
+        },
+      }
+    }
     initialPage={1}
     items={Array []}
     onChangePage={[Function]}
@@ -340,6 +1363,94 @@ exports[`renders the home_page component 1`] = `
     />
   </a>
   <Pagination
+    home_component={
+      HomePage {
+        "_mounted": false,
+        "_spinner": undefined,
+        "context": Object {},
+        "onChangePage": [Function],
+        "props": Object {
+          "authorized": true,
+          "history": Array [
+            "/login",
+            "/login",
+          ],
+          "logged_in": true,
+          "page": "home",
+        },
+        "refs": Object {},
+        "showModal": [Function],
+        "state": Object {
+          "authorized": false,
+          "logged_in": "true",
+          "msg": null,
+          "msg_type": null,
+          "new_shopping_list_title": "",
+          "pageOfItems": Array [],
+          "page_limit": null,
+          "searchTerm": "",
+          "shoppingLists": Array [],
+          "show_modal": false,
+          "total_lists": 0,
+          "username": null,
+        },
+        "updater": Updater {
+          "_callbacks": Array [],
+          "_renderer": ReactShallowRenderer {
+            "_context": Object {},
+            "_element": <HomePage
+              authorized={true}
+              history={
+                Array [
+                  "/login",
+                  "/login",
+                ]
+              }
+              logged_in={true}
+              page="home"
+            />,
+            "_forcedUpdate": false,
+            "_instance": [Circular],
+            "_newState": null,
+            "_rendered": <div>
+              <NavBar
+                authorized={false}
+                logged_in="true"
+                onSearchTermChange={[Function]}
+                page="home"
+                username={null}
+              />
+              <Spinner />
+              <div
+                className="wrapper"
+              >
+                <div
+                  className="home-wrapper"
+                />
+              </div>
+              <a
+                className="btn-fab round-button"
+                href=""
+                onClick={[Function]}
+              >
+                <i
+                  className="fab-icon fa-plus"
+                />
+              </a>
+              <Pagination
+                home_component={[Circular]}
+                initialPage={1}
+                items={Array []}
+                onChangePage={[Function]}
+                total_items={0}
+              />
+            </div>,
+            "_rendering": false,
+            "_updater": [Circular],
+          },
+        },
+      }
+    }
     initialPage={1}
     items={Array []}
     onChangePage={[Function]}

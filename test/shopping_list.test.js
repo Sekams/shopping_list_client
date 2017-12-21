@@ -52,7 +52,6 @@ test("renders the shopping_list component", () => {
             ok: true
         }]
     );
-    wrapper.props().children[0].ref();
     wrapper.instance().getShoppingListItems();
     wrapper.instance().addShoppingListItem({ preventDefault() { } });
     wrapper.instance().editShoppingList({ preventDefault() { } });
@@ -85,8 +84,7 @@ test("calls the functions on the modal", () => {
     );
     wrapper.instance().showModal({ preventDefault() { } });
     wrapper.update();
-    wrapper.props().children[4].props.clearMessages();
-    wrapper.props().children[4].props.showModal({ preventDefault() { } });
+    wrapper.props().children[3].props.showModal({ preventDefault() { } });
     expect(wrapper).toMatchSnapshot();
 });
 
@@ -100,8 +98,7 @@ test("calls the getShoppingListItems functions", () => {
     );
     wrapper.instance().showModal({ preventDefault() { } });
     wrapper.update();
-    wrapper.props().children[4].props.clearMessages();
-    wrapper.props().children[4].props.showModal({ preventDefault() { } });
+    wrapper.props().children[3].props.showModal({ preventDefault() { } });
     expect(wrapper).toMatchSnapshot();
 });
 
