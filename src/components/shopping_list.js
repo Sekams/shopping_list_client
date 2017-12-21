@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ShoppingListItem from './shopping_list_item';
 import Modal from './modal'
-import Spinner from './spinner'
 require("../utils/helpers");
 
 class ShoppingList extends Component {
@@ -36,7 +35,7 @@ class ShoppingList extends Component {
 
     //Get all shopping list items of the shopping list
     getShoppingListItems() {
-        global.showSpinner(this);
+        // global.showSpinner(this);
         global.clearMessages(this);
         //Make an HTTP request to the API to get all shopping list items of the shopping list
         global.callAPI('/shoppinglists/' + this.state.id + '/items/1000/1', 'GET')
@@ -47,13 +46,13 @@ class ShoppingList extends Component {
                         this.setState({
                             shoppingListItems: responseJson.shoppingListItems
                         });
-                        global.dismissSpinner(this);
+                        global.dismissSpinner(this.props.home_component);
                     }
                 }
             })
             //Handle errors
             .catch((error) => {
-                global.dismissSpinner(this);
+                global.dismissSpinner(this.props.home_component);
             });
     }
 
@@ -151,7 +150,6 @@ class ShoppingList extends Component {
                 owner={this.state.owner}
                 first_input={this.state.first_input}
                 shopping_list_id={this.state.id}
-                clearMessages={() => global.clearMessages(this)}
                 showModal={(event) => this.showModal(event)} />;
         }
 
@@ -165,8 +163,6 @@ class ShoppingList extends Component {
 
         return (
             <div className={theClass}>
-
-                <Spinner ref={(spinner) => { this._spinner = spinner; }} />
 
                 <h3 className="item-text shopping-list-title">{this.state.title}</h3>
                 <div className="card-icon-holder">
