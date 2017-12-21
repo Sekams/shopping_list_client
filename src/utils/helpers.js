@@ -32,14 +32,14 @@ global.clearMessages = (component) => {
 
 //Remove spinner from view
 global.dismissSpinner = (component) => {
-    if (component._spinner) {
+    if (component && component._spinner) {
         component._spinner.showSpinner(false);
     }
 }
 
 //Put spinner into view
 global.showSpinner = (component) => {
-    if (component._spinner) {
+    if (component && component._spinner) {
         component._spinner.showSpinner(true);
     }
 }

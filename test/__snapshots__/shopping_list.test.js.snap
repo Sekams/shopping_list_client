@@ -4,7 +4,6 @@ exports[`calls the functions on the modal 1`] = `
 <div
   className="card-container"
 >
-  <Spinner />
   <h3
     className="item-text shopping-list-title"
   >
@@ -45,7 +44,6 @@ exports[`calls the functions on the modal 1`] = `
     className="shopping-list-items-wrapper"
   />
   <Modal
-    clearMessages={[Function]}
     create={false}
     owner=""
     price=""
@@ -60,7 +58,6 @@ exports[`calls the getShoppingListItems functions 1`] = `
 <div
   className="card-container"
 >
-  <Spinner />
   <h3
     className="item-text shopping-list-title"
   >
@@ -101,7 +98,6 @@ exports[`calls the getShoppingListItems functions 1`] = `
     className="shopping-list-items-wrapper"
   />
   <Modal
-    clearMessages={[Function]}
     create={false}
     owner=""
     price=""
@@ -116,7 +112,6 @@ exports[`catches fetch errors 1`] = `
 <div
   className="card-container"
 >
-  <Spinner />
   <h3
     className="item-text shopping-list-title"
   >
@@ -163,7 +158,6 @@ exports[`checks for component mounting 1`] = `
 <div
   className="card-container"
 >
-  <Spinner />
   <h3
     className="item-text shopping-list-title"
   >
@@ -210,7 +204,6 @@ exports[`highlights searched lists 1`] = `
 <div
   className="card-container highlighted"
 >
-  <Spinner />
   <h3
     className="item-text shopping-list-title"
   >
@@ -257,7 +250,6 @@ exports[`populates shopping lists 1`] = `
 <div
   className="card-container"
 >
-  <Spinner />
   <h3
     className="item-text shopping-list-title"
   >
@@ -304,7 +296,6 @@ exports[`renders the shopping_list component 1`] = `
 <div
   className="card-container"
 >
-  <Spinner />
   <h3
     className="item-text shopping-list-title"
   />

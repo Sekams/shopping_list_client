@@ -28,8 +28,6 @@ class HomePage extends Component {
         this.onChangePage = this.onChangePage.bind(this);
 
         this.verifyAuthorization();
-
-        this.getShoppingLists();        
     }
 
     //Check if the user was successfully logged in
@@ -46,6 +44,7 @@ class HomePage extends Component {
 
     componentDidMount() {
         this._mounted = true;
+        this.getShoppingLists();
     }
 
     componentWillUnmount() {
@@ -61,14 +60,15 @@ class HomePage extends Component {
 
             //Make API request to get all shopping lists for the user
             global.callAPI('/shoppinglists/' + this.state.page_limit + '/' + global.localStorage.getItem("currentPage"), "GET")
-            //Handle promise response
-            .then((responseJson) => {
+                //Handle promise response
+                .then((responseJson) => {
+                    
                     if (responseJson.status && responseJson.status === "success") {
                         this.setState({
                             total_lists: responseJson.total,
                             shoppingLists: responseJson.shoppingLists
                         });
-                        global.dismissSpinner(this);
+                        // global.dismissSpinner(this);
                     } else {
                         this.setState({
                             msg: "No Shopping Lists",
@@ -99,8 +99,8 @@ class HomePage extends Component {
 
                 //Make API request to get all shopping lists whose title starts with the search term
                 global.callAPI('/shoppinglists/search/shoppinglist/' + term + '/1000/1', "GET")
-                //Handle promise response    
-                .then((responseJson) => {
+                    //Handle promise response    
+                    .then((responseJson) => {
                         if (responseJson.status && responseJson.status === "success") {
                             responseJson.shoppingLists.forEach((shoppingList) => {
                                 newShoppingLists.push(shoppingList);
@@ -126,7 +126,7 @@ class HomePage extends Component {
                 global.showSpinner(this);
                 //Make API request to get all shopping list items whose name starts with the search term
                 global.callAPI('/shoppinglists/search/item/' + term + '/1000/1', 'GET')
-                //Handle promise response
+                    //Handle promise response
                     .then((responseJson) => {
                         if (responseJson.status && responseJson.status === "success") {
                             //Loop through all the returned items
@@ -203,7 +203,8 @@ class HomePage extends Component {
                 return <ShoppingList
                     key={shoppingList.id}
                     title={shoppingList.title}
-                    id={shoppingList.id} />
+                    id={shoppingList.id}
+                    home_component={this} />
             });
         }
 
@@ -247,7 +248,8 @@ class HomePage extends Component {
                 <Pagination
                     total_items={this.state.total_lists}
                     items={this.state.shoppingLists}
-                    onChangePage={this.onChangePage} />
+                    onChangePage={this.onChangePage}
+                    home_component={this} />
 
                 {modal}
 
